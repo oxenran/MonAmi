@@ -28,7 +28,7 @@ module.exports = function(proxy, allowedHost) {
     // specified the `proxy` setting. Finally, we let you override it if you
     // really know what you're doing with a special environment variable.
     disableHostCheck:
-      !proxy || process.env.DANGEROUSLY_DISABLE_HOST_CHECK === 'true',
+    !proxy || process.env.DANGEROUSLY_DISABLE_HOST_CHECK === 'true',
     // Enable gzip compression of generated files.
     compress: true,
     // Silence WebpackDevServer's own logs since they're generally not useful.
@@ -72,29 +72,32 @@ module.exports = function(proxy, allowedHost) {
         `^(?!${path
           .normalize(paths.appSrc + '/')
           .replace(/[\\]+/g, '\\\\')}).+[\\\\/]node_modules[\\\\/]`,
-        'g'
-      ),
-    },
-    // Enable HTTPS if the HTTPS environment variable is set to 'true'
-    https: protocol === 'https',
-    host: host,
-    overlay: false,
-    historyApiFallback: {
-      // Paths with dots should still use the history fallback.
-      // See https://github.com/facebookincubator/create-react-app/issues/387.
-      disableDotRule: true,
-    },
-    public: allowedHost,
-    proxy,
-    before(app) {
-      // This lets us open files from the runtime error overlay.
-      app.use(errorOverlayMiddleware());
-      // This service worker file is effectively a 'no-op' that will reset any
-      // previous service worker registered for the same host:port combination.
-      // We do this in development to avoid hitting the production cache if
-      // it used the same host and port.
-      // https://github.com/facebookincubator/create-react-app/issues/2272#issuecomment-302832432
-      app.use(noopServiceWorkerMiddleware());
-    },
+          'g'
+        ),
+      },
+      // Enable HTTPS if the HTTPS environment variable is set to 'true'
+      https: protocol === 'https',
+      host: host,
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      },
+      overlay: false,
+      historyApiFallback: {
+        // Paths with dots should still use the history fallback.
+        // See https://github.com/facebookincubator/create-react-app/issues/387.
+        disableDotRule: true,
+      },
+      public: allowedHost,
+      proxy,
+      before(app) {
+        // This lets us open files from the runtime error overlay.
+        app.use(errorOverlayMiddleware());
+        // This service worker file is effectively a 'no-op' that will reset any
+        // previous service worker registered for the same host:port combination.
+        // We do this in development to avoid hitting the production cache if
+        // it used the same host and port.
+        // https://github.com/facebookincubator/create-react-app/issues/2272#issuecomment-302832432
+        app.use(noopServiceWorkerMiddleware());
+      },
+    };
   };
-};
