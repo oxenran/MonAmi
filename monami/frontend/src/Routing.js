@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom'
 import App from './App';
 import AssistantsList from './Components/AssistantsList';
+import Nav from './Components/Nav';
 
 // import { BrowserRouter, Route, Link } from 'react-router-dom'
 
@@ -31,8 +32,10 @@ const Routing = () => (
       <Route path="/assistant-signup" component={App}/>
       <Route path="/login" component={App}/>
       <Route path="/signup" component={App}/>
-
       </nav>
+
+
+      <h2> <Link to="/assistants">FIND AN ASSISTANT - this should be a big box </Link></h2>
     </div>
   </Router>
 )

@@ -18,7 +18,6 @@ class App extends Component {
         </p>
         <Nav />
         <AssistantsList />
-
       </div>
     );
   }

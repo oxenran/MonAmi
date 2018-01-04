@@ -1,6 +1,7 @@
 body {
   background-image: url('https://static1.squarespace.com/static/596cfecaebbd1ab34dadab1d/t/59ab39c0e9bfdfc0c672468b/1504393672307/kien-do-6719.jpg?format=1500w');
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .banner {
