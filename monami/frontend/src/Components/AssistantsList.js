@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import {AssistantItem} from './AssistantItem.js';
 
 class AssistantsList extends React.Component {
-  render(){
+
+  render() {
     let assitantItems;
-    if (this.props.assistantsList){
-      assistantItems = this.props.assistantsList.map(assistant =>
+    if (this.props.assistants){
+      assistantItems = this.props.assistants.map(assistant =>
       console.log(assistant);
       return(
-        <AssistantItem key={assistant.id} assistant={assistant} />
+        <AssistantItem key={assistant.lastName} assistant={assistant} />
       )
       )};
 
