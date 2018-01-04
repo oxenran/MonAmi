@@ -35,7 +35,7 @@ const Routing = () => (
       </nav>
 
 
-      <h2> <Link to="/assistants">FIND AN ASSISTANT - this should be a big box </Link></h2>
+      <h2> <Link to="/assistants">FIND AN ASSISTANT - this should be a big box</Link></h2>
     </div>
   </Router>
 )
