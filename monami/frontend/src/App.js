@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Nav from './Components/Nav';
 import AssistantsList from './Components/AssistantsList';
+import Routing from './Routing';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
         </p>
         <Nav />
         <AssistantsList />
+
       </div>
     );
   }
