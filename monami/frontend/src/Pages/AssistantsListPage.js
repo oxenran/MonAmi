@@ -6,17 +6,21 @@ class AssistantsListPage extends React.Component {
   constructor(){
     super();
     this.state = {
-      assistants: [
-        {
-          lastName: 'Latte',
-          firstName: 'Janet'
-        },
-        {
-          lastName: 'Roh',
-          firstName: 'Ang'
-        }
-      ]
+      assistants: []
     }
+  }
+  componentWillMout(){
+    //API fetching will go here (or compnentDidMount())
+    this.setState({assistants: [
+    {
+      lastName: 'Latte',
+      firstName: 'Janet'
+    },
+    {
+      lastName: 'Roh',
+      firstName: 'Ang'
+    }
+  ]});
   }
   render() {
     return(
