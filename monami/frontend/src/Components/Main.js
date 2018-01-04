@@ -1,7 +1,11 @@
-import React from 'react'
-import { Switch, Route } from 'react-router-dom'
-import Home from './Home'
-import AssistantsList from './AssistantsList'
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import Home from './Home';
+import AssistantsList from './AssistantsList';
+import Login from './Login';
+import BecomeAssistant from './BecomeAssistant';
+import Signup from './Signup';
+
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
@@ -13,6 +17,9 @@ const Main = () => (
     <Switch>
       <Route exact path='/' component={Home}/>
       <Route path='/Assistants' component={AssistantsList}/>
+      <Route path='/BecomeAssistant' component={BecomeAssistant}/>
+      <Route path='/Signup' component={Signup}/>
+      <Route path='/Login' component={Login}/>
     </Switch>
   </main>
 )
