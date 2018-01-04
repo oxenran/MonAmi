@@ -11,7 +11,10 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-
+import environ
+root = environ.Path(__file__) - 3 # sets back three folders (/a/b/c/ - 3 = /)
+env = environ.Env(DEBUG=(bool, False),) #set default values and casting
+environ.Env.read_env() #read .env file
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -38,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'webpack_loader',
+    'rest_framework',
+    'snippets.apps.SnippetsConfig',
 ]
 
 MIDDLEWARE = [
@@ -67,6 +72,19 @@ TEMPLATES = [
         },
     },
 ]
+# REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+#     ]
+# }
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_RENDERER_CLASSES': (
+#         'rest_framework.renderers.<corresponding_renderer>',
+#     )
+# }
 
 WSGI_APPLICATION = 'monami.wsgi.application'
 
@@ -76,8 +94,12 @@ WSGI_APPLICATION = 'monami.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASSWORD'),
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -99,8 +121,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
