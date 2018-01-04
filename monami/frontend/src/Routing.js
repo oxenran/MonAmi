@@ -7,12 +7,15 @@ import {
   Link
 } from 'react-router-dom'
 import App from './App';
+import AssistantsList from './Components/AssistantsList';
 
 // import { BrowserRouter, Route, Link } from 'react-router-dom'
 
 const Routing = () => (
   <Router>
-    <div>
+    <div className="banner">
+      <h2> Mon Ami </h2>
+      <nav>
       <ul>
       <li><Link to="/">Mon Ami Home</Link></li>
       <li><Link to="/assistants">Get an Assistant</Link></li>
@@ -25,24 +28,14 @@ const Routing = () => (
 
       <Route exact path="/" component={App}/>
       <Route path="/assistants" component={AssistantsList}/>
-      <Route path="/assistants-signup" component={AssistantsList}/>
-      <Route path="/login" component={AssistantsList}/>
-      <Route path="/signup" component={AssistantsList}/>
+      <Route path="/assistant-signup" component={App}/>
+      <Route path="/login" component={App}/>
+      <Route path="/signup" component={App}/>
 
+      </nav>
     </div>
   </Router>
 )
 
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-)
-
-const AssistantsList = () => (
-  <div>
-    <h2>Assistants</h2>
-  </div>
-)
 
 export default Routing;
