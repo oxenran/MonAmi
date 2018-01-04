@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {AssistantItem} from '../Components/AssistantItem.js';
-import {AssistantList} from '../Components/AssistantsList.js';
+import AssistantItem from '../Components/AssistantItem.js';
+import AssistantsList from '../Components/AssistantsList.js';
 
 class AssistantsListPage extends React.Component {
   constructor(){

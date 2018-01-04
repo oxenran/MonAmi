@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
-import {AssistantItem} from './AssistantItem.js';
+import AssistantItem from './AssistantItem.js';
 
 class AssistantsList extends React.Component {
 
   render() {
-    let assitantItems;
+    let assistantItems;
     if (this.props.assistants){
-      assistantItems = this.props.assistants.map(assistant =>
+      assistantItems = this.props.assistants.map(assistant => {
       console.log(assistant);
       return(
         <AssistantItem key={assistant.lastName} assistant={assistant} />
-      )
-      )};
-
+      );
+    });
+    }
     return(
       <div className="AssistantsList">
-      Category Selection boxes will go here
-      Assistants search results will go here
+      <p>Category Selection boxes will go here</p>
+      <p>Assistants search results: </p>
       {assistantItems}
       </div>
-    )
+    );
   }
 }
 
