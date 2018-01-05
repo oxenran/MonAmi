@@ -9,7 +9,7 @@ class AssistantsList extends React.Component {
       assistantItems = this.props.assistants.map(assistant => {
       console.log(assistant);
       return(
-        <AssistantItem key={assistant.login.username} assistant={assistant} />
+        <AssistantItem key={assistant.login.id} assistant={assistant} />
       );
       // return(
       //   <AssistantItem key={assistant.lastName} assistant={assistant} />
