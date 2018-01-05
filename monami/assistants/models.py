@@ -14,6 +14,7 @@ class Assistant(models.Model):
     household = models.BooleanField(default=False)
     driver = models.BooleanField(default=False)
     companion = models.BooleanField(default=False)
+    image_url = models.CharField(max_length=500, default= "https://i.imgur.com/yILM61G.jpg")
 
     class Meta:
         ordering = ('created',)
