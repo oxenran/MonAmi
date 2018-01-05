@@ -20,7 +20,7 @@ class AssistantsListPage extends React.Component {
   //     lastName: 'Roh',
   //     firstName: 'Ang'
   //   }
-  // ]});
+  // ]});fetch(request, {mode: 'no-cors'})
     fetch('http://localhost:8000/assistants/').then(results => {
       return results.json();
     }).then(data=> {
@@ -28,7 +28,7 @@ class AssistantsListPage extends React.Component {
       this.setState({assistants: assistants});
       console.log("state", this.state.assistants);
     });
-      
+
   }
   render() {
     return(
