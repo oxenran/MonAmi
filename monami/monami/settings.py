@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'webpack_loader',
     'rest_framework',
     'assistants.apps.AssistantsConfig',
+    'faker',
+    'django_seed',
 ]
 
 MIDDLEWARE = [
