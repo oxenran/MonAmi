@@ -6,7 +6,9 @@ class AssistantItem extends React.Component {
       <div className="AssistantItemStyle">
         <ul>
           <li>
-            {this.props.assistant.first_name} {this.props.assistant.last_name}
+            <h3>{this.props.assistant.first_name} {this.props.assistant.last_name}</h3>
+          </li>
+          <li><img src={this.props.assistant.image_url} />
           </li>
         </ul>
       </div>
@@ -15,11 +17,12 @@ class AssistantItem extends React.Component {
 }
 
 
-const AssistantItemStyle = {
-  width: 200,
-  height: 250,
-  display: 'inline-block',
-}
+// const AssistantItemStyle = {
+//   width: 200,
+//   height: 250,
+//   display: 'inline-block',
+//   image
+// }
 
 
 export default AssistantItem;

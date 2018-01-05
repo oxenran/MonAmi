@@ -5,7 +5,9 @@ const Home = () => (
   <div>
     <h1>Welcome to Mon Ami Home Page - WE CAN HELP!</h1>
 
-    <Link to='/Assistants'>Find An Assistant Now!</Link>
+    <div className="clickbox">
+      <Link to='/Assistants'>Find An Assistant Now!</Link>
+    </div>
   </div>
 )
 
