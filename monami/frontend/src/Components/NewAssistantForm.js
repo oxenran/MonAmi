@@ -8,11 +8,17 @@ class NewAssistantForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const data = new FormData(event.target);
+    // const data = new FormData(event.target);
+    const data = {
+      "first_name": event.target[0].value,
+      "last_name": event.target[1].value,
+      "email": event.target[2].value
+    }
+    console.log(data);
 
     fetch('http://localhost:8000/assistants/', {
       method: 'POST',
-      body: data,
+      body: JSON.stringify(data),
     });
   }
 
@@ -28,7 +34,7 @@ class NewAssistantForm extends React.Component {
         <label htmlFor="email">Enter your email</label>
         <input id="email" name="email" type="email" />
 
-        <button>Send data!</button>
+        <input type="submit" value="submit"></input>
       </form>
     );
   }
