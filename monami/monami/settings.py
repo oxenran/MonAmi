@@ -45,17 +45,26 @@ INSTALLED_APPS = [
     'assistants.apps.AssistantsConfig',
     'faker',
     'django_seed',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ORIGIN_WHITELIST = (
+    'google.com',
+    'localhost:8000',
+    'localhost:3000',
+    '127.0.0.1:9000',
+)
 
 ROOT_URLCONF = 'monami.urls'
 
