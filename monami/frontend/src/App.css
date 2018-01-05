@@ -2,17 +2,18 @@ body {
   background-image: url('https://static1.squarespace.com/static/596cfecaebbd1ab34dadab1d/t/59ab39c0e9bfdfc0c672468b/1504393672307/kien-do-6719.jpg?format=1500w');
   background-size: cover;
   background-repeat: no-repeat;
+  /* background-position: center; */
 }
 
-.banner {
+/* .banner {
   background-color: lightgreen;
-}
+} */
 
 .App {
   text-align: center;
 }
 
-.App-logo {
+/* .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
@@ -22,7 +23,7 @@ body {
   height: 150px;
   padding: 20px;
   color: white;
-}
+} */
 
 .App-title {
   font-size: 1.5em;
@@ -36,3 +37,63 @@ body {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* HEADER AND NAV BAR STYLING */
+
+.navbar li {
+  display: inline-block;
+  margin: 1%;
+}
+
+.navbar button {
+  background-color: white;
+  font-size: 3em;
+  width: 300px;
+}
+
+.headerstyle {
+  background-color: lightgreen;
+}
+
+.headerstyle a {
+  text-decoration: none;
+}
+
+.headerstyle h2 {
+ font-size: 3em;
+}
+
+.headerstyle span {
+  font-size: 2em;
+}
+
+
+/* ASSISTANTS LIST STYLES */
+
+.AssistantItemStyle {
+  /* width: 200px;
+  height: 250px; */
+  display: inline-block;
+}
+
+.AssistantItemStyle img {
+  width: 225px;
+  height: 250px;
+}
+
+.AssistantItemStyle li {
+  list-style-type: none;
+}
+
+/* HOME PAGE STYLES */
+  .clickbox {
+    width: 400px;
+    height: 500px;
+    background-color: lightgreen;
+    float: right;
+    margin-right: 30%;
+    font-size: 4em;
+  }
+  .clickbox a {
+    text-decoration: none;
+  }
