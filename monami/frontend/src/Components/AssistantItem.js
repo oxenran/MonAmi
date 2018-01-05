@@ -4,8 +4,9 @@ class AssistantItem extends React.Component {
   render(){
     return(
       <li className="AssistantItem">
-      {this.props.assistant.firstName} {this.props.assistant.lastName}
-      </li >
+        <img src={this.props.assistant.picture.medium} />
+        <p>{this.props.assistant.login.username}</p>
+      </li>
     );
   }
 }
