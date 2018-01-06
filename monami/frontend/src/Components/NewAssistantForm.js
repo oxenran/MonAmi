@@ -49,7 +49,9 @@ class NewAssistantForm extends React.Component {
       "first_name": event.target[0].value,
       "last_name": event.target[1].value,
       "email": event.target[2].value,
-      "household": event.target[3].checked
+      "household": event.target[3].checked,
+      "driver": event.target[4].checked,
+      "companion": event.target[5].checked
     }
     console.log(data);
 
