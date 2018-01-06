@@ -1,4 +1,12 @@
 import React, { Component } from 'react';
+import ServicesCheckbox from './ServicesCheckbox';
+
+
+const services = [
+'Household',
+'Driver',
+'Companion',
+];
 
 class NewAssistantForm extends React.Component {
   constructor() {
@@ -6,13 +14,42 @@ class NewAssistantForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillMount = () => {
+    this.selectedCheckboxes = new Set();
+  }
+
+  toggleCheckbox = label => {
+    if (this.selectedCheckboxes.has(label)) {
+      this.selectedCheckboxes.delete(label);
+    } else {
+      this.selectedCheckboxes.add(label);
+    }
+  }
+
+  createCheckbox = label => (
+    <ServicesCheckbox
+      label={label}
+      handleCheckboxChange={this.toggleCheckbox}
+      key={label}
+    />
+  )
+
+  createCheckboxes = () => (
+    services.map(this.createCheckbox)
+  )
+
   handleSubmit(event) {
     event.preventDefault();
+    for (const checkbox of this.selectedCheckboxes) {
+      console.log(checkbox, 'is selected.');
+    }
+    console.log(event.target);
     // const data = new FormData(event.target);
     const data = {
       "first_name": event.target[0].value,
       "last_name": event.target[1].value,
-      "email": event.target[2].value
+      "email": event.target[2].value,
+      "household": event.target[3].checked
     }
     console.log(data);
 
@@ -21,6 +58,14 @@ class NewAssistantForm extends React.Component {
       body: JSON.stringify(data),
     });
   }
+
+  // onChangeAction(event) {
+  //   if (event == true) {
+  //     event == false
+  //   } else {
+  //     event == true
+  //   }
+  // }
 
   render() {
     return (
@@ -34,7 +79,8 @@ class NewAssistantForm extends React.Component {
         <label htmlFor="email">Enter your email</label>
         <input id="email" name="email" type="email" />
 
-        <input type="submit" value="submit"></input>
+        {this.createCheckboxes()}
+        <input type="submit" value="SUBMIT"></input>
       </form>
     );
   }
