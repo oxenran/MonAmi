@@ -38,6 +38,10 @@ class NewAssistantForm extends React.Component {
     services.map(this.createCheckbox)
   )
 
+  clearForm = () => {
+  document.getElementById("new-assistant-form").reset();
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     for (const checkbox of this.selectedCheckboxes) {
@@ -59,6 +63,8 @@ class NewAssistantForm extends React.Component {
       method: 'POST',
       body: JSON.stringify(data),
     });
+
+    this.clearForm();
   }
 
   // onChangeAction(event) {
@@ -71,7 +77,7 @@ class NewAssistantForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} id="new-assistant-form">
         <label htmlFor="first_name">First Name</label>
         <input id="first_name" name="first_name" type="text" />
 
