@@ -1,7 +1,8 @@
 body {
-  background-image: url('https://static1.squarespace.com/static/596cfecaebbd1ab34dadab1d/t/59ab39c0e9bfdfc0c672468b/1504393672307/kien-do-6719.jpg?format=1500w');
+  background-image: url('https://images.unsplash.com/photo-1505860125062-3ce932953cf5?auto=format&fit=crop&w=634&q=80');
   background-size: cover;
   background-repeat: no-repeat;
+  font-size: 18pt;
   /* background-position: center; */
 }
 
@@ -25,46 +26,53 @@ body {
   color: white;
 } */
 
-.App-title {
+/* .App-title {
   font-size: 1.5em;
-}
+} */
 
-.App-intro {
+/* .App-intro {
   font-size: large;
-}
+} */
 
-@keyframes App-logo-spin {
+/* @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
+} */
 
 /* HEADER AND NAV BAR STYLING */
 
 .navbar li {
   display: inline-block;
-  margin: 1%;
+  margin: 0 1% 1% 1%;
 }
 
 .navbar button {
-  background-color: white;
-  font-size: 3em;
+  background-color: #90C0AF;
+  font-size: 1em;
   width: 300px;
+  border: none;
+  border-radius: 3rem;
 }
 
 .headerstyle {
-  background-color: lightgreen;
+  margin-top: none;
+  background-color: #60AA9F;
+  margin-top: -50px;
+  padding: 10px;
 }
 
 .headerstyle a {
   text-decoration: none;
+  color: black;
 }
 
 .headerstyle h2 {
- font-size: 3em;
+ font-size: 2em;
 }
 
 .headerstyle span {
   font-size: 2em;
+  font-family: cursive;
 }
 
 
@@ -89,7 +97,7 @@ body {
   .clickbox {
     width: 400px;
     height: 500px;
-    background-color: lightgreen;
+    background-color: #90C0AF;
     float: right;
     margin-right: 30%;
     font-size: 4em;
