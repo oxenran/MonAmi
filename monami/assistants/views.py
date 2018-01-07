@@ -1,52 +1,50 @@
-from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.renderers import JSONRenderer
-from rest_framework.parsers import JSONParser
 from assistants.models import Assistant
 from assistants.serializers import AssistantSerializer
-# Create your views here.
+from django.http import Http404
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
 
-@csrf_exempt
-def assistant_list(request):
+class AssistantList(APIView):
     """
-    List all code assistants, or create a new assistant.
+    List all assistants, or create a new assistant.
     """
-    if request.method == 'GET':
+    def get(self, request, format=None):
         assistants = Assistant.objects.all()
         serializer = AssistantSerializer(assistants, many=True)
-        return JsonResponse(serializer.data, safe=False)
+        return Response(serializer.data)
 
-    elif request.method == 'POST':
-        data = JSONParser().parse(request)
-        serializer = AssistantSerializer(data=data)
+    def post(self, request, format=None):
+        serializer = AssistantSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return JsonResponse(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status=400)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@csrf_exempt
-def assistant_detail(request, pk):
+class AssistantDetail(APIView):
     """
-    Retrieve, update or delete a code assistant.
+    Retrieve, update or delete a assistant instance.
     """
-    try:
-        assistant = Assistant.objects.get(pk=pk)
-    except Assistant.DoesNotExist:
-        return HttpResponse(status=404)
+    def get_object(self, pk):
+        try:
+            return Assistant.objects.get(pk=pk)
+        except Assistant.DoesNotExist:
+            raise Http404
 
-    if request.method == 'GET':
+    def get(self, request, pk, format=None):
+        assistant = self.get_object(pk)
         serializer = AssistantSerializer(assistant)
-        return JsonResponse(serializer.data)
+        return Response(serializer.data)
 
-    elif request.method == 'PUT':
-        data = JSONParser().parse(request)
-        serializer = AssistantSerializer(assistant, data=data)
+    def put(self, request, pk, format=None):
+        assistant = self.get_object(pk)
+        serializer = AssistantSerializer(assistant, data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return JsonResponse(serializer.data)
-        return JsonResponse(serializer.errors, status=400)
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    elif request.method == 'DELETE':
+    def delete(self, request, pk, format=None):
+        assistant = self.get_object(pk)
         assistant.delete()
-        return HttpResponse(status=204)
+        return Response(status=status.HTTP_204_NO_CONTENT)
