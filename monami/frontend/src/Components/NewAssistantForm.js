@@ -3,7 +3,7 @@ import ServicesCheckbox from './ServicesCheckbox';
 
 
 const services = [
-'Household',
+'Household Help',
 'Driver',
 'Companion',
 ];
