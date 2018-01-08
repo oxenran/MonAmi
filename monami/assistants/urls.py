@@ -8,6 +8,8 @@ urlpatterns = [
     views.AssistantDetail.as_view()),
     url(r'^users/$', views.UserList.as_view()),
     url(r'^users/(?P<pk>[0-9]+)/$', views.UserDetail.as_view()),
+    url(r'^appointments/$', views.AppointmentList.as_view()),
+    url(r'^appointments/(?P<pk>[0-9]+)/$', views.AppointmentDetail.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

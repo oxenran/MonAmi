@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'webpack_loader',
     'rest_framework',
     'assistants.apps.AssistantsConfig',
+    # 'assistants.apps.AppointmentsConfig',
     'faker',
     'django_seed',
     'corsheaders',
