@@ -4,7 +4,10 @@ from assistants import views
 
 urlpatterns = [
     url(r'^assistants/$', views.AssistantList.as_view()),
-    url(r'^assistants/(?P<pk>[0-9]+)/$', views.AssistantDetail.as_view()),
+    url(r'^assistants/(?P<pk>[0-9]+)/$',
+    views.AssistantDetail.as_view()),
+    url(r'^users/$', views.UserList.as_view()),
+    url(r'^users/(?P<pk>[0-9]+)/$', views.UserDetail.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
