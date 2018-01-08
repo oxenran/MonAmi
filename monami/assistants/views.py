@@ -1,50 +1,44 @@
 from assistants.models import Assistant
+from django.contrib.auth.models import User
 from assistants.serializers import AssistantSerializer
+from assistants.serializers import UserSerializer
 from django.http import Http404
+from rest_framework import mixins
+from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework.reverse import reverse
 
-class AssistantList(APIView):
-    """
-    List all assistants, or create a new assistant.
-    """
-    def get(self, request, format=None):
-        assistants = Assistant.objects.all()
-        serializer = AssistantSerializer(assistants, many=True)
-        return Response(serializer.data)
+class AssistantList(generics.ListCreateAPIView):
+    queryset = Assistant.objects.all()
+    serializer_class = AssistantSerializer
 
-    def post(self, request, format=None):
-        serializer = AssistantSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class AssistantDetail(APIView):
-    """
-    Retrieve, update or delete a assistant instance.
-    """
-    def get_object(self, pk):
-        try:
-            return Assistant.objects.get(pk=pk)
-        except Assistant.DoesNotExist:
-            raise Http404
+class AssistantDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Assistant.objects.all()
+    serializer_class = AssistantSerializer
 
-    def get(self, request, pk, format=None):
-        assistant = self.get_object(pk)
-        serializer = AssistantSerializer(assistant)
-        return Response(serializer.data)
+class UserList(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
-    def put(self, request, pk, format=None):
-        assistant = self.get_object(pk)
-        serializer = AssistantSerializer(assistant, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, pk, format=None):
-        assistant = self.get_object(pk)
-        assistant.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+class UserDetail(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+# @api_view(['GET'])
+# def api_root(request, format=None):
+#     return Response({
+#         'users': reverse('user-list', request=request, format=format),
+#         'assistants': reverse('assistant-list', request=request, format=format)
+#     })
+# class AssistantList(mixins.ListModelMixin,
+#                   mixins.CreateModelMixin,
+#                   generics.GenericAPIView):
+#     queryset = Assistant.objects.all()
+#     serializer_class = AssistantSerializer
+#
