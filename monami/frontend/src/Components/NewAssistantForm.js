@@ -59,8 +59,9 @@ class NewAssistantForm extends React.Component {
     }
     console.log(data);
 
-    fetch('http://localhost:8000/assistants/', headers:{
-      method: 'POST'
+    fetch('http://localhost:8000/assistants/', {
+      method: 'POST',
+      body: JSON.stringify(data),
     });
 
     this.clearForm();
