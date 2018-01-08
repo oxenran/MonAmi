@@ -6,6 +6,7 @@ import AssistantsListPage from '../Pages/AssistantsListPage';
 import Login from './Login';
 import BecomeAssistant from './BecomeAssistant';
 import Signup from './Signup';
+import AssistantViewPage from '../Pages/AssistantViewPage';
 
 
 // The Main component renders one of the three provided
@@ -21,6 +22,7 @@ const Main = () => (
       <Route path='/BecomeAssistant' component={BecomeAssistant}/>
       <Route path='/Signup' component={Signup}/>
       <Route path='/Login' component={Login}/>
+      <Route path='/Assistant' component={AssistantViewPage}/>
     </Switch>
   </main>
 )
