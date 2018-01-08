@@ -53,9 +53,10 @@ class NewAssistantForm extends React.Component {
       "first_name": event.target[0].value,
       "last_name": event.target[1].value,
       "email": event.target[2].value,
-      "household": event.target[3].checked,
-      "driver": event.target[4].checked,
-      "companion": event.target[5].checked
+      "image_url": event.target[3].value,
+      "household": event.target[4].checked,
+      "driver": event.target[5].checked,
+      "companion": event.target[6].checked
     }
     console.log(data);
 
@@ -89,6 +90,9 @@ class NewAssistantForm extends React.Component {
 
         <label htmlFor="email">Enter your email</label>
         <input id="email" name="email" type="email" />
+
+        <label htmlFor="image_url">Enter the image url for your profile photo</label>
+        <input id="image_url" name="image_url" type="text" />
 
         {this.createCheckboxes()}
         <input type="submit" value="SUBMIT"></input>
