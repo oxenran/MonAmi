@@ -1,13 +1,58 @@
 import React, { Component } from 'react';
+import DjangoCSRFToken from 'django-react-csrftoken';
+
 
 
 class Login extends React.Component {
+  constructor() {
+    super();
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  // clearForm = () => {
+  // document.getElementById("new-assistant-form").reset();
+  // }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    // for (const checkbox of this.selectedCheckboxes) {
+    //   console.log(checkbox, 'is selected.');
+    // }
+    console.log(event.target);
+    // const data = new FormData(event.target);
+    const data = {
+      "username": event.target[0].value,
+      "password": event.target[1].value
+    }
+    console.log(data);
+
+    fetch(`http://localhost:8000/"users/username=${username}&password=${password}`, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      },
+    });
+
+    // this.clearForm();
+  }
+
+
   render(){
     return(
       <div className="Login">
         <h2>Log Into Your Account</h2>
 
-        <h4>Insert (Elderly) form component here</h4>
+        <form onSubmit={this.handleSubmit} id="login-form">
+          <DjangoCSRFToken/>
+          <label htmlFor="username">Username</label>
+          <input id="username" name="username" type="text" />
+
+          <label htmlFor="password">Password</label>
+          <input id="password" name="password" type="text" />
+
+          <input type="submit" value="SUBMIT"></input>
+        </form>
 
         <aside>
           <h4>Optional: Are you an Assistant?  Click here to Login</h4>
