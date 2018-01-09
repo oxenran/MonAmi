@@ -6,24 +6,26 @@ from assistants.serializers import UserSerializer
 from assistants.serializers import AppointmentSerializer
 from django.http import Http404
 # import django_filters.rest_framework
+from rest_framework.views import APIView
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import mixins
 from rest_framework import generics
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from rest_framework.views import APIView
+
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.reverse import reverse
 from rest_framework import renderers
+# import django_filters.rest_framework
 
 class AssistantList(generics.ListCreateAPIView):
     queryset = Assistant.objects.all()
     serializer_class = AssistantSerializer
     # filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
     filter_backends = (DjangoFilterBackend,)
-    filter_fields = ('created', 'last_name', 'first_name', 'household', 'companion', 'driver')
+    filter_fields = ('last_name', 'first_name', 'household', 'companion', 'driver')
 
 
 class AssistantDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -55,8 +57,6 @@ class AppointmentDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 @api_view(['GET'])
-# @authentication_classes((SessionAuthentication, BasicAuthentication))
-# @permission_classes((IsAuthenticated,))
 def api_root(request, format=None):
     return Response({
         'users': reverse('user-list', request=request, format=format),
