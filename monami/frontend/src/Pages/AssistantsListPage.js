@@ -13,7 +13,7 @@ class AssistantsListPage extends React.Component {
 
     fetch('http://localhost:8000/assistants/').then(response => response.json())
       .then(data => this.setState({assistants: data}));
-
+      
   }
   render() {
     return(

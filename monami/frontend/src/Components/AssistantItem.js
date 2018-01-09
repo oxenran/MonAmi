@@ -9,7 +9,7 @@ class AssistantItem extends React.Component {
           <li>
             <h3>{this.props.assistant.first_name} {this.props.assistant.last_name}</h3>
           </li>
-          <li><Link to='/Assistant'><img src={this.props.assistant.image_url} /></Link>
+          <li><Link to={`/assistants/${this.props.assistant.id}`}><img src={this.props.assistant.image_url} /></Link>
           </li>
         </ul>
       </div>

@@ -18,11 +18,11 @@ const Main = () => (
   <main className="main">
     <Switch>
       <Route exact path='/' component={Home}/>
-      <Route path='/Assistants' component={AssistantsListPage}/>
+      <Route exact path='/Assistants' component={AssistantsListPage}/>
+      <Route path='/Assistants/:id' component={AssistantViewPage}/>
       <Route path='/BecomeAssistant' component={BecomeAssistant}/>
       <Route path='/Signup' component={Signup}/>
       <Route path='/Login' component={Login}/>
-      <Route path='/Assistant' component={AssistantViewPage}/>
     </Switch>
   </main>
 )
