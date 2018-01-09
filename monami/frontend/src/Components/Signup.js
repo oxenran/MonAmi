@@ -1,16 +1,61 @@
 import React, { Component } from 'react';
 
 class Signup extends React.Component {
+  constructor() {
+    super();
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  // clearForm = () => {
+  // document.getElementById("new-assistant-form").reset();
+  // }
+  handleSubmit(event) {
+    event.preventDefault();
+    // for (const checkbox of this.selectedCheckboxes) {
+    //   console.log(checkbox, 'is selected.');
+    // }
+    console.log(event.target);
+
+    const data = {
+      "first_name": event.target[0].value,
+      "last_name": event.target[1].value,
+      "email": event.target[2].value,
+      "image_url": event.target[3].value
+      }
+      console.log(data);
+
+      fetch('http://localhost:8000/users/', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json;charset=UTF-8'
+        },
+      });
+
+      // this.clearForm();
+    }
   render(){
     return(
       <div className="Signup">
         <h2>Sign Up for Our Services</h2>
         <h3>We are happy to provide you the assistance that you need!</h3>
         <h4>Simply fill out the form below to get started.</h4>
+        <form onSubmit={this.handleSubmit} id="new-user-form">
+          <label htmlFor="first_name">First Name</label>
+          <input id="first_name" name="first_name" type="text" />
 
-        <h4>Insert customer sign up form component here</h4>
+          <label htmlFor="last_name">Last Name</label>
+          <input id="last_name" name="last_name" type="text" />
+
+          <label htmlFor="email">Enter your email</label>
+          <input id="email" name="email" type="email" />
+
+          <label htmlFor="image_url">Enter the image url for your profile photo</label>
+          <input id="image_url" name="image_url" type="text" />
+
+          <input type="submit" value="SUBMIT"></input>
+        </form>
       </div>
-    )
+    );
   }
 }
 
