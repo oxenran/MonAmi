@@ -1,11 +1,10 @@
 from django.db import models
-# from pygments.lexers import get_lexer_by_name
-# from pygments.formatters.html import HtmlFormatter
-# from pygments import highlight
+from django.conf import settings
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.contrib.auth.models import User
+from rest_framework.authtoken.models import Token
 
-# LEXERS = [item for item in get_all_lexers() if item[1]]
-# LANGUAGE_CHOICES = sorted([(item[1][0], item[0]) for item in LEXERS])
-# STYLE_CHOICES = sorted((item, item) for item in get_all_styles())
 
 
 class Assistant(models.Model):
@@ -32,6 +31,16 @@ class Appointment(models.Model):
 
     class Meta:
         ordering = ('created',)
+
+# for user in User.objects.all():
+#     Token.objects.get_or_create(user=user)
+
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+def create_auth_token(sender, instance=None, created=False, **kwargs):
+    if created:
+        Token.objects.create(user=instance)
+
+
 
     # def save(self, *args, **kwargs):
     #

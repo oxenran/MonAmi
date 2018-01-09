@@ -23,7 +23,6 @@ from rest_framework import renderers
 class AssistantList(generics.ListCreateAPIView):
     queryset = Assistant.objects.all()
     serializer_class = AssistantSerializer
-    # filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
     filter_backends = (DjangoFilterBackend,)
     filter_fields = ('last_name', 'first_name', 'household', 'companion', 'driver')
 
