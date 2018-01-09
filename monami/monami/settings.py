@@ -91,11 +91,12 @@ TEMPLATES = [
 #     ]
 # }
 
-# REST_FRAMEWORK = {
-#     'DEFAULT_RENDERER_CLASSES': (
-#         'rest_framework.renderers.<corresponding_renderer>',
-#     )
-# }
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
+    # 'DEFAULT_RENDERER_CLASSES': (
+    #     'rest_framework.renderers.<corresponding_renderer>',
+    # )
+}
 
 WSGI_APPLICATION = 'monami.wsgi.application'
 
