@@ -10,7 +10,6 @@ django-seed==0.1.7
 django-webpack-loader==0.5.0
 djangorestframework==3.7.7
 factory-boy==2.9.2
-fake-factory==9999.9.9
 Faker==0.8.8
 httpie==0.9.9
 idna==2.6
