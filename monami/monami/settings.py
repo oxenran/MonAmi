@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'faker',
     'django_seed',
     'corsheaders',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
