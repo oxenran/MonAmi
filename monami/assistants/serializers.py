@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from assistants.models import Assistant
+from assistants.models import Appointment
 from django.contrib.auth.models import User
 # LANGUAGE_CHOICES, STYLE_CHOICES
 
@@ -20,3 +21,10 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'first_name', 'last_name', 'email', 'image_url')
+
+class AppointmentSerializer(serializers.ModelSerializer):
+    appointments = serializers.PrimaryKeyRelatedField(many=True, queryset=Appointment.objects.all())
+
+    class Meta:
+        model = Appointment
+        fields = ('date', 'details', 'assistants')
