@@ -94,14 +94,26 @@ body {
 }
 
 /* HOME PAGE STYLES */
-  .clickbox {
-    width: 400px;
-    height: 500px;
-    background-color: #90C0AF;
-    float: right;
-    margin-right: 30%;
-    font-size: 4em;
-  }
-  .clickbox a {
-    text-decoration: none;
-  }
+.clickbox {
+  width: 400px;
+  height: 500px;
+  background-color: #90C0AF;
+  float: right;
+  margin-right: 30%;
+  font-size: 4em;
+}
+.clickbox a {
+  text-decoration: none;
+}
+
+/* Individual Assistant Page Styles */
+#profile-photo {
+  max-width: 500px;
+  max-height: 500px;
+}
+.Assistant button {
+  width: 10%;
+  height: 30%;
+  font-size: 2em;
+  background-color: #60AA9F;
+}

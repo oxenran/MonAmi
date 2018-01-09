@@ -10,31 +10,10 @@ class AssistantsListPage extends React.Component {
     }
   }
   componentDidMount(){
-    //API fetching will go here (or compnentDidMount())
-  //   this.setState({assistants: [
-  //   {
-  //     lastName: 'Latte',
-  //     firstName: 'Janet'
-  //   },
-  //   {
-  //     lastName: 'Roh',
-  //     firstName: 'Ang'
-  //   }
-  // ]});fetch(request, {mode: 'no-cors'})
-
-    // fetch('http://localhost:8000/assistants/').then(results => {
-    //   console.log(results)
-    //   return results.json();
-    //   console.log(results.json);
-    // }).then(data => {
-    //   let assistants = data.results;
-    //   this.setState({assistants: assistants});
-    //   console.log("state", this.state.assistants);
-    // });
 
     fetch('http://localhost:8000/assistants/').then(response => response.json())
       .then(data => this.setState({assistants: data}));
-
+      
   }
   render() {
     return(
