@@ -36,7 +36,7 @@ class UserList(generics.ListAPIView):
     serializer_class = UserSerializer
     # filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
     filter_backends = (DjangoFilterBackend,)
-    filter_fields = ('username')
+    # filter_fields = ('username')
 
 class UserDetail(generics.RetrieveAPIView):
     queryset = User.objects.all()
