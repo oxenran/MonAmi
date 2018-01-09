@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django_seed',
     'corsheaders',
     'rest_framework.authtoken',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -93,7 +94,11 @@ TEMPLATES = [
 # }
 
 REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    )
     # 'DEFAULT_RENDERER_CLASSES': (
     #     'rest_framework.renderers.<corresponding_renderer>',
     # )

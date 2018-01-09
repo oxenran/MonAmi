@@ -5,22 +5,26 @@ from assistants.serializers import AssistantSerializer
 from assistants.serializers import UserSerializer
 from assistants.serializers import AppointmentSerializer
 from django.http import Http404
-import django_filters.rest_framework
+# import django_filters.rest_framework
+from rest_framework.views import APIView
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import mixins
 from rest_framework import generics
-from rest_framework.views import APIView
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.reverse import reverse
 from rest_framework import renderers
+# import django_filters.rest_framework
 
 class AssistantList(generics.ListCreateAPIView):
     queryset = Assistant.objects.all()
     serializer_class = AssistantSerializer
     filter_backends = (DjangoFilterBackend,)
-    filter_fields = ('created', 'last_name', 'first_name', 'household', 'companion', 'driver')
+    filter_fields = ('last_name', 'first_name', 'household', 'companion', 'driver')
 
 
 class AssistantDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -50,26 +54,15 @@ class AppointmentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer
 
-#
-# @api_view(['GET'])
-# def api_root(request, format=None):
-#     return Response({
-#         'users': reverse('user-list', request=request, format=format),
-#         'assistants': reverse('assistant-list', request=request, format=format),
-#         'appointments': reverse('appointment-list', request=request, format=format),
-#     })
-#
-# class AssistantHighlight(generics.GenericAPIView):
-#     queryset = Assistant.objects.all()
-#     renderer_classes = (renderers.StaticHTMLRenderer,)
-#
-#     def get(self, request, *args, **kwargs):
-#         assistant = self.get_object()
-#         return Response(assistant.highlighted)
 
-# class AssistantList(mixins.ListModelMixin,
-#                   mixins.CreateModelMixin,
-#                   generics.GenericAPIView):
-#     queryset = Assistant.objects.all()
-#     serializer_class = AssistantSerializer
+@api_view(['GET'])
+def api_root(request, format=None):
+    return Response({
+        'users': reverse('user-list', request=request, format=format),
+        'assistants': reverse('assistant-list', request=request, format=format),
+        'appointments': reverse('appointment-list', request=request, format=format),
+        'user': unicode(request.user),  # `django.contrib.auth.User` instance.
+        'auth': unicode(request.auth),  # None
+    })
+
 #
