@@ -61,8 +61,11 @@ class AppointmentDetail(generics.RetrieveUpdateDestroyAPIView):
 
 @api_view(['GET'])
 @ensure_csrf_cookie
+
+
 # @authentication_classes((SessionAuthentication, BasicAuthentication))
 # @permission_classes((IsAuthenticated,))
+
 def api_root(request, format=None):
     authentication_classes = (SessionAuthentication, BasicAuthentication)
     permission_classes = (IsAuthenticated,)
