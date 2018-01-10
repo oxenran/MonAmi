@@ -6,9 +6,11 @@ from django.contrib.auth.models import User
 
 
 class AssistantSerializer(serializers.ModelSerializer):
+
     class Meta:
+        appointments = serializers.PrimaryKeyRelatedField(many=True, queryset=Appointment.objects.all())
         model = Assistant
-        fields = ('id', 'first_name', 'last_name', 'email', 'household', 'driver', 'companion', 'image_url')
+        fields = ('id', 'first_name', 'last_name', 'email', 'household', 'driver', 'companion', 'image_url', 'appointments')
 
 
 
@@ -19,12 +21,16 @@ class UserSerializer(serializers.ModelSerializer):
     #after this you'd add 'assistants' to the field below
 
     class Meta:
+        appointments = serializers.PrimaryKeyRelatedField(many=True, queryset=Appointment.objects.all())
         model = User
-        fields = ('id', 'first_name', 'last_name', 'email', 'username')
+        #possibly add appointments to fields
+        fields = ( 'id', 'username', 'email', 'appointments')
 
 class AppointmentSerializer(serializers.ModelSerializer):
-    appointments = serializers.PrimaryKeyRelatedField(many=True, queryset=Appointment.objects.all())
+
+    owner = serializers.ReadOnlyField(source='owner.username')
+    assistant = serializers.ReadOnlyField(source='assistant.last_name')
 
     class Meta:
         model = Appointment
-        fields = ('date', 'details', 'assistants')
+        fields = ('id', 'date', 'details', 'assistant', 'owner')

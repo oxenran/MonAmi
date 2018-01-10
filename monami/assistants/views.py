@@ -37,18 +37,21 @@ class UserList(generics.ListAPIView):
     serializer_class = UserSerializer
     # filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
     filter_backends = (DjangoFilterBackend,)
-    filter_fields = ('username')
+    # filter_fields = ('username')
 
 class UserDetail(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
 class AppointmentList(generics.ListCreateAPIView):
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user, assistant= self.request.assistant)
+
     queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer
     # filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
     filter_backends = (DjangoFilterBackend,)
-    filter_fields = ('date', 'owner')
+    filter_fields = ('date', 'owner', 'assistant')
 
 
 class AppointmentDetail(generics.RetrieveUpdateDestroyAPIView):
