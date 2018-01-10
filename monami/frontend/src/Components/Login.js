@@ -27,7 +27,7 @@ class Login extends React.Component {
     }
     console.log(data);
 
-    fetch(`http://localhost:8000/users/`, {
+    fetch(`http://localhost:8000/api-auth/`, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
