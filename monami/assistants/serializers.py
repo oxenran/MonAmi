@@ -19,7 +19,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         appointments = serializers.PrimaryKeyRelatedField(many=True, queryset=Appointment.objects.all())
         model = User
-        fields = ( 'id', 'username', 'email')
+        fields = ( 'id', 'username', 'email', 'appointments')
 
 class AppointmentSerializer(serializers.ModelSerializer):
 
