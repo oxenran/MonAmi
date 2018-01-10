@@ -59,11 +59,14 @@ class AssistantsListPage extends React.Component {
     const driver = this.state.driver;
     const companion = this.state.companion;
 
+    const householdurl = household ? 'household=true' : 'household=';
+    const driverurl = driver ? 'driver=true' : 'driver=';
+    const companionurl = companion ? 'companion=true' : 'companion=';
     let url;
     if (!household && !driver && !companion) {
       url = URL;
     } else {
-      url = `${URL}?household=${household}&driver=${driver}&companion=${companion}`;
+      url = `${URL}?${householdurl}&${driverurl}&${companionurl}`;
     }
     console.log(url);
     fetch(url)
