@@ -18,12 +18,4 @@ class AssistantItem extends React.Component {
 }
 
 
-// const AssistantItemStyle = {
-//   width: 200,
-//   height: 250,
-//   display: 'inline-block',
-//   image
-// }
-
-
 export default AssistantItem;
