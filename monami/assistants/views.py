@@ -71,8 +71,8 @@ def api_root(request, format=None):
         # 'users': reverse('user-list', request=request, format=format),
         # 'assistants': reverse('assistant-list', request=request, format=format),
         # 'appointments': reverse('appointment-list', request=request, format=format),
-        'user': unicode(request.user),  # `django.contrib.auth.User` instance.
-        'auth': unicode(request.auth),  # None
+        # 'user': unicode(request.user),  # `django.contrib.auth.User` instance.
+        # 'auth': unicode(request.auth),  # None
     })
 
 #
