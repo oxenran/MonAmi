@@ -18,6 +18,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.reverse import reverse
 from rest_framework import renderers
+from django.views.decorators.csrf import ensure_csrf_cookie
 # import django_filters.rest_framework
 
 class AssistantList(generics.ListCreateAPIView):
@@ -56,6 +57,7 @@ class AppointmentDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 @api_view(['GET'])
+@ensure_csrf_cookie
 def api_root(request, format=None):
     return Response({
         'users': reverse('user-list', request=request, format=format),
