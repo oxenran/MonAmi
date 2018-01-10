@@ -26,7 +26,7 @@ class Login extends React.Component {
     }
     console.log(data);
 
-    fetch(`http://localhost:8000/"users/username=${username}&password=${password}`, {
+    fetch(`http://localhost:8000/users/username=${username}&password=${password}`, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
