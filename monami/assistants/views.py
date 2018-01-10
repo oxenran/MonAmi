@@ -44,11 +44,14 @@ class UserDetail(generics.RetrieveAPIView):
     serializer_class = UserSerializer
 
 class AppointmentList(generics.ListCreateAPIView):
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user, assistant= self.request.assistant)
+
     queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer
     # filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
     filter_backends = (DjangoFilterBackend,)
-    filter_fields = ('date', 'owner')
+    filter_fields = ('date', 'owner', 'assistant')
 
 
 class AppointmentDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -58,13 +61,21 @@ class AppointmentDetail(generics.RetrieveUpdateDestroyAPIView):
 
 @api_view(['GET'])
 @ensure_csrf_cookie
+
+
+# @authentication_classes((SessionAuthentication, BasicAuthentication))
+# @permission_classes((IsAuthenticated,))
+
 def api_root(request, format=None):
+    authentication_classes = (SessionAuthentication, BasicAuthentication)
+    permission_classes = (IsAuthenticated,)
+
     return Response({
-        'users': reverse('user-list', request=request, format=format),
-        'assistants': reverse('assistant-list', request=request, format=format),
-        'appointments': reverse('appointment-list', request=request, format=format),
-        'user': unicode(request.user),  # `django.contrib.auth.User` instance.
-        'auth': unicode(request.auth),  # None
+        # 'users': reverse('user-list', request=request, format=format),
+        # 'assistants': reverse('assistant-list', request=request, format=format),
+        # 'appointments': reverse('appointment-list', request=request, format=format),
+        # 'user': unicode(request.user),  # `django.contrib.auth.User` instance.
+        # 'auth': unicode(request.auth),  # None
     })
 
 #

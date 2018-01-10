@@ -42,6 +42,13 @@ class Signup extends React.Component {
         <h3>We are happy to provide you the assistance that you need!</h3>
         <h4>Simply fill out the form below to get started.</h4>
         <form onSubmit={this.handleSubmit} id="new-assistant-form">
+
+          <label htmlFor="username">Username</label>
+          <input id="username" name="username" type="text" />
+
+          <label htmlFor="password">Password</label>
+          <input id="password" name="password" type="text" />
+
           <label htmlFor="first_name">First Name</label>
           <input id="first_name" name="first_name" type="text" />
 

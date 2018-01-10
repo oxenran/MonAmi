@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from rest_framework.urlpatterns import format_suffix_patterns
 from assistants import views
+from rest_framework.authtoken import views as framework_views
 
 urlpatterns = [
     url(r'^$', views.api_root),
@@ -11,6 +12,7 @@ urlpatterns = [
     url(r'^users/(?P<pk>[0-9]+)/$', views.UserDetail.as_view()),
     url(r'^appointments/$', views.AppointmentList.as_view()),
     url(r'^appointments/(?P<pk>[0-9]+)/$', views.AppointmentDetail.as_view()),
+    url(r'^api-token-auth/', framework_views.obtain_auth_token),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

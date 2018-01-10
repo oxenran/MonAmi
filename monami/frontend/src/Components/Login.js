@@ -21,12 +21,13 @@ class Login extends React.Component {
     console.log(event.target);
     // const data = new FormData(event.target);
     const data = {
-      "username": event.target[0].value,
-      "password": event.target[1].value
+      "token": event.target[0].value,
+      "username": event.target[1].value,
+      "password": event.target[2].value
     }
     console.log(data);
 
-    fetch(`http://localhost:8000/"users/username=${username}&password=${password}`, {
+    fetch(`http://localhost:8000/users/`, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
@@ -49,7 +50,7 @@ class Login extends React.Component {
           <input id="username" name="username" type="text" />
 
           <label htmlFor="password">Password</label>
-          <input id="password" name="password" type="text" />
+          <input id="password" name="password" type="password" />
 
           <input type="submit" value="SUBMIT"></input>
         </form>

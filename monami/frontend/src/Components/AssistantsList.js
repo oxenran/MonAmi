@@ -7,7 +7,6 @@ class AssistantsList extends React.Component {
     let assistantItems;
     if (this.props.assistants){
       assistantItems = this.props.assistants.map(assistant => {
-      console.log(assistant);
       return(
         <AssistantItem key={assistant.id} assistant={assistant} />
       );

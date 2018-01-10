@@ -24,10 +24,11 @@ class Assistant(models.Model):
 
 class Appointment(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    date = models.DateTimeField(blank=False)
-    owner = models.ForeignKey('auth.User',                        related_name='assistants', on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now=False, auto_now_add=False, blank=False)
+    owner = models.ForeignKey('auth.User',                        related_name='appointments', on_delete=models.CASCADE)
+    assistant = models.ForeignKey(Assistant, related_name='appointments', on_delete=models.CASCADE)
     # assistant = models.ForeignKey('models.Assistant',                        related_name='assistants', on_delete=models.CASCADE)
-    details = models.TextField()
+    details = models.TextField(blank=True, null=True, default=0)
 
     class Meta:
         ordering = ('created',)
