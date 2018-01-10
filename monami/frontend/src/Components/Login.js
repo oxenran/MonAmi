@@ -21,13 +21,13 @@ class Login extends React.Component {
     console.log(event.target);
     // const data = new FormData(event.target);
     const data = {
-      "token": event.target[0].value,
+      "HTTP_X_CSRFTOKEN": event.target[0].value,
       "username": event.target[1].value,
       "password": event.target[2].value
     }
     console.log(data);
 
-    fetch(`http://localhost:8000/users/`, {
+    fetch(`http://localhost:8000/api-auth/`, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
