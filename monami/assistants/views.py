@@ -58,11 +58,16 @@ class AppointmentDetail(generics.RetrieveUpdateDestroyAPIView):
 
 @api_view(['GET'])
 @ensure_csrf_cookie
+# @authentication_classes((SessionAuthentication, BasicAuthentication))
+# @permission_classes((IsAuthenticated,))
 def api_root(request, format=None):
+    authentication_classes = (SessionAuthentication, BasicAuthentication)
+    permission_classes = (IsAuthenticated,)
+
     return Response({
-        'users': reverse('user-list', request=request, format=format),
-        'assistants': reverse('assistant-list', request=request, format=format),
-        'appointments': reverse('appointment-list', request=request, format=format),
+        # 'users': reverse('user-list', request=request, format=format),
+        # 'assistants': reverse('assistant-list', request=request, format=format),
+        # 'appointments': reverse('appointment-list', request=request, format=format),
         'user': unicode(request.user),  # `django.contrib.auth.User` instance.
         'auth': unicode(request.auth),  # None
     })
