@@ -9,7 +9,8 @@ class AssistantSerializer(serializers.ModelSerializer):
     class Meta:
         appointments = serializers.PrimaryKeyRelatedField(many=True, queryset=Appointment.objects.all())
         model = Assistant
-        fields = ('id', 'first_name', 'last_name', 'email', 'household', 'driver', 'companion', 'image_url')
+        fields = ('id', 'first_name', 'last_name', 'email', 'household', 'driver', 'companion', 'image_url', 'appointments')
+        read_only_fields = ['id', 'appointments']
 
 class UserSerializer(serializers.ModelSerializer):
 
@@ -19,8 +20,8 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         appointments = serializers.PrimaryKeyRelatedField(many=True, queryset=Appointment.objects.all())
         model = User
-        fields = ( 'id', 'username', 'email', 'password')
-
+        fields = ( 'id', 'username', 'email', 'password', 'appointments')
+        read_only_fields = ['id', 'appointments']
 class AppointmentSerializer(serializers.ModelSerializer):
 
     owner = serializers.ReadOnlyField(source='owner.username')
