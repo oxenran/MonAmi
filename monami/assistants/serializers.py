@@ -14,12 +14,12 @@ class AssistantSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
 
     #this is how you add a primary key
-    appointments = serializers.PrimaryKeyRelatedField(many=True, queryset=Appointment.objects.all())
+    # appointments = serializers.PrimaryKeyRelatedField(many=True, queryset=Appointment.objects.all())
 
     class Meta:
         appointments = serializers.PrimaryKeyRelatedField(many=True, queryset=Appointment.objects.all())
         model = User
-        fields = ( 'id', 'username', 'email', 'appointments')
+        fields = ( 'id', 'username', 'email', 'password')
 
 class AppointmentSerializer(serializers.ModelSerializer):
 
