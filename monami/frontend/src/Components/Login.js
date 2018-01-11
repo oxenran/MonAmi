@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import DjangoCSRFToken from 'django-react-csrftoken';
-
-
+import AuthService from './AuthService';
 
 class Login extends React.Component {
   constructor() {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.Auth = new AuthService();
   }
 
   // clearForm = () => {
@@ -27,17 +27,29 @@ class Login extends React.Component {
     }
     console.log(data);
 
-    fetch(`http://localhost:8000/api-token-auth/`, {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json;charset=UTF-8'
-      },
-    });
-
+    // fetch(`http://localhost:8000/api-token-auth/`, {
+    //   method: 'POST',
+    //   body: JSON.stringify(data),
+    //   headers: {
+    //     'Content-Type': 'application/json;charset=UTF-8'
+    //   },
+    // });
+    this.setState(
+      {
+        "token": data.token,
+        "username": data.username,
+        "password":data.password
+      }
+    )
+    this.Auth.login(this.state.username,this.state.password)
+      .then(res =>{
+        this.props.history.replace('/');
+      })
+      .catch(err =>{
+        alert(err);
+    })
     // this.clearForm();
   }
-
 
   render(){
     return(
@@ -61,6 +73,7 @@ class Login extends React.Component {
         </aside>
       </div>
     )
+
   }
 }
 

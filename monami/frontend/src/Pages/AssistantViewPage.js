@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Assistant from '../Components/Assistant.js';
+import Assistant from '../Components/Assistant';
+
 // import AssistantItem from '../Components/AssistantItem.js';
 // import AssistantsList from '../Components/AssistantsList.js';
 
