@@ -9,22 +9,23 @@ class AssistantSerializer(serializers.ModelSerializer):
     class Meta:
         appointments = serializers.PrimaryKeyRelatedField(many=True, queryset=Appointment.objects.all())
         model = Assistant
-        fields = ('id', 'first_name', 'last_name', 'email', 'household', 'driver', 'companion', 'image_url')
+        fields = ('id', 'first_name', 'last_name', 'email', 'household', 'driver', 'companion', 'image_url', 'appointments')
+        read_only_fields = ['id', 'appointments']
 
 class UserSerializer(serializers.ModelSerializer):
 
     #this is how you add a primary key
-    appointments = serializers.PrimaryKeyRelatedField(many=True, queryset=Appointment.objects.all())
+    # appointments = serializers.PrimaryKeyRelatedField(many=True, queryset=Appointment.objects.all())
 
     class Meta:
         appointments = serializers.PrimaryKeyRelatedField(many=True, queryset=Appointment.objects.all())
         model = User
-        fields = ( 'id', 'username', 'email', 'appointments')
-
+        fields = ( 'id', 'username', 'email', 'password', 'appointments')
+        read_only_fields = ['id', 'appointments']
 class AppointmentSerializer(serializers.ModelSerializer):
 
     owner = serializers.ReadOnlyField(source='owner.username')
-    assistant = serializers.ReadOnlyField(source='assistant.id')
+    # assistant = serializers.ReadOnlyField(source='assistant.id')
 
     class Meta:
         model = Appointment
