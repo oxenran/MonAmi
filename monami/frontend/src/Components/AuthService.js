@@ -1,5 +1,6 @@
 import React from 'react';
 import decode from 'jwt-decode';
+
 export default class AuthService {
   // Initializing important variables
   constructor(domain) {
@@ -43,19 +44,24 @@ export default class AuthService {
     }
   }
 
-  setToken(idToken) {
+  setToken(token) {
     // Saves user token to localStorage
-    localStorage.setItem('id_token', idToken)
+    localStorage.setItem('token', token)
   }
 
   getToken() {
     // Retrieves the user token from localStorage
-    return localStorage.getItem('id_token')
+    return localStorage.getItem('token')
   }
 
   logout() {
     // Clear user token and profile data from localStorage
-    localStorage.removeItem('id_token');
+    localStorage.removeItem('token');
+  }
+
+  handleLogout(){
+    Auth.logout()
+    this.props.history.replace('/login');
   }
 
   getProfile() {

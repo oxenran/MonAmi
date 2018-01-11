@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+// import withAuth(app) from '../App';
+import AuthService from './AuthService';
+import withAuth from './withAuth';
+const Auth = new AuthService();
+
 
 // The Header creates links that can be used to navigate
 // between routes.
-const Header = () => (
+class Header extends React.Component {
+  // handleLogout(){
+  //   Auth.logout()
+  //   this.props.history.replace('/login');
+  // }
+  render(){
+    return(
   <header className="headerstyle">
     <h2><span><Link to='/'>Mon Ami</Link></span> - providing assistance for the elderly</h2>
+
     <nav className="navbar">
       <ul>
         <li> <button><Link to='/'>Home</Link></button>
@@ -18,9 +30,14 @@ const Header = () => (
         </li>
         <li> <button><Link to='/Login'>Log In</Link></button>
         </li>
+        <li>
+        <button type="button" className="form-submit">Logout</button>
+        </li>
       </ul>
     </nav>
   </header>
-)
+  )
+  }
+}
 
 export default Header;
