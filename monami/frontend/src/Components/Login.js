@@ -41,7 +41,7 @@ class Login extends React.Component {
         "password":data.password
       }
     )
-    this.Auth.login(this.state.username,this.state.password)
+    this.Auth.login(data.username, data.password)
       .then(res =>{
         this.props.history.replace('/');
       })
