@@ -43,10 +43,11 @@ class Login extends React.Component {
     )
     this.Auth.login(data.username, data.password)
       .then(res =>{
-        this.props.history.replace('/');
+        alert(`Successfully logged in as ${data.username}`);
+        this.props.history.replace('/Assistants/');
       })
       .catch(err =>{
-        alert(err);
+        alert("Sorry, unable to log in - incorrect log in information");
     })
     // this.clearForm();
   }
