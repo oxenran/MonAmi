@@ -32,7 +32,7 @@ class AssistantDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Assistant.objects.all()
     serializer_class = AssistantSerializer
 
-class UserList(generics.ListAPIView):
+class UserList(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     # filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
