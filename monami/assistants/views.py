@@ -43,10 +43,12 @@ class UserDetail(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-class AppointmentList(generics.ListCreateAPIView):
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user, assistant= self.request.assistant)
 
+class AppointmentList(generics.ListCreateAPIView):
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+# , assistant= self.request.assistant
     queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer
     # filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
@@ -65,7 +67,7 @@ class AppointmentDetail(generics.RetrieveUpdateDestroyAPIView):
 
 # @authentication_classes((SessionAuthentication, BasicAuthentication))
 # @permission_classes((IsAuthenticated,))
-
+@ensure_csrf_cookie
 def api_root(request, format=None):
     authentication_classes = (SessionAuthentication, BasicAuthentication)
     permission_classes = (IsAuthenticated,)

@@ -24,7 +24,7 @@ class UserSerializer(serializers.ModelSerializer):
 class AppointmentSerializer(serializers.ModelSerializer):
 
     owner = serializers.ReadOnlyField(source='owner.username')
-    assistant = serializers.ReadOnlyField(source='assistant.id')
+    # assistant = serializers.ReadOnlyField(source='assistant.id')
 
     class Meta:
         model = Appointment

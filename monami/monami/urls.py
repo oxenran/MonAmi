@@ -18,7 +18,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.views.generic import TemplateView
 from rest_framework.authtoken import views
-
+from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
 url(r'^admin/', admin.site.urls),
