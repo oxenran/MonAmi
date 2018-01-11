@@ -39,11 +39,11 @@ class UserList(generics.ListCreateAPIView):
     filter_backends = (DjangoFilterBackend,)
     # filter_fields = ('username')
 
-class UserDetail(generics.RetrieveAPIView):
+class UserDetail(generics.RetrieveUpdateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     filter_backends = (DjangoFilterBackend,)
-    
+
 
 class AppointmentList(generics.ListCreateAPIView):
 
