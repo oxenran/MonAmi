@@ -52,6 +52,11 @@ class Login extends React.Component {
     // this.clearForm();
   }
 
+  // componentWillMount(){
+  //   if(this.Auth.loggedIn())
+  //   this.props.history.replace('/Assistants/');
+  // }
+
   render(){
     return(
       <div className="Login">
