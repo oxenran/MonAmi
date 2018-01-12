@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
 import DjangoCSRFToken from 'django-react-csrftoken';
-// import AuthService from './AuthService';
+
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onLogin = this.props.onLogin;
-
-    // this.Auth = new AuthService();
-
   }
-  // state = {
-  //   token: ''
-  // }
 
   // clearForm = () => {
   // document.getElementById("new-assistant-form").reset();

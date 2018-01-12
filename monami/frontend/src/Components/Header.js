@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-// import withAuth(app) from '../App';
-import AuthService from './AuthService';
-import withAuth from './withAuth';
-const Auth = new AuthService();
 
 
 // The Header creates links that can be used to navigate
