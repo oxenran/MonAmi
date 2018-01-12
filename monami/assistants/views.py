@@ -5,7 +5,7 @@ from assistants.serializers import AssistantSerializer
 from assistants.serializers import UserSerializer
 from assistants.serializers import AppointmentSerializer
 from django.http import Http404
-# import django_filters.rest_framework
+from rest_framework import permissions
 from rest_framework.views import APIView
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import mixins
@@ -13,7 +13,6 @@ from rest_framework import generics
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.reverse import reverse
@@ -46,7 +45,7 @@ class UserDetail(generics.RetrieveUpdateAPIView):
 
 
 class AppointmentList(generics.ListCreateAPIView):
-
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 # , assistant= self.request.assistant
@@ -60,7 +59,7 @@ class AppointmentList(generics.ListCreateAPIView):
 class AppointmentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer
-
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 @api_view(['GET'])
 @ensure_csrf_cookie
