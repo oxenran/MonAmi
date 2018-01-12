@@ -19,6 +19,7 @@ from rest_framework.reverse import reverse
 from rest_framework import renderers
 from django.views.decorators.csrf import ensure_csrf_cookie
 from assistants.permissions import IsOwnerOrReadOnly
+from django.contrib.auth.hashers import make_password
 # import django_filters.rest_framework
 
 class AssistantList(generics.ListCreateAPIView):
@@ -46,10 +47,11 @@ class UserDetail(generics.RetrieveUpdateAPIView):
 
 
 class AppointmentList(generics.ListCreateAPIView):
-    permission_classes = ( permissions.IsAuthenticated)
+    # permission_classes = (permissions.IsAuthenticated)
+    permission_classes = (IsOwnerOrReadOnly,)
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
-# , assistant= self.request.assistant
+    # assistant= self.request.assistant
     queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer
     # filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
