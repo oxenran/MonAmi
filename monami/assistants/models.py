@@ -5,8 +5,6 @@ from django.dispatch import receiver
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 
-
-
 class Assistant(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     email = models.CharField(blank=False, max_length=100)
