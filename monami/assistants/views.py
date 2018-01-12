@@ -28,7 +28,6 @@ class AssistantList(generics.ListCreateAPIView):
     filter_backends = (DjangoFilterBackend,)
     filter_fields = ('last_name', 'first_name', 'household', 'companion', 'driver')
 
-
 class AssistantDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Assistant.objects.all()
     serializer_class = AssistantSerializer
@@ -54,19 +53,18 @@ class AppointmentList(generics.ListCreateAPIView):
     # assistant= self.request.assistant
     # queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer
+
     def get_queryset(self):
         """
-        This view should return a list of all the purchases
+        This view should return a list of all the appointments
         for the currently authenticated user.
         """
         user = self.request.user
         return Appointment.objects.filter(owner=user)
 
-
     # filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
     filter_backends = (DjangoFilterBackend,)
     filter_fields = ('date', 'owner', 'assistant')
-
 
 class AppointmentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Appointment.objects.all()
@@ -75,7 +73,6 @@ class AppointmentDetail(generics.RetrieveUpdateDestroyAPIView):
 
 @api_view(['GET'])
 @ensure_csrf_cookie
-
 
 # @authentication_classes((SessionAuthentication, BasicAuthentication))
 # @permission_classes((IsAuthenticated,))
@@ -91,5 +88,3 @@ def api_root(request, format=None):
         # 'user': unicode(request.user),  # `django.contrib.auth.User` instance.
         # 'auth': unicode(request.auth),  # None
     })
-
-#

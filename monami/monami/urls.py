@@ -27,8 +27,3 @@ url(r'^', TemplateView.as_view(template_name="index.html")),
 url(r'^api-auth/', include('rest_framework.urls')),
 url(r'^api-token-auth/', views.obtain_auth_token),
 ]
-
-
-# urlpatterns += [
-#
-# ]
