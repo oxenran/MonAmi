@@ -68,8 +68,8 @@ class AppointmentBookingForm extends React.Component {
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
+        'Authorization': ` Token ${this.state.token}`,
       },
-      'Authorization': ` Token ${this.state.token}`,
     });
 
     // this.clearForm();
