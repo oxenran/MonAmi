@@ -49,7 +49,7 @@ class AppointmentBookingForm extends React.Component {
     //   console.log(checkbox, 'is selected.');
     // }
     console.log(event.target);
-    console.log(this.state.token);
+    // console.log(this.state.token);
 
     const data = {
       "date": event.target[0].value,

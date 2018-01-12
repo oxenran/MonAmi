@@ -15,7 +15,12 @@ import AssistantViewPage from '../Pages/AssistantViewPage';
 // and /schedule routes will match any pathname that starts
 // with /roster or /schedule. The / route will only match
 // when the pathname is exactly the string "/"
-const Main = () => (
+class Main extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    return (
   <main className="main">
     <Switch>
       <Route exact path='/' component={Home}/>
@@ -23,9 +28,12 @@ const Main = () => (
       <Route path='/Assistants/:id' component={AssistantViewPage}/>
       <Route path='/BecomeAssistant' component={BecomeAssistant}/>
       <Route path='/Signup' component={Signup}/>
-      <Route path='/Login' component={Login}/>
+      <Route path='/Login' render={(props) => (
+        <Login {...props} onLogin={this.onLogin}/>)}/>
     </Switch>
   </main>
-)
+    )
+  }
+}
 
 export default Main;

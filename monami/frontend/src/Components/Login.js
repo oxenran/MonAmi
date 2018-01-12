@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import DjangoCSRFToken from 'django-react-csrftoken';
-import AuthService from './AuthService';
+// import AuthService from './AuthService';
 
 class Login extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    console.log(this.Auth);
-    this.Auth = new AuthService();
-    console.log(this.state);
-    console.log(this.Auth);
+    this.onLogin = this.props.onLogin;
+
+    // this.Auth = new AuthService();
+
   }
+  // state = {
+  //   token: ''
+  // }
 
   // clearForm = () => {
   // document.getElementById("new-assistant-form").reset();
@@ -30,28 +33,34 @@ class Login extends React.Component {
     }
     console.log(data);
 
-    // fetch(`http://localhost:8000/api-token-auth/`, {
-    //   method: 'POST',
-    //   body: JSON.stringify(data),
-    //   headers: {
-    //     'Content-Type': 'application/json;charset=UTF-8'
-    //   },
-    // });
-    this.setState(
-      {
-        "token": data.token,
-        "username": data.username,
-        "password":data.password
-      }
-    )
-    this.Auth.login(data.username, data.password)
-      .then(res =>{
-        alert(`Successfully logged in as ${data.username}`);
-        this.props.history.replace('/Assistants/');
-      })
-      .catch(err =>{
-        alert("Sorry, unable to log in - incorrect log in information");
-    })
+    fetch(`http://localhost:8000/api-token-auth/`, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      },
+    });
+    // this.setState( {
+    //   "token": data.token,
+    //   "username": data.username
+    // }
+    this.props.onLogin(data.token);
+
+    // this.setState(
+    //   {
+    //     "token": data.token,
+    //     "username": data.username,
+    //     // "password":data.password
+    //   }
+    // )
+    // this.Auth.login(data.username, data.password)
+    //   .then(res =>{
+    //     alert(`Successfully logged in as ${data.username}`);
+    //     this.props.history.replace('/Assistants/');
+    //   })
+    //   .catch(err =>{
+    //     alert("Sorry, unable to log in - incorrect log in information");
+    // })
     // this.clearForm();
   }
 
