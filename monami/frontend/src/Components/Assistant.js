@@ -15,7 +15,7 @@ class Assistant extends React.Component {
           <ul>
             Appointment Listings or Calendar will go here
           </ul>
-        <AppointmentBookingForm assistant={this.props.assistant}/>
+      
       </div>
     );
   }

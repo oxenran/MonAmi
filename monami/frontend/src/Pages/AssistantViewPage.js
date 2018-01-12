@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Assistant from '../Components/Assistant';
+import AppointmentBookingForm from '../Components/AppointmentBookingForm';
 
 // import AssistantItem from '../Components/AssistantItem.js';
 // import AssistantsList from '../Components/AssistantsList.js';
@@ -27,6 +28,7 @@ class AssistantViewPage extends React.Component {
       <div className="AssistantsViewPage">
         <h2>Individual Assistant Page</h2>
         <Assistant assistant={this.state.assistant} />
+        <AppointmentBookingForm assistant={this.state.assistant} />
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ServicesCheckbox from './ServicesCheckbox';
+// import ReactDatetime from 'react-datetime'
 
 // const services = {
 //   household: 'Household Help',
@@ -11,6 +12,7 @@ class AppointmentBookingForm extends React.Component {
   constructor() {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
+    // this.assistant = this.props.assistant;
   }
 
   // componentWillMount = () => {
@@ -43,14 +45,14 @@ class AppointmentBookingForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    for (const checkbox of this.selectedCheckboxes) {
-      console.log(checkbox, 'is selected.');
-    }
+    // for (const checkbox of this.selectedCheckboxes) {
+    //   console.log(checkbox, 'is selected.');
+    // }
     console.log(event.target);
 
     const data = {
       "date": event.target[0].value,
-      "assistant": this.assistant.id,
+      "assistant": this.props.assistant.id,
       "details": event.target[1].value,
       "owner": "kimpossible"
       // "time": event.target[1].value,
@@ -75,7 +77,7 @@ class AppointmentBookingForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} id="appointment-booking-form">
         <label htmlFor="date">Date and Time</label>
-        <input id="date" name="date" type="datetime" />
+        <input id="date" name="date" type="Datetime" />
 
         <label htmlFor="details">Details</label>
         <input id="details" name="details" type="text" />
