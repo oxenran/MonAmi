@@ -52,8 +52,17 @@ class AppointmentList(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
     # assistant= self.request.assistant
-    queryset = Appointment.objects.all()
+    # queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer
+    def get_queryset(self):
+        """
+        This view should return a list of all the purchases
+        for the currently authenticated user.
+        """
+        user = self.request.user
+        return Appointment.objects.filter(owner=user)
+
+
     # filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
     filter_backends = (DjangoFilterBackend,)
     filter_fields = ('date', 'owner', 'assistant')
