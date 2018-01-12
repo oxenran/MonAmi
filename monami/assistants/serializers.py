@@ -4,6 +4,7 @@ from assistants.models import Appointment
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 from rest_framework.validators import UniqueTogetherValidator
+from django.core.exceptions import ValidationError
 from datetime import datetime
 from datetime import timedelta
 
@@ -42,14 +43,15 @@ class AppointmentSerializer(serializers.ModelSerializer):
         model = Appointment
 
         fields = ('id', 'date', 'details', 'assistant', 'owner')
-        # def appointment_conflict(value):
-        #     if value > datetime.now + timedelta(days = 2):
+        def appointment_conflict(self):
+            if 'date' > datetime.now + timedelta(days = 2):
+                raise ValidationError('You need to book this appointment at least two days ahead.')
+        # def validate_date(self, date):
+        #     print(date)
+        #     print('that is the date')
+        #     if date > (datetime.now + timedelta(days = 2)):
         #         raise serializers.ValidationError('You need to book this appointment at least two days ahead.')
-        # def validate(self, data):
-        #
-        #     if data['date'] > datetime.now + timedelta(days = 2):
-        #         raise serializers.ValidationError('You need to book this appointment at least two days ahead.')
-        #     return data
+        #     return date
         validators = [
             UniqueTogetherValidator(
                 queryset=Appointment.objects.all(),
