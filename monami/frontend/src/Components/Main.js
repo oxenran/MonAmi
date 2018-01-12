@@ -9,22 +9,33 @@ import Signup from './Signup';
 import AssistantViewPage from '../Pages/AssistantViewPage';
 
 
+
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
 // and /schedule routes will match any pathname that starts
 // with /roster or /schedule. The / route will only match
 // when the pathname is exactly the string "/"
-const Main = () => (
+class Main extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    return (
   <main className="main">
     <Switch>
       <Route exact path='/' component={Home}/>
-      <Route exact path='/Assistants' component={AssistantsListPage}/>
-      <Route path='/Assistants/:id' component={AssistantViewPage}/>
+      <Route exact path='/Assistants' render={(props) => (
+        <AssistantsListPage {...props} getToken={this.props.getToken}/>)}/>
+      <Route path='/Assistants/:id' render={(props) => (
+        <AssistantViewPage {...props} getToken={this.props.getToken}/>)}/>
       <Route path='/BecomeAssistant' component={BecomeAssistant}/>
       <Route path='/Signup' component={Signup}/>
-      <Route path='/Login' component={Login}/>
+      <Route path='/Login' render={(props) => (
+        <Login {...props} onLogin={this.props.onLogin}/>)}/>
     </Switch>
   </main>
-)
+    )
+  }
+}
 
 export default Main;

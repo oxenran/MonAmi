@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import DjangoCSRFToken from 'django-react-csrftoken';
-
-
+// import AuthService from './AuthService';
 
 class Login extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.onLogin = this.props.onLogin;
+
+    // this.Auth = new AuthService();
+
   }
+  // state = {
+  //   token: ''
+  // }
 
   // clearForm = () => {
   // document.getElementById("new-assistant-form").reset();
@@ -27,17 +33,46 @@ class Login extends React.Component {
     }
     console.log(data);
 
+    const that = this;
+
     fetch(`http://localhost:8000/api-token-auth/`, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
       },
+    }).then(function(response) {
+      return response.json();
+    })
+    .then(function(responseJSON) {
+      that.props.onLogin(responseJSON.token);
     });
 
+
+
+
+    // this.setState(
+    //   {
+    //     "token": data.token,
+    //     "username": data.username,
+    //     // "password":data.password
+    //   }
+    // )
+    // this.Auth.login(data.username, data.password)
+    //   .then(res =>{
+    //     alert(`Successfully logged in as ${data.username}`);
+    //     this.props.history.replace('/Assistants/');
+    //   })
+    //   .catch(err =>{
+    //     alert("Sorry, unable to log in - incorrect log in information");
+    // })
     // this.clearForm();
   }
 
+  // componentWillMount(){
+  //   if(this.Auth.loggedIn())
+  //   this.props.history.replace('/Assistants/');
+  // }
 
   render(){
     return(
@@ -61,6 +96,7 @@ class Login extends React.Component {
         </aside>
       </div>
     )
+
   }
 }
 

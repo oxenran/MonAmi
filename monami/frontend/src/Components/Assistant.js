@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import AppointmentBookingForm from './AppointmentBookingForm'
 
 class Assistant extends React.Component {
   render(){
@@ -7,7 +8,15 @@ class Assistant extends React.Component {
       <div className="Assistant">
         <h3>{this.props.assistant.first_name} {this.props.assistant.last_name}</h3>
         <img src={this.props.assistant.image_url} id="profile-photo"/>
-        <button>Book!</button>
+        <h3>Services Offered:</h3>
+          <ul>
+          </ul>
+        <h3>Already Booked:</h3>
+          <ul>
+            Appointment Listings or Calendar will go here
+            <li>{this.props.assistant.appointments}</li>
+          </ul>
+
       </div>
     );
   }
