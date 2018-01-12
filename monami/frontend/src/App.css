@@ -1,8 +1,11 @@
+require.resolve('react-dates/lib/css/_datepicker.css')
+
 body {
   background-image: url('https://images.unsplash.com/photo-1505860125062-3ce932953cf5?auto=format&fit=crop&w=634&q=80');
   background-size: cover;
   background-repeat: no-repeat;
   font-size: 18pt;
+  box-sizing: border-box;
   /* background-position: center; */
 }
 
