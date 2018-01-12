@@ -14,8 +14,9 @@ class Assistant extends React.Component {
         <h3>Already Booked:</h3>
           <ul>
             Appointment Listings or Calendar will go here
+            <li>{this.props.assistant.appointments}</li>
           </ul>
-      
+
       </div>
     );
   }

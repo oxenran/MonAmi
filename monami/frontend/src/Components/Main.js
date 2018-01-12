@@ -24,12 +24,14 @@ class Main extends React.Component {
   <main className="main">
     <Switch>
       <Route exact path='/' component={Home}/>
-      <Route exact path='/Assistants' component={AssistantsListPage}/>
-      <Route path='/Assistants/:id' component={AssistantViewPage}/>
+      <Route exact path='/Assistants' render={(props) => (
+        <AssistantsListPage {...props} getToken={this.props.getToken}/>)}/>
+      <Route path='/Assistants/:id' render={(props) => (
+        <AssistantViewPage {...props} getToken={this.props.getToken}/>)}/>
       <Route path='/BecomeAssistant' component={BecomeAssistant}/>
       <Route path='/Signup' component={Signup}/>
       <Route path='/Login' render={(props) => (
-        <Login {...props} onLogin={this.onLogin}/>)}/>
+        <Login {...props} onLogin={this.props.onLogin}/>)}/>
     </Switch>
   </main>
     )

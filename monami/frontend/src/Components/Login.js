@@ -33,18 +33,23 @@ class Login extends React.Component {
     }
     console.log(data);
 
+    const that = this;
+
     fetch(`http://localhost:8000/api-token-auth/`, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
       },
+    }).then(function(response) {
+      return response.json();
+    })
+    .then(function(responseJSON) {
+      that.props.onLogin(responseJSON.token);
     });
-    // this.setState( {
-    //   "token": data.token,
-    //   "username": data.username
-    // }
-    this.props.onLogin(data.token);
+
+
+
 
     // this.setState(
     //   {

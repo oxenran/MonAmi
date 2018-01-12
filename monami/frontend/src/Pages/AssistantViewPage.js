@@ -15,6 +15,8 @@ class AssistantViewPage extends React.Component {
     this.state = {
       assistant: {}
     }
+    console.log(this.state);
+    console.log(this.props);
   }
   componentDidMount(){
     let url = this.props.match.url;
@@ -27,8 +29,8 @@ class AssistantViewPage extends React.Component {
     return(
       <div className="AssistantsViewPage">
         <h2>Individual Assistant Page</h2>
-        <Assistant assistant={this.state.assistant} />
-        <AppointmentBookingForm assistant={this.state.assistant} />
+        <Assistant assistant={this.state.assistant}/>
+        <AppointmentBookingForm assistant={this.state.assistant}  getToken={this.props.getToken}/>
       </div>
     );
   }

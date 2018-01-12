@@ -15,26 +15,25 @@ class App extends React.Component {
       token: ''
     }
     this.OnLoginFn = this.OnLoginFn.bind(this);
+    this.getToken = this.getToken.bind(this);
   }
-  OnLoginFn(){
+  OnLoginFn(logintoken){
     //make it take the token
     this.setState( {
-      token: this.state.token
+      token: logintoken
     })
     console.log("App OnLoginFn was called");
   }
 
-  // OnLoginFn = (tokenFromLogin) => {
-  //   this.setState() {
-  //
-  //   }
-  // }
+  getToken() {
+    return this.state.token;
+  }
 
   render(){
     return(
     <div>
       <Header />
-      <Main onLogin={this.OnLoginFn.bind(this)}/>
+      <Main onLogin={this.OnLoginFn} getToken={this.getToken}/>
     </div>
     )
   }

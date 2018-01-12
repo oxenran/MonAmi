@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ServicesCheckbox from './ServicesCheckbox';
+import App from '../App';
 // import ReactDatetime from 'react-datetime'
 
 // const services = {
@@ -9,9 +10,10 @@ import ServicesCheckbox from './ServicesCheckbox';
 // };
 
 class AppointmentBookingForm extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+
     // this.assistant = this.props.assistant;
   }
 
@@ -63,12 +65,14 @@ class AppointmentBookingForm extends React.Component {
     }
     console.log(data);
 
+    const token = this.props.getToken();
+    console.log(token);
     fetch('http://localhost:8000/appointments/', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
-        'Content-Type': 'application/json;charset=UTF-8'
-        'Authorization': ` Token ${this.state.token}`,
+        'Content-Type': 'application/json;charset=UTF-8',
+        'Authorization': ` Token ${token}`
       },
     });
 
