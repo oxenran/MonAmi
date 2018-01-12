@@ -4,7 +4,7 @@ import AuthService from './AuthService';
 //Export a function withAuth which takes a AuthComponent as a parameter
 export default function withAuth(AuthComponent) {
   // Instantiate AuthService
-  const Auth = new AuthService('http://localhost:8000/api-token-auth/');
+  const Auth = new AuthService('http://localhost:8000/');
   // Return a class AuthWrapped in which auth is handled
   return class AuthWrapped extends React.Component {
   // Add contructor to class and initialize its state with user as null
@@ -13,11 +13,12 @@ export default function withAuth(AuthComponent) {
       this.state = {
         user: null
       }
+      console.log(this.state);
     }
     // Add componentWillMount hook which checks the auth
     componentWillMount() {
       if (!Auth.loggedIn()) {
-        this.props.history.replace('/login')
+        // this.props.history.replace('/login')
       }
       else {
         try {

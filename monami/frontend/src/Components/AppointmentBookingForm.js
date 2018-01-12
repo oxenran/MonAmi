@@ -49,12 +49,13 @@ class AppointmentBookingForm extends React.Component {
     //   console.log(checkbox, 'is selected.');
     // }
     console.log(event.target);
+    console.log(this.state.token);
 
     const data = {
       "date": event.target[0].value,
       "assistant": this.props.assistant.id,
       "details": event.target[1].value,
-      "owner": "kimpossible"
+      // "owner": this.state.token
       // "time": event.target[1].value,
       // "household": event.target[4].checked,
       // "driver": event.target[5].checked,
@@ -68,6 +69,7 @@ class AppointmentBookingForm extends React.Component {
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
       },
+      'Authorization': ` Token ${this.state.token}`,
     });
 
     // this.clearForm();

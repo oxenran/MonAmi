@@ -6,7 +6,10 @@ class Login extends React.Component {
   constructor() {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
+    console.log(this.Auth);
     this.Auth = new AuthService();
+    console.log(this.state);
+    console.log(this.Auth);
   }
 
   // clearForm = () => {
