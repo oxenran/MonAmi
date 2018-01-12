@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 class AssistantItem extends React.Component {
   render(){
     return(
+
       <div className="AssistantItemStyle">
         <ul>
           <li>
