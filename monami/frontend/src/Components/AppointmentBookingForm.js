@@ -41,9 +41,9 @@ class AppointmentBookingForm extends React.Component {
   //   services.map(this.createCheckbox)
   // )
 
-  // clearForm = () => {
-  // document.getElementById("new-assistant-form").reset();
-  // }
+  clearForm = () => {
+  document.getElementById("appointment-booking-form").reset();
+  }
 
   handleSubmit(event) {
     event.preventDefault();
@@ -76,7 +76,7 @@ class AppointmentBookingForm extends React.Component {
       },
     });
 
-    // this.clearForm();
+    this.clearForm();
   }
 
   render() {
