@@ -45,7 +45,11 @@ class AppointmentSerializer(serializers.ModelSerializer):
         # def appointment_conflict(value):
         #     if value > datetime.now + timedelta(days = 2):
         #         raise serializers.ValidationError('You need to book this appointment at least two days ahead.')
-
+        # def validate(self, data):
+        #
+        #     if data['date'] > datetime.now + timedelta(days = 2):
+        #         raise serializers.ValidationError('You need to book this appointment at least two days ahead.')
+        #     return data
         validators = [
             UniqueTogetherValidator(
                 queryset=Appointment.objects.all(),
