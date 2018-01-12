@@ -29,7 +29,7 @@ class App extends React.Component {
   render(){
     return(
     <div>
-      <Header />
+      <Header onLogin={this.OnLoginFn}/>
       <Main onLogin={this.OnLoginFn} getToken={this.getToken}/>
     </div>
     )
