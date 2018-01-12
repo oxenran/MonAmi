@@ -46,7 +46,7 @@ class UserDetail(generics.RetrieveUpdateAPIView):
 
 
 class AppointmentList(generics.ListCreateAPIView):
-    permission_classes = (IsOwnerOrReadOnly,)
+    permission_classes = ( permissions.IsAuthenticated)
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 # , assistant= self.request.assistant
@@ -60,7 +60,7 @@ class AppointmentList(generics.ListCreateAPIView):
 class AppointmentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (IsOwnerOrReadOnly,)
 
 @api_view(['GET'])
 @ensure_csrf_cookie
