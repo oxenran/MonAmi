@@ -25,12 +25,12 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ( 'id', 'username', 'email', 'password', 'appointments')
         read_only_fields = ['id', 'appointments']
     def create(self, validated_data):
-        user = User.objects.create(
+        user = User.objects.create_user(
        email=validated_data['email'],
        username=validated_data['username'],
        )
        #this part allows the changed password to be encoded
-        password = make_password(validated_data['password'])
+        password =(validated_data['password'])
         user.set_password(password)
         user.save()
         return user
