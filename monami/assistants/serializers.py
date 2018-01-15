@@ -12,10 +12,11 @@ from datetime import timedelta
 class AssistantSerializer(serializers.ModelSerializer):
 
     class Meta:
+        user = serializers.ReadOnlyField(source='user.id')
         appointments = serializers.PrimaryKeyRelatedField(many=True, queryset=Appointment.objects.all())
         model = Assistant
-        fields = ('id', 'first_name', 'last_name', 'email', 'household', 'driver', 'companion', 'image_url', 'appointments')
-        read_only_fields = ['id', 'appointments']
+        fields = ('id', 'first_name', 'last_name', 'email', 'household', 'driver', 'companion', 'image_url', 'appointments', 'user')
+        read_only_fields = ['id', 'appointments', 'user']
 
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)

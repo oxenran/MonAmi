@@ -7,6 +7,7 @@ from rest_framework.authtoken.models import Token
 
 class Assistant(models.Model):
     created = models.DateTimeField(auto_now_add=True)
+    user = models.OneToOneField('auth.User', related_name='assistant', on_delete=models.CASCADE)
     email = models.CharField(blank=False, max_length=100)
     last_name = models.CharField(blank=False, max_length=100)
     first_name = models.CharField(blank=False, max_length=100)
@@ -30,6 +31,15 @@ class Appointment(models.Model):
 
     class Meta:
         ordering = ('created',)
+
+# @receiver(post_save, sender=User)
+# def create_user_assistant(sender, instance, created, **kwargs):
+#     if created:
+#         Assistant.objects.create(user=instance)
+
+# @receiver(post_save, sender=User)
+# def save_user_assistant(sender, instance, **kwargs):
+#     instance.assistant.save()
 
 # for user in User.objects.all():
 #     Token.objects.get_or_create(user=user)
