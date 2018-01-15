@@ -8,6 +8,7 @@ from django.core.exceptions import ValidationError
 from rest_framework.validators import UniqueForDateValidator
 from datetime import datetime, timezone
 from datetime import timedelta
+from .validators import validate_user
 
 class AssistantSerializer(serializers.ModelSerializer):
 
@@ -44,7 +45,7 @@ def time_warp(datetime):
 
 class AppointmentSerializer(serializers.ModelSerializer):
 
-    owner = serializers.ReadOnlyField(source='owner.username')
+    owner = serializers.ReadOnlyField(source='owner.username',   validators=[validate_user])
     date = serializers.DateTimeField(validators=[time_warp])
     # assistant = serializers.ReadOnlyField(source='assistant.id')
     # queryset = Appointment.objects.filter(owner=request.user)

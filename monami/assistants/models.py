@@ -4,6 +4,17 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
+# from .validators import validate_user
+# #validations
+# def validate_user(value):
+#     assistant_list = Assistant.objects.filter(user = value)
+#     print('stripes')
+#     if len(assistant_list) != 0:
+#         raise ValidationError(
+#             _('%(value)s is an assistant.  Assistants can not make appointments.'),
+#             params={'value': value},
+#         )
+#
 
 class Assistant(models.Model):
     created = models.DateTimeField(auto_now_add=True)
@@ -24,7 +35,7 @@ class Assistant(models.Model):
 class Appointment(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     date = models.DateTimeField(auto_now=False, auto_now_add=False, blank=False)
-    owner = models.ForeignKey('auth.User',                        related_name='appointments', on_delete=models.CASCADE)
+    owner = models.ForeignKey( 'auth.User',                     related_name='appointments', on_delete=models.CASCADE)
     assistant = models.ForeignKey(Assistant, related_name='appointments', on_delete=models.CASCADE)
     # assistant = models.ForeignKey('models.Assistant',                        related_name='assistants', on_delete=models.CASCADE)
     details = models.TextField(blank=True, null=True, default=0)

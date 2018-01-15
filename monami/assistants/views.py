@@ -24,6 +24,9 @@ from django.contrib.auth.hashers import make_password
 
 class AssistantList(generics.ListCreateAPIView):
     queryset = Assistant.objects.all()
+    permission_classes = (IsOwnerOrReadOnly,)
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
     serializer_class = AssistantSerializer
     filter_backends = (DjangoFilterBackend,)
     filter_fields = ('last_name', 'first_name', 'household', 'companion', 'driver')
@@ -59,8 +62,17 @@ class AppointmentList(generics.ListCreateAPIView):
         This view should return a list of all the appointments
         for the currently authenticated user.
         """
+
         user = self.request.user
-        return Appointment.objects.filter(owner=user)
+        assistants =  Assistant.objects.filter(user=user.id)
+        print('assistants')
+        print(assistants)
+        if assistants == []:
+            return Appointment.objects.filter(owner=user)
+        else:
+            assistantUser = assistants.first()
+            print('Assistant Appointments')
+            return Appointment.objects.filter(assistant= assistantUser)
 
     # filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
     filter_backends = (DjangoFilterBackend,)
