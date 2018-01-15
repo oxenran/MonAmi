@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import ServicesCheckbox from './ServicesCheckbox';
 import App from '../App';
+import 'react-dates/initialize';
+import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
 // import ReactDatetime from 'react-datetime'
 
 // const services = {
@@ -53,16 +56,21 @@ class AppointmentBookingForm extends React.Component {
     console.log(event.target);
     // console.log(this.state.token);
 
+    const date = event.target[0];
+    const time = event.target[1];
+    const dateandtime = `${date}T${time}Z`;
+    // 2018-01-31T09:00:00Z
+    console.log(dateandtime);
     const data = {
-      "date": event.target[0].value,
+      "date": dateandtime,
       "assistant": this.props.assistant.id,
-      "details": event.target[1].value,
+      "details": event.target[2].value,
       // "owner": this.state.token
       // "time": event.target[1].value,
       // "household": event.target[4].checked,
       // "driver": event.target[5].checked,
       // "companion": event.target[6].checked
-    }
+    };
     console.log(data);
 
     const token = this.props.getToken();
@@ -82,8 +90,11 @@ class AppointmentBookingForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} id="appointment-booking-form">
-        <label htmlFor="date">Date and Time</label>
-        <input id="date" name="date" type="Datetime" />
+        <label htmlFor="date">Date</label>
+        <input id="date" name="date" type="date" />
+
+        <label htmlFor="time">Time</label>
+        <input id="time" name="time" type="time" />
 
         <label htmlFor="details">Details</label>
         <input id="details" name="details" type="text" />
