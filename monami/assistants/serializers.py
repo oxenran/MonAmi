@@ -8,8 +8,25 @@ from django.core.exceptions import ValidationError
 from rest_framework.validators import UniqueForDateValidator
 from datetime import datetime, timezone
 from datetime import timedelta
-from .validators import validate_user
+# from .validators import validate_user
+#validators
 
+def time_warp(datetime):
+    #checks to see that you have scheduled your appointment at a time greater than two days from now
+    if datetime < (datetime.now(timezone.utc) + timedelta(days = 2)):
+        raise ValidationError('You need to book this appointment at least two days ahead.')
+    return datetime
+
+def validate_user(value):
+    assistant_list = Assistant.objects.filter(user = value)
+    print('stripes')
+    if len(assistant_list) != 0:
+        raise ValidationError(
+            ('You have an assistant account.  Assistants can not make appointments.')
+        )
+    return value
+
+#serializers
 class AssistantSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -36,12 +53,6 @@ class UserSerializer(serializers.ModelSerializer):
         user.set_password(password)
         user.save()
         return user
-
-def time_warp(datetime):
-    #checks to see that you have scheduled your appointment at a time greater than two days from now
-    if datetime < (datetime.now(timezone.utc) + timedelta(days = 2)):
-        raise ValidationError('You need to book this appointment at least two days ahead.')
-    return datetime
 
 class AppointmentSerializer(serializers.ModelSerializer):
 
