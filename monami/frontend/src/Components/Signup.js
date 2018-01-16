@@ -17,14 +17,16 @@ class Signup extends React.Component {
     console.log(event.target);
     // const data = new FormData(event.target);
     const data = {
-      "first_name": event.target[0].value,
-      "last_name": event.target[1].value,
-      "email": event.target[2].value,
-      "image_url": event.target[3].value,
+      "username": event.target[0].value,
+      "password": event.target[1].value,
+      "first_name": event.target[2].value,
+      "last_name": event.target[3].value,
+      "email": event.target[4].value,
+      "image_url": event.target[5].value
     }
     console.log(data);
 
-    fetch('http://localhost:8000/users/', {
+    fetch('http://localhost:8000/users/', { //does this url need to be updated to send a user as an elderly user?
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
@@ -47,7 +49,7 @@ class Signup extends React.Component {
           <input id="username" name="username" type="text" />
 
           <label htmlFor="password">Password</label>
-          <input id="password" name="password" type="text" />
+          <input id="password" name="password" type="password" />
 
           <label htmlFor="first_name">First Name</label>
           <input id="first_name" name="first_name" type="text" />
