@@ -10,24 +10,25 @@ class Dashboard extends React.Component {
     }
   }
 
-  // fetchData() {
-  // const token = this.props.getToken();
-  // console.log(token);
-  // fetch('http://localhost:8000/appointments/', {
-  //   method: 'GET',
-  //   // body: JSON.stringify(data),
-  //   headers: {
-  //     'Content-Type': 'application/json;charset=UTF-8',
-  //     'Authorization': ` Token ${token}`
-  //   },
-  // }).then(response => response.json())
-  // .then(data => this.setState({appointments: data}));
-  // }
+  fetchData() {
+  const token = this.props.getToken();
+  console.log('inside fetchData');
+  console.log(token);
+  fetch('http://localhost:8000/appointments/', {
+    method: 'GET',
+    // body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8',
+      'Authorization': ` Token ${token}`
+    },
+  }).then(response => response.json())
+  .then(data => this.setState({appointments: data}));
+  }
 
-  // componentDidMount() {
-  //   this.fetchData();
-  //   // console.log(this.state.appointments);
-  // }
+  componentDidMount() {
+    this.fetchData();
+    // console.log(this.state.appointments);
+  }
 
   render() {
     const token = this.props.getToken();
