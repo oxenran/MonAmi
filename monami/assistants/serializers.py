@@ -58,7 +58,7 @@ class AppointmentSerializer(serializers.HyperlinkedModelSerializer):
     owner = serializers.ReadOnlyField( source='owner.id')
     # validate_user(owner)
     date = serializers.DateTimeField(validators=[time_warp])
-    assistant = serializers.HyperlinkedIdentityField(view_name='assistant-detail', format='html')
+    # assistant = serializers.HyperlinkedIdentityField(view_name='assistant-detail', format='html')
     # assistant = serializers.ReadOnlyField(source='assistant.id')
     # queryset = Appointment.objects.filter(owner=request.user)
     class Meta:
