@@ -24,6 +24,8 @@ class Header extends React.Component {
         </li>
         <li> <button><Link to='/BecomeAssistant'>Become an Assistant</Link></button>
         </li>
+        <li> <button><Link to='/Dashboard'>Dashboard</Link></button>
+        </li>
         <li><button><Link to='/Assistants'>Find Assistant</Link></button>
         </li>
         <li> <button><Link to='/Signup'>Sign Up</Link></button>
