@@ -20,8 +20,8 @@ def time_warp(datetime):
 def validate_user(value):
     assistant_list = Assistant.objects.filter(user = value)
     print('stripes')
-    if len(assistant_list) != 0:
-        raise ValidationError('You have an assistant account.  Assistants can not make appointments.'
+    if len(assistant_list) > 0:
+        raise ValidationError('You have an assistant account. Assistants can not make appointments.'
         )
     return value
 
@@ -55,7 +55,8 @@ class UserSerializer(serializers.ModelSerializer):
 
 class AppointmentSerializer(serializers.ModelSerializer):
 
-    owner = serializers.ReadOnlyField(validators=[validate_user], source='owner.username')
+    owner = serializers.ReadOnlyField( source='owner.id')
+    # validate_user(owner)
     date = serializers.DateTimeField(validators=[time_warp])
     # assistant = serializers.ReadOnlyField(source='assistant.id')
     # queryset = Appointment.objects.filter(owner=request.user)
