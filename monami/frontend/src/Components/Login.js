@@ -9,9 +9,9 @@ class Login extends React.Component {
     this.onLogin = this.props.onLogin;
   }
 
-  // clearForm = () => {
-  // document.getElementById("new-assistant-form").reset();
-  // }
+  clearForm = () => {
+  document.getElementById("login-form").reset();
+  }
 
   handleSubmit(event) {
     event.preventDefault();
@@ -59,7 +59,7 @@ class Login extends React.Component {
     //   .catch(err =>{
     //     alert("Sorry, unable to log in - incorrect log in information");
     // })
-    // this.clearForm();
+    this.clearForm();
   }
 
   // componentWillMount(){
