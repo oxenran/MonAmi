@@ -7,6 +7,7 @@ import Login from './Login';
 import BecomeAssistant from './BecomeAssistant';
 import Signup from './Signup';
 import AssistantViewPage from '../Pages/AssistantViewPage';
+import Dashboard from './Dashboard';
 
 
 
@@ -31,7 +32,10 @@ class Main extends React.Component {
       <Route path='/BecomeAssistant' component={BecomeAssistant}/>
       <Route path='/Signup' component={Signup}/>
       <Route path='/Login' render={(props) => (
-        <Login {...props} onLogin={this.props.onLogin}/>)}/>
+        <Login {...props} onLogin={this.props.onLogin} getToken={this.props.getToken}/>)}/>
+      <Route path='/Dashboard' render={(props) => (
+        <Dashboard {...props} getToken={this.props.getToken}/>)}
+        />
     </Switch>
   </main>
     )
