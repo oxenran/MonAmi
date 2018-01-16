@@ -27,6 +27,7 @@ class Login extends React.Component {
     }
     console.log(data);
 
+    var sendToken = '';
     const that = this;
 
     fetch(`http://localhost:8000/api-token-auth/`, {
@@ -35,12 +36,40 @@ class Login extends React.Component {
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
       },
-    }).then(function(response) {
-      return response.json();
     })
-    .then(function(responseJSON) {
-      that.props.onLogin(responseJSON.token);
-    });
+    .then(function(response) {
+  if(!response.ok) {
+    alert("Unable to log in - incorrect log in information.");
+    // throw new Error('Network response was not ok.');
+    // .catch(function(error) {
+      // console.log('There has been a problem with your fetch operation: ', error.message);
+  } else {
+    alert(`Successfully logged in as ${data.username}`);
+  return response.json();
+  }
+// }).then(function(response) {
+//   return response.json();
+})
+.then(function(responseJSON) {
+  if (!responseJSON) {
+    return
+  }else{
+    return sendToken = responseJSON.token;
+  }
+});
+
+that.props.onLogin(sendToken);
+// });
+
+    // .then(function(response) {
+    //   return response.json();
+    // })
+    // .then(function(responseJSON) {
+    //   that.props.onLogin(responseJSON.token);
+    // });
+
+
+
 
 
 
