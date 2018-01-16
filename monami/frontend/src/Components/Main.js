@@ -29,7 +29,8 @@ class Main extends React.Component {
         <AssistantsListPage {...props} getToken={this.props.getToken}/>)}/>
       <Route path='/Assistants/:id' render={(props) => (
         <AssistantViewPage {...props} getToken={this.props.getToken}/>)}/>
-      <Route path='/BecomeAssistant' component={BecomeAssistant}/>
+      <Route path='/BecomeAssistant' render={(props) => (
+        <BecomeAssistant {...props} getToken={this.props.getToken}/>)}/>
       <Route path='/Signup' component={Signup}/>
       <Route path='/Login' render={(props) => (
         <Login {...props} onLogin={this.props.onLogin} getToken={this.props.getToken}/>)}/>

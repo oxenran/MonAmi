@@ -9,8 +9,8 @@ const services = [
 ];
 
 class NewAssistantForm extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -49,6 +49,7 @@ class NewAssistantForm extends React.Component {
     }
     console.log(event.target);
     // const data = new FormData(event.target);
+    const token = this.props.getToken();
     const data = {
       "first_name": event.target[0].value,
       "last_name": event.target[1].value,
@@ -64,7 +65,8 @@ class NewAssistantForm extends React.Component {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
-        'Content-Type': 'application/json;charset=UTF-8'
+        'Content-Type': 'application/json;charset=UTF-8',
+        'Authorization': ` Token ${token}`
       },
     });
 
