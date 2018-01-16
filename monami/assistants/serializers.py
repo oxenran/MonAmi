@@ -21,8 +21,7 @@ def validate_user(value):
     assistant_list = Assistant.objects.filter(user = value)
     print('stripes')
     if len(assistant_list) != 0:
-        raise ValidationError(
-            ('You have an assistant account.  Assistants can not make appointments.')
+        raise ValidationError('You have an assistant account.  Assistants can not make appointments.'
         )
     return value
 
@@ -56,7 +55,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 class AppointmentSerializer(serializers.ModelSerializer):
 
-    owner = serializers.ReadOnlyField(source='owner.username',   validators=[validate_user])
+    owner = serializers.ReadOnlyField(validators=[validate_user], source='owner.username')
     date = serializers.DateTimeField(validators=[time_warp])
     # assistant = serializers.ReadOnlyField(source='assistant.id')
     # queryset = Appointment.objects.filter(owner=request.user)
