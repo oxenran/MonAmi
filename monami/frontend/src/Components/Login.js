@@ -9,9 +9,9 @@ class Login extends React.Component {
     this.onLogin = this.props.onLogin;
   }
 
-  // clearForm = () => {
-  // document.getElementById("new-assistant-form").reset();
-  // }
+  clearForm = () => {
+    document.getElementById("login-form").reset();
+  }
 
   handleSubmit(event) {
     event.preventDefault();
@@ -27,6 +27,7 @@ class Login extends React.Component {
     }
     console.log(data);
 
+    // var sendToken = '';
     const that = this;
 
     fetch(`http://localhost:8000/api-token-auth/`, {
@@ -35,39 +36,30 @@ class Login extends React.Component {
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
       },
-    }).then(function(response) {
-      return response.json();
     })
-    .then(function(responseJSON) {
+    .then(function(response) {
+      if(!response.ok) {
+        throw new Error('Network response was not ok.');
+      }
+      alert(`Successfully logged in as ${data.username}`);
+      return response.json();
+    }).then(function(responseJSON) {
       that.props.onLogin(responseJSON.token);
+      that.props.history.replace('/Assistants');
+    }).catch(function(error) {
+      alert("Unable to log in - incorrect log in information.");
+      console.log('There has been a problem with your fetch operation: ', error.message);
     });
 
-
-
-    // this.setState(
-    //   {
-    //     "token": data.token,
-    //     "username": data.username,
-    //     // "password":data.password
-    //   }
-    // )
-    // this.Auth.login(data.username, data.password)
-    //   .then(res =>{
-    //     alert(`Successfully logged in as ${data.username}`);
-    //     this.props.history.replace('/Assistants/');
-    //   })
-    //   .catch(err =>{
-    //     alert("Sorry, unable to log in - incorrect log in information");
-    // })
-    // this.clearForm();
+    this.clearForm();
   }
 
-  // componentWillMount(){
-  //   if(this.Auth.loggedIn())
-  //   this.props.history.replace('/Assistants/');
-  // }
-
   render(){
+    // console.log(this.props.getToken());
+    // if (this.props.getToken()) {
+    //   alert("You are already logged in!")
+    //   this.props.history.replace('/Dashboard/');
+    // }
     return(
       <div className="Login">
         <h2>Log Into Your Account</h2>

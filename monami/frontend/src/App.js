@@ -23,13 +23,15 @@ class App extends React.Component {
   }
 
   getToken() {
+    console.log('In get token');
+    console.log(this.state.token);
     return this.state.token;
   }
 
   render(){
     return(
     <div>
-      <Header onLogin={this.OnLoginFn}/>
+      <Header onLogin={this.OnLoginFn} getToken={this.getToken}/>
       <Main onLogin={this.OnLoginFn} getToken={this.getToken}/>
     </div>
     )
