@@ -32,7 +32,7 @@ class AssistantSerializer(serializers.ModelSerializer):
         user = serializers.ReadOnlyField(source='user.id')
         appointments = serializers.PrimaryKeyRelatedField(many=True, queryset=Appointment.objects.all())
         model = Assistant
-        fields = ('id', 'first_name', 'last_name', 'email', 'household', 'driver', 'companion', 'image_url', 'appointments', 'user')
+        fields = ('id', 'first_name', 'last_name', 'email', 'household', 'driver', 'companion', 'bio', 'image_url', 'appointments', 'user')
         read_only_fields = ['id', 'appointments', 'user']
 
 class UserSerializer(serializers.ModelSerializer):
@@ -53,11 +53,12 @@ class UserSerializer(serializers.ModelSerializer):
         user.save()
         return user
 
-class AppointmentSerializer(serializers.ModelSerializer):
+class AppointmentSerializer(serializers.HyperlinkedModelSerializer):
 
     owner = serializers.ReadOnlyField( source='owner.id')
     # validate_user(owner)
     date = serializers.DateTimeField(validators=[time_warp])
+    # assistant = serializers.HyperlinkedIdentityField(view_name='assistant-detail', format='html')
     # assistant = serializers.ReadOnlyField(source='assistant.id')
     # queryset = Appointment.objects.filter(owner=request.user)
     class Meta:
