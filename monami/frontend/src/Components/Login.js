@@ -45,7 +45,7 @@ class Login extends React.Component {
       return response.json();
     }).then(function(responseJSON) {
       that.props.onLogin(responseJSON.token);
-      that.props.history.replace('/Assistants/');
+      that.props.history.replace('/Assistants');
     }).catch(function(error) {
       alert("Unable to log in - incorrect log in information.");
       console.log('There has been a problem with your fetch operation: ', error.message);

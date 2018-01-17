@@ -26,14 +26,20 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount() {
+    console.log('inside component did mount')
+    const token = this.props.getToken();
+    console.log(token);
+    if (!token) {
+      alert("Sorry you must log in to view your dashboard");
+      this.props.history.replace('/Login');
+    }
     this.fetchData();
     // console.log(this.state.appointments);
   }
 
   render() {
-    const token = this.props.getToken();
-    console.log(token);
-    if (!this.state.appointments){
+
+    if (this.state.appointments = []){
       return (
         <h3>You do not have any appointments booked.</h3>
       )
