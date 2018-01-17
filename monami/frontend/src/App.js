@@ -23,6 +23,8 @@ class App extends React.Component {
   }
 
   getToken() {
+    console.log('In get token');
+    console.log(this.state.token);
     return this.state.token;
   }
 
