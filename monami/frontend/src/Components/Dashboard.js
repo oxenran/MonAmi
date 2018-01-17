@@ -32,8 +32,9 @@ class Dashboard extends React.Component {
     if (!token) {
       alert("Sorry you must log in to view your dashboard");
       this.props.history.replace('/Login');
-    }
+    }else{
     this.fetchData();
+    }
     // console.log(this.state.appointments);
   }
 
