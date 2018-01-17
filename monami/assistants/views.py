@@ -19,12 +19,13 @@ from rest_framework.reverse import reverse
 from rest_framework import renderers
 from django.views.decorators.csrf import ensure_csrf_cookie
 from assistants.permissions import IsOwnerOrReadOnly
+from assistants.permissions import IsAssistant
 from django.contrib.auth.hashers import make_password
 # import django_filters.rest_framework
 
 class AssistantList(generics.ListCreateAPIView):
     queryset = Assistant.objects.all()
-    permission_classes = (IsOwnerOrReadOnly,)
+    permission_classes = (IsOwnerOrReadOnly)
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
     serializer_class = AssistantSerializer
@@ -49,20 +50,21 @@ class UserDetail(generics.RetrieveUpdateAPIView):
 
 
 class AppointmentList(generics.ListCreateAPIView):
-    # permission_classes = (permissions.IsAuthenticated)
-    permission_classes = (IsOwnerOrReadOnly,)
+    permission_classes = (permissions.IsAuthenticated, IsOwnerOrReadOnly)
+
     def perform_create(self, serializer):
+        permission_classes = (IsAssistant,)
         serializer.save(owner=self.request.user)
     # assistant= self.request.assistant
     # queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer
 
     def get_queryset(self):
-    #     """
-    #     This view should return a list of all the appointments
-    #     for the currently authenticated user.
-    #     """
-        #
+        """
+        This view should return a list of all the appointments
+        for the currently authenticated user.
+        """
+        permission_classes = (IsOwnerOrReadOnly,)
         users = self.request.user
         assistants =  Assistant.objects.filter(user=users.id)
         # print('assistants')
