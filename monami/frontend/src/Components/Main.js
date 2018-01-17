@@ -31,7 +31,8 @@ class Main extends React.Component {
         <AssistantViewPage {...props} getToken={this.props.getToken}/>)}/>
       <Route path='/BecomeAssistant' render={(props) => (
         <BecomeAssistant {...props} getToken={this.props.getToken}/>)}/>
-      <Route path='/Signup' component={Signup}/>
+      <Route path='/Signup' render={(props) => (
+        <Signup {...props} onLogin={this.props.onLogin} getToken={this.props.getToken}/>)}/>
       <Route path='/Login' render={(props) => (
         this.props.getToken() ? (
           <Redirect to="/Dashboard"/> ) : (
