@@ -53,7 +53,7 @@ class UserSerializer(serializers.ModelSerializer):
         user.save()
         return user
 
-class AppointmentSerializer(serializers.HyperlinkedModelSerializer):
+class AppointmentSerializer(serializers.ModelSerializer):
 
     owner = serializers.ReadOnlyField( source='owner.id')
     # validate_user(owner)
