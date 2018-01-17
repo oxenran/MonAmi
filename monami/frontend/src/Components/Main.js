@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Home from './Home';
 // import AssistantsList from './AssistantsList';
 import AssistantsListPage from '../Pages/AssistantsListPage';
@@ -33,7 +33,9 @@ class Main extends React.Component {
         <BecomeAssistant {...props} getToken={this.props.getToken}/>)}/>
       <Route path='/Signup' component={Signup}/>
       <Route path='/Login' render={(props) => (
-        <Login {...props} onLogin={this.props.onLogin} getToken={this.props.getToken}/>)}/>
+        this.props.getToken() ? (
+          <Redirect to="/Dashboard"/> ) : (
+          <Login {...props} onLogin={this.props.onLogin} getToken={this.props.getToken}/>))}/>
       <Route path='/Dashboard' render={(props) => (
         <Dashboard {...props} getToken={this.props.getToken}/>)}
         />

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import LogButton from './LogButton';
 
 
 // The Header creates links that can be used to navigate
@@ -11,9 +12,13 @@ class Header extends React.Component {
   }
   handleLogout(){
     const token = '';
+    alert(`Successfully logged out!`);
     this.props.onLogin(token);
   }
+
+
   render(){
+
     return(
   <header className="headerstyle">
     <h2><span><Link to='/'>Mon Ami</Link></span> - providing assistance for the elderly</h2>
@@ -30,10 +35,7 @@ class Header extends React.Component {
         </li>
         <li> <button><Link to='/Signup'>Sign Up</Link></button>
         </li>
-        <li> <button><Link to='/Login'>Log In</Link></button>
-        </li>
-        <li>
-        <button type="button" className="logout" onClick={this.handleLogout}>Logout</button>
+        <li> <LogButton getToken={this.props.getToken}/>
         </li>
       </ul>
     </nav>
