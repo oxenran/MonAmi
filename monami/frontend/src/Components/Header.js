@@ -8,13 +8,9 @@ import LogButton from './LogButton';
 class Header extends React.Component {
   constructor(props){
     super(props)
-    this.handleLogout = this.handleLogout.bind(this);
+
   }
-  handleLogout(){
-    const token = '';
-    alert(`Successfully logged out!`);
-    this.props.onLogin(token);
-  }
+
 
 
   render(){
@@ -35,7 +31,7 @@ class Header extends React.Component {
         </li>
         <li> <button><Link to='/Signup'>Sign Up</Link></button>
         </li>
-        <li> <LogButton getToken={this.props.getToken}/>
+        <li> <LogButton onLogin={this.props.onLogin} getToken={this.props.getToken}/>
         </li>
       </ul>
     </nav>
