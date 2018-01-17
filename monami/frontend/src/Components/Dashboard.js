@@ -42,12 +42,16 @@ class Dashboard extends React.Component {
 
     if (this.state.appointments = []){
       return (
-        <h3>You do not have any appointments booked.</h3>
+        <div className="dashboard-appointments-list">
+          <h2>My Dashboard</h2>
+          <h3>You do not have any appointments booked.</h3>
+        </div>
       )
     } else {
       return(
         <div className="dashboard-appointments-list">
-          <h2>Appointments List</h2>
+          <h2>My Dashboard</h2>
+          <h3>Appointments List</h3>
           <AppointmentsList appointments={this.state.appointments} />
         </div>
       );
