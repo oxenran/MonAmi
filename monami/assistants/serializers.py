@@ -17,13 +17,13 @@ def time_warp(datetime):
         raise ValidationError('You need to book this appointment at least two days ahead.')
     return datetime
 
-def validate_user(value):
-    assistant_list = Assistant.objects.filter(user = value)
-    print('stripes')
-    if len(assistant_list) > 0:
-        raise ValidationError('You have an assistant account. Assistants can not make appointments.'
-        )
-    return value
+# def validate_owner(value):
+#     assistant_list = Assistant.objects.filter(user = value)
+#     # if len(assistant_list) > 0:
+#     if assistant_list.exists():
+#         raise ValidationError('You have an assistant account. Assistants can not make appointments.'
+#         )
+#     return value
 
 #serializers
 class AssistantSerializer(serializers.ModelSerializer):
@@ -55,12 +55,14 @@ class UserSerializer(serializers.ModelSerializer):
 
 class AppointmentSerializer(serializers.ModelSerializer):
 
-    owner = serializers.ReadOnlyField( source='owner.id')
-    # validate_user(owner)
+    owner = serializers.ReadOnlyField(source= 'owner.id')
     date = serializers.DateTimeField(validators=[time_warp])
-    # assistant = serializers.HyperlinkedIdentityField(view_name='assistant-detail', format='html')
+    # assistant = serializers.ReadOnlyField()
+     # serializers.HyperlinkedIdentityField(view_name='assistant-detail', format='html')
     # assistant = serializers.ReadOnlyField(source='assistant.id')
     # queryset = Appointment.objects.filter(owner=request.user)
+
+
     class Meta:
         model = Appointment
         fields = ('id', 'date', 'details', 'assistant', 'owner')
@@ -68,17 +70,5 @@ class AppointmentSerializer(serializers.ModelSerializer):
             UniqueTogetherValidator(
                 queryset=Appointment.objects.all(),
                 fields=('assistant', 'date')
-            ),
-            # UniqueForDateValidator(
-            #     queryset=Appointment.objects.all(),
-            #     field = 'owner',
-            #     date_field='date',
-            #     message = 'The User already as an appointment at this time'
-            # ),
-
-            #validate that date > datetime.now + timedelta(days= 2)
-            # UniqueTogetherValidator(
-            #     queryset=Appointment.objects.all(),
-            #     fields=('owner', 'date')
-            # ),
+            )
         ]

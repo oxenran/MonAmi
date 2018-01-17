@@ -1,4 +1,5 @@
 from rest_framework import permissions
+from assistants.models import Assistant
 
 class IsOwnerOrReadOnly(permissions.BasePermission):
     """
@@ -25,5 +26,9 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
 #         if request.method in permissions.SAFE_METHODS:
 #             return True
 #
-#         # Write permissions are only allowed to the owner of the snippet.
-#         return obj.owner == request.user
+#     # Write permissions are only allowed to the owner of the snippet.
+#     assistant_list = Assistant.objects.filter(user = request.user)
+#   if len(assistant_list) > 0:
+#     if assistant_list.exists():
+#
+#     return obj.owner == request.user
