@@ -58,21 +58,19 @@ class AppointmentList(generics.ListCreateAPIView):
     serializer_class = AppointmentSerializer
 
     def get_queryset(self):
-        """
-        This view should return a list of all the appointments
-        for the currently authenticated user.
-        """
-
-        user = self.request.user
-        assistants =  Assistant.objects.filter(user=user.id)
-        print('assistants')
-        print(assistants)
-        if assistants == []:
-            return Appointment.objects.filter(owner=user)
+    #     """
+    #     This view should return a list of all the appointments
+    #     for the currently authenticated user.
+    #     """
+        #
+        users = self.request.user
+        assistants =  Assistant.objects.filter(user=users.id)
+        # print('assistants')
+        if len(assistants) == 0:
+            return users.appointments
         else:
             assistantUser = assistants.first()
-            print('Assistant Appointments')
-            return Appointment.objects.filter(assistant= assistantUser)
+            return assistantUser.appointments
 
     # filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
     filter_backends = (DjangoFilterBackend,)
