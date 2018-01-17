@@ -25,7 +25,7 @@ class Dashboard extends React.Component {
   .then(data => this.setState({appointments: data}));
   }
 
-  componentDidMount() {
+  componentWillMount() {
     console.log('inside component did mount')
     const token = this.props.getToken();
     console.log(token);
