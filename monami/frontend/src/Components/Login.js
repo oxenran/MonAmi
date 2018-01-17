@@ -41,16 +41,13 @@ class Login extends React.Component {
   if(!response.ok) {
     alert("Unable to log in - incorrect log in information.");
     // throw new Error('Network response was not ok.');
-    // .catch(function(error) {
-      // console.log('There has been a problem with your fetch operation: ', error.message);
   } else {
     alert(`Successfully logged in as ${data.username}`);
   return response.json();
   }
-// }).then(function(response) {
-//   return response.json();
-})
-.then(function(responseJSON) {
+// }).catch(function(error) {
+//   console.log('There has been a problem with your fetch operation: ', error.message);
+}).then(function(responseJSON) {
   if (!responseJSON) {
     return
   }else{
