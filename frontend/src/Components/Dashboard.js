@@ -51,7 +51,6 @@ class Dashboard extends React.Component {
       return(
         <div className="dashboard-appointments-list">
           <h2>My Dashboard</h2>
-          <h3>Appointments List</h3>
           <AppointmentsList appointments={this.state.appointments} />
         </div>
       );

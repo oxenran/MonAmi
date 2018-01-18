@@ -129,3 +129,11 @@ body {
 .modal-container .modal, .modal-container .modal-backdrop {
   position: absolute;
 }
+
+.img-thumbnail {
+  width: 10vw;
+  /* padding: 2%; */
+  border-radius: 50%;
+  overflow:hidden;
+  border: none;
+}

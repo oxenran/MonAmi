@@ -4,6 +4,7 @@ import { Thumbnail } from 'react-bootstrap';
 import { Grid } from 'react-bootstrap';
 import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
+// require('datejs');
 
 class AppointmentItem extends React.Component {
   constructor(props) {
@@ -31,14 +32,23 @@ class AppointmentItem extends React.Component {
   }
 
   render(){
+    // 2018-01-30T09:00:00Z
+    let appointmentDate = new Date (this.props.appointment.date);
+    let day = appointmentDate.getDay();
+    let date = appointmentDate.getDate();
+    let month = appointmentDate.getMonth();
+    let year = appointmentDate.getFullYear();
+    let time = appointmentDate.getTime();
+    // // let time =
     return(
       <Grid>
 		    <Row>
     			<Col xs={6} md={4}>
-    				<Thumbnail src={this.state.assistant.image_url} alt="171x180" className="img-thumnail" id="profile-photo" >
+    				<Thumbnail src={this.state.assistant.image_url} alt="assistant profile photo" bsStyle="circle" className="img-thumbnail circle" id="profile-photo" >
             </Thumbnail>
           </Col>
-          <Col xs={8} md={6}>
+          <Col xs={6} md={4}>
+              <h1>Month is {month} date is {date} time is {time}</h1>
     					<h3>{this.state.assistant.first_name} {this.state.assistant.last_name}</h3>
               <ul>
                 <li>{this.props.appointment.date}</li>
