@@ -1,19 +1,53 @@
 version: '3'
 
 services:
-  db:
-    image: postgres
-  web:
-    build: .
-    command: python3 gunicorn --bind 0.0.0.0:8000 /app/monami/monami.wsgi
+
+  nginx:
+    image: nginx:latest
+    container_name: ng_01
+    ports:
+      - "8000:8000"
     volumes:
       - .:/code
-    ports:
-      - "80:80"
-      - "3000:3000"
+      - ./config/nginx:/etc/nginx/conf.d
+    depends_on:
+      - web
+
+
+
+  web:
+    build: .
+    container_name: dg01
+    command: python3 gunicorn /app/monami/monami.wsgi
+    volumes:
+      - .:/code
+    # ports:
+    #   - "8000:8000"
+      # - "3000:3000"
     depends_on:
       - db
+    expose:
+      - "8000"
 
+  db:
+    image: postgres:latest
+    container_name: ps01
+
+# version: '3'
+
+# services:
+#   db:
+#     image: postgres
+#   web:
+#     build: .
+#     command: python3 gunicorn --bind 0.0.0.0:8000 /app/monami/monami.wsgi
+#     volumes:
+#       - .:/code
+#     ports:
+#       - "80:80"
+#       - "3000:3000"
+#     depends_on:
+#       - db
 # # Backend API container
 #   backend:
 #     container_name: monami_api
