@@ -1,67 +1,67 @@
+# version: '3'
+#
+# services:
+#
+#   nginx:
+#     image: nginx:latest
+#     container_name: ng_01
+#     ports:
+#       - "8000:8000"
+#     volumes:
+#       - .:/code
+#       - ./config/nginx:/etc/nginx/conf.d
+#     depends_on:
+#       - web
+#
+#
+#
+#   web:
+#     build: .
+#     container_name: dg01
+#     command: python3 gunicorn /app/monami/monami.wsgi
+#     volumes:
+#       - .:/code
+#     # ports:
+#     #   - "8000:8000"
+#       # - "3000:3000"
+#     depends_on:
+#       - db
+#     expose:
+#       - "8000"
+#
+#   db:
+#     image: postgres:latest
+#     container_name: ps01
+
 version: '3'
 
 services:
-
-  nginx:
-    image: nginx:latest
-    container_name: ng_01
-    ports:
-      - "8000:8000"
-    volumes:
-      - .:/code
-      - ./config/nginx:/etc/nginx/conf.d
-    depends_on:
-      - web
-
-
-
+  db:
+    image: postgres
   web:
     build: .
-    container_name: dg01
-    command: python3 gunicorn /app/monami/monami.wsgi
+    command: python3 gunicorn --bind 0.0.0.0:8000 /app/monami/monami.wsgi
     volumes:
       - .:/code
-    # ports:
-    #   - "8000:8000"
-      # - "3000:3000"
+    ports:
+      - "80:80"
+      - "3000:3000"
     depends_on:
       - db
-    expose:
-      - "8000"
-
-  db:
-    image: postgres:latest
-    container_name: ps01
-
-# version: '3'
-
-# services:
-#   db:
-#     image: postgres
-#   web:
-#     build: .
-#     command: python3 gunicorn --bind 0.0.0.0:8000 /app/monami/monami.wsgi
-#     volumes:
-#       - .:/code
-#     ports:
-#       - "80:80"
-#       - "3000:3000"
-#     depends_on:
-#       - db
-# # Backend API container
-#   backend:
-#     container_name: monami_api
-#     # Create a volume so I could edit the code without rebuilding container
-#     volumes:
-#       - ./backend:/home/blog/backend
-#     # Taking password, databasename, etc from the env variables file
-#     env_file: ./backend/config/env
-#     # Switch to this directory
-#     working_dir: /home/blog/backend
-#     # Run this command on start up, to launch a supervisor
-#     command: supervisord -n
-#     # Connect it to the postgres container
-#     depends_on:
-#       - postgres
-#     links:
-#       - postgres
+# Backend API container
+  # backend:
+  #   container_name: monami_api
+  #   # Create a volume so I could edit the code without rebuilding container
+  #   volumes:
+  #     - ./backend:/home/blog/backend
+  #   # Taking password, databasename, etc from the env variables file
+  #   env_file: ./backend/config/env
+  #   # Switch to this directory
+  #   working_dir: /home/blog/backend
+  #   # Run this command on start up, to launch a supervisor
+  #   command: supervisord -n
+  #   # Connect it to the postgres container
+  #   depends_on:
+  #     - postgres
+  #   links:
+  #     - postgres
