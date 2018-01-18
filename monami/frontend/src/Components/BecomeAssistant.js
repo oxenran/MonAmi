@@ -6,6 +6,17 @@ class BecomeAssistant extends React.Component {
   constructor(props){
     super(props)
   }
+
+  componentWillMount() {
+    console.log('inside component did mount')
+    const token = this.props.getToken();
+    console.log(token);
+    if (!token) {
+      alert(`Sorry you must log in or sign up to become an assistant.`);
+      this.props.history.replace('/Login');
+    }
+  }
+
   render(){
     return(
       <div className="BecomeAssistant">
