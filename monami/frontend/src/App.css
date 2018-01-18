@@ -1,3 +1,9 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
+
 body {
   background-image: url('https://images.unsplash.com/photo-1505860125062-3ce932953cf5?auto=format&fit=crop&w=634&q=80');
   background-size: cover;
@@ -116,4 +122,10 @@ body {
   height: 30%;
   font-size: 2em;
   background-color: #60AA9F;
+}
+.modal-container {
+  position: relative;
+}
+.modal-container .modal, .modal-container .modal-backdrop {
+  position: absolute;
 }

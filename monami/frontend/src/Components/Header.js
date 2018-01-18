@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import LogButton from './LogButton';
+import { Button } from 'react-bootstrap';
 
 
 // The Header creates links that can be used to navigate
@@ -21,7 +22,7 @@ class Header extends React.Component {
 
     <nav className="navbar">
       <ul>
-        <li> <button><Link to='/'>Home</Link></button>
+        <li> <Button><Link to='/'>Home</Link></Button>
         </li>
         <li> <button><Link to='/BecomeAssistant'>Become an Assistant</Link></button>
         </li>
