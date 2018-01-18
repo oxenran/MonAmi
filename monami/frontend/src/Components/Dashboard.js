@@ -40,7 +40,7 @@ class Dashboard extends React.Component {
 
   render() {
 
-    if (this.state.appointments = []){
+    if (this.state.appointments === []){
       return (
         <div className="dashboard-appointments-list">
           <h2>My Dashboard</h2>
