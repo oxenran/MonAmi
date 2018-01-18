@@ -40,7 +40,7 @@ class AppointmentItem extends React.Component {
     // let year = appointmentDate.getFullYear();
     // let time = appointmentDate.getTime();
     // // let time =
-    let dateString = dateFormat(appointmentDate, "dddd, mmmm, yyyy, h:mm TT", true);
+    let dateString = dateFormat(appointmentDate, "dddd, dS mmmm yyyy h:MM TT", true);
     return(
       <Grid>
 		    <Row>
