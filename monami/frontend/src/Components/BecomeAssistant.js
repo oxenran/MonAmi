@@ -18,9 +18,9 @@ class BecomeAssistant extends React.Component {
   }
 
   render(){
-    if (!this.state.token) {
-      return <ModalInstance />
-    }
+    // if (!this.state.token) {
+    //   return <ModalInstance />
+    // }
     return(
       <div className="BecomeAssistant">
         <h2>Become an Assistant</h2>

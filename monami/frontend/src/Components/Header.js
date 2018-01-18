@@ -24,13 +24,13 @@ class Header extends React.Component {
       <ul>
         <li> <Button><Link to='/'>Home</Link></Button>
         </li>
-        <li> <button><Link to='/BecomeAssistant'>Become an Assistant</Link></button>
+        <li> <Button><Link to='/BecomeAssistant'>Become an Assistant</Link></Button>
         </li>
-        <li> <button><Link to='/Dashboard'>Dashboard</Link></button>
+        <li> <Button><Link to='/Dashboard'>Dashboard</Link></Button>
         </li>
-        <li><button><Link to='/Assistants'>Find Assistant</Link></button>
+        <li><Button><Link to='/Assistants'>Find Assistant</Link></Button>
         </li>
-        <li> <button><Link to='/Signup'>Sign Up</Link></button>
+        <li> <Button><Link to='/Signup'>Sign Up</Link></Button>
         </li>
         <li> <LogButton onLogin={this.props.onLogin} getToken={this.props.getToken}/>
         </li>

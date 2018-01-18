@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DjangoCSRFToken from 'django-react-csrftoken';
+import { Form, FormControl, Button } from 'react-bootstrap';
 
 
 class Login extends React.Component {
@@ -64,16 +65,16 @@ class Login extends React.Component {
       <div className="Login">
         <h2>Log Into Your Account</h2>
 
-        <form onSubmit={this.handleSubmit} id="login-form">
+        <Form inline onSubmit={this.handleSubmit} id="login-form">
           <DjangoCSRFToken/>
           <label htmlFor="username">Username</label>
-          <input id="username" name="username" type="text" />
+          <FormControl id="username" name="username" type="text" />
 
           <label htmlFor="password">Password</label>
-          <input id="password" name="password" type="password" />
+          <FormControl id="password" name="password" type="password" />
 
-          <input type="submit" value="SUBMIT"></input>
-        </form>
+          <FormControl type="submit" value="SUBMIT"></FormControl>
+        </Form>
 
         <aside>
           <h4>Optional: Are you an Assistant?  Click here to Login</h4>
