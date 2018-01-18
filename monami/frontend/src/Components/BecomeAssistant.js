@@ -12,7 +12,7 @@ class BecomeAssistant extends React.Component {
     const token = this.props.getToken();
     console.log(token);
     if (!token) {
-      alert(`Sorry you must log in or sign up to view your dashboard`);
+      alert(`Sorry you must log in or sign up to become an assistant.`);
       this.props.history.replace('/Login');
     }
   }
