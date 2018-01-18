@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 class LogButton extends React.Component {
   constructor(props){
@@ -8,11 +9,11 @@ class LogButton extends React.Component {
   render() {
     if (this.props.getToken()) {
       return (
-        <button type="button" className="logout" onClick={this.handleLogout}>Logout</button>
+        <Button type="button" className="logout" onClick={this.handleLogout}>Logout</Button>
       )
     } else {
       return (
-        <button><Link to='/Login'>Log In</Link></button>
+        <Button><Link to='/Login'>Log In</Link></Button>
 
       )
     }

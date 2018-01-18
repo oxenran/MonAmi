@@ -1,23 +1,26 @@
 import React, { Component } from 'react';
-import NewAssistantForm from './NewAssistantForm'
-
+import NewAssistantForm from './NewAssistantForm';
+import ModalInstance from './ModalInstance';
 
 class BecomeAssistant extends React.Component {
   constructor(props){
     super(props)
+    this.state = {
+      token: ''
+    }
   }
 
   componentWillMount() {
     console.log('inside component did mount')
-    const token = this.props.getToken();
-    console.log(token);
-    if (!token) {
-      alert(`Sorry you must log in or sign up to become an assistant.`);
-      this.props.history.replace('/Login');
-    }
+    const currentToken = this.props.getToken();
+    this.setState({token: currentToken});
+
   }
 
   render(){
+    // if (!this.state.token) {
+    //   return <ModalInstance />
+    // }
     return(
       <div className="BecomeAssistant">
         <h2>Become an Assistant</h2>
