@@ -13,6 +13,7 @@ class App extends React.Component {
     }
     this.OnLoginFn = this.OnLoginFn.bind(this);
     this.getToken = this.getToken.bind(this);
+    this.OnLogOut = this.OnLogOut.bind(this);
   }
   OnLoginFn(logintoken){
     //make it take the token
@@ -21,6 +22,14 @@ class App extends React.Component {
     })
     localStorage.setItem('token', logintoken);
     console.log("App OnLoginFn was called");
+  }
+
+  OnLogOut() {
+    console.log("App OnLogOut was called");
+    this.setState( {
+      token: ''
+    })
+    localStorage.removeItem('token');
   }
   //need to separate this to make a separate log out function
 
@@ -33,7 +42,7 @@ class App extends React.Component {
   render(){
     return(
     <div>
-      <Header onLogin={this.OnLoginFn} getToken={this.getToken}/>
+      <Header onLogin={this.OnLoginFn} getToken={this.getToken} onLogout={this.OnLogOut}/>
       <Main onLogin={this.OnLoginFn} getToken={this.getToken}/>
     </div>
     )

@@ -48,6 +48,7 @@ body {
 /* HEADER AND NAV BAR STYLING */
 .navbar {
   /* width: 100%; */
+  max-width: 5000px;
 }
 .navbar li {
   display: inline-block;

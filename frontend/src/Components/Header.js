@@ -9,7 +9,32 @@ import { Button, Grid, Col, Row } from 'react-bootstrap';
 class Header extends React.Component {
   constructor(props){
     super(props)
+    this.state = {
+      logButtonText: ''
+    }
+  }
 
+  componentWillMount() {
+    if (!this.props.getToken()) {
+      this.setState({logButtonText: "Login"});
+    }else{
+      this.setState({logButtonText: "Logout"});
+    }
+  }
+
+  componentWillReceiveProps() {
+    if (!this.props.getToken()) {
+      this.setState({logButtonText: "Login"});
+    }else{
+      this.setState({logButtonText: "Logout"});
+    }
+  }
+
+  handleLog() {
+    if (this.props.getToken()) {
+      this.props.onLogout();
+      this.setState({logButtonText: "Login"});
+    }
   }
 
   render(){
@@ -39,7 +64,7 @@ class Header extends React.Component {
             </li>
             <li> <Button><Link to='/Signup'>Sign Up</Link></Button>
             </li>
-            <li> <LogButton onLogin={this.props.onLogin} getToken={this.props.getToken}/>
+            <li> <Button className="log" onClick={this.handleLog.bind(this)}><Link to='/Login'>{this.state.logButtonText}</Link></Button>
             </li>
           </ul>
         </div>
