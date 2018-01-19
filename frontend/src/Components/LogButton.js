@@ -19,11 +19,11 @@ class LogButton extends React.Component {
   render() {
     if (this.props.getToken()) {
       return (
-        <Button type="button" className="logout" onClick={this.handleLogout.bind(this)}>Logout</Button>
+        <Button type="button" className="log" onClick={this.handleLogout.bind(this)}>Logout</Button>
       )
     } else {
       return (
-        <Button><Link to='/Login'>Log In</Link></Button>
+        <Button type="button" classname="log"><Link to='/Login'>Log In</Link></Button>
 
       )
     }

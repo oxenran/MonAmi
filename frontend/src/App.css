@@ -46,7 +46,9 @@ body {
 } */
 
 /* HEADER AND NAV BAR STYLING */
-
+.navbar {
+  /* width: 100%; */
+}
 .navbar li {
   display: inline-block;
   margin: 0 1% 1% 1%;
@@ -55,7 +57,7 @@ body {
 .navbar button {
   background-color: #90C0AF;
   font-size: 1em;
-  width: 300px;
+  width: 125px;
   border: none;
   border-radius: 3rem;
 }
@@ -63,7 +65,7 @@ body {
 .headerstyle {
   margin-top: none;
   background-color: #60AA9F;
-  margin-top: -50px;
+  /* margin-top: -50px; */
   padding: 10px;
 }
 
@@ -80,7 +82,9 @@ body {
   font-size: 2em;
   font-family: cursive;
 }
-
+.log button {
+  display: inline-block;
+}
 
 /* ASSISTANTS LIST STYLES */
 
