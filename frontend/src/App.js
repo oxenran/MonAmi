@@ -22,6 +22,7 @@ class App extends React.Component {
     localStorage.setItem('token', logintoken);
     console.log("App OnLoginFn was called");
   }
+  //need to separate this to make a separate log out function
 
   getToken() {
     console.log('In get token');
