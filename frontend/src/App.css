@@ -63,6 +63,10 @@ body {
   border-radius: 3rem;
 }
 
+#nav-toggler {
+  width: 75px;
+}
+
 .headerstyle {
   margin-top: none;
   background-color: #60AA9F;

@@ -44,7 +44,7 @@ class Header extends React.Component {
     <h2><span><Link to='/'>Mon Ami</Link></span> - providing assistance for the elderly</h2>
 
     <nav className="navbar navbar-toggleable-sm navbar-light">
-      <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <button id="nav-toggler" className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
       </button>
       <a className="navbar-brand" href="#"></a>

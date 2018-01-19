@@ -28,7 +28,6 @@ class AssistantViewPage extends React.Component {
   render() {
     return(
       <div className="AssistantsViewPage">
-        <h2>Individual Assistant Page</h2>
         <Assistant assistant={this.state.assistant}/>
         <AppointmentBookingForm assistant={this.state.assistant}  getToken={this.props.getToken}/>
       </div>
