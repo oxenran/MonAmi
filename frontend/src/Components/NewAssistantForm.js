@@ -9,6 +9,10 @@ const services = [
 'Companion',
 ];
 
+const serviceIconURLS = [
+  'https://openclipart.org/image/2400px/svg_to_png/28497/purzen-House-icon.png'
+]
+
 class NewAssistantForm extends React.Component {
   constructor(props) {
     super(props);
@@ -30,6 +34,7 @@ class NewAssistantForm extends React.Component {
   createCheckbox = label => (
     <ServicesCheckbox
       label={label}
+      url={url}
       handleCheckboxChange={this.toggleCheckbox}
       key={label}
     />
@@ -86,28 +91,28 @@ class NewAssistantForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} id="new-assistant-form">
         <FormGroup controlId="formHorizontalFirstName">
-          <Col componentClass={ControlLabel} sm={2}>
+          <Col componentClass={ControlLabel} sm={2} lg={1}>
             First Name
           </Col>
-          <Col sm={10}>
+          <Col sm={10} lg={4}>
     				<FormControl type="text" placeholder="First Name" />
     			</Col>
         </FormGroup>
 
         <FormGroup controlId="formHorizontalLastName">
-          <Col componentClass={ControlLabel} sm={2}>
+          <Col componentClass={ControlLabel} sm={2} lg={1}>
             Last Name
           </Col>
-          <Col sm={10}>
+          <Col sm={10} lg={4}>
             <FormControl type="text" placeholder="Last Name" />
           </Col>
         </FormGroup>
 
         <FormGroup controlId="formHorizontalEmail">
-          <Col componentClass={ControlLabel} sm={2}>
+          <Col componentClass={ControlLabel} sm={2} lg={1}>
             Email
           </Col>
-          <Col sm={10}>
+          <Col sm={10} lg={4}>
             <FormControl type="email" placeholder="Email" />
           </Col>
         </FormGroup>
@@ -116,7 +121,7 @@ class NewAssistantForm extends React.Component {
           <Col componentClass={ControlLabel} sm={10}>
             Please enter the URL of the image you would like to use as your profile photo.
           </Col>
-          <Col sm={10}>
+          <Col sm={10} lg={4}>
             <FormControl type="text" placeholder="Image URL" />
           </Col>
         </FormGroup>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FormGroup, FormControl, ControlLabel, Col, Checkbox, Image } from 'react-bootstrap';
 
 class ServicesCheckbox extends Component {
   state = {
@@ -22,16 +23,19 @@ class ServicesCheckbox extends Component {
     const { isChecked } = this.state;
 
     return (
-
-        <label>
-          <input
-            type="checkbox"
-            value={label}
-            checked={isChecked}
-            onChange={this.toggleCheckboxChange}
-          />
+      <FormGroup controlId="formServicesCheckboxes">
+        <Col componentClass={ControlLabel} sm={4}>
           {label}
-        </label>
+          <Image src="https://openclipart.org/image/2400px/svg_to_png/28497/purzen-House-icon.png" alt="service icon"  className="img-thumbnail circle responsive" id="service-icon" >
+          </Image>
+        </Col>
+        <Col sm={10} lg={4}>
+          <Checkbox inline checked={isChecked}
+          onChange={this.toggleCheckboxChange}>
+          </Checkbox>
+        </Col>
+      </FormGroup>
+
 
     );
   }
