@@ -12,6 +12,10 @@ body {
   /* background-position: center; */
 }
 
+main {
+  margin: 2% 3%;
+}
+
 /* .banner {
   background-color: lightgreen;
 } */
