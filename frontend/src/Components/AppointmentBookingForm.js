@@ -61,7 +61,7 @@ class AppointmentBookingForm extends React.Component {
     console.log(time);
     const data = {
       "date": dateTime,
-      "assistant": `http://localhost:8000/assistants/${this.props.assistant.id}/`,
+      "assistant": this.props.assistant.id,
       "details": event.target[2].value,
       // "owner": this.state.token
       // "time": event.target[1].value,

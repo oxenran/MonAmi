@@ -46,7 +46,10 @@ body {
 } */
 
 /* HEADER AND NAV BAR STYLING */
-
+.navbar ul {
+  width: 100%;
+  /* max-width: 5000px; */
+}
 .navbar li {
   display: inline-block;
   margin: 0 1% 1% 1%;
@@ -55,15 +58,19 @@ body {
 .navbar button {
   background-color: #90C0AF;
   font-size: 1em;
-  width: 300px;
+  width: 150px;
   border: none;
   border-radius: 3rem;
+}
+
+#nav-toggler {
+  width: 75px;
 }
 
 .headerstyle {
   margin-top: none;
   background-color: #60AA9F;
-  margin-top: -50px;
+  /* margin-top: -50px; */
   padding: 10px;
 }
 
@@ -80,7 +87,9 @@ body {
   font-size: 2em;
   font-family: cursive;
 }
-
+.log button {
+  display: inline-block;
+}
 
 /* ASSISTANTS LIST STYLES */
 
@@ -128,4 +137,12 @@ body {
 }
 .modal-container .modal, .modal-container .modal-backdrop {
   position: absolute;
+}
+
+.img-thumbnail {
+  width: 10vw;
+  /* padding: 2%; */
+  border-radius: 50%;
+  overflow:hidden;
+  border: none;
 }
