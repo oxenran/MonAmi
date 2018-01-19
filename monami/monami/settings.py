@@ -169,7 +169,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 #tells Django to place them in a directory called static in the base project directory
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+STATIC_ROOT = os.path.join(BASE_DIR,"..", "www", "static/")
 
 WEBPACK_LOADER = {
     'DEFAULT': {
