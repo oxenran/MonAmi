@@ -19,13 +19,14 @@ class App extends React.Component {
     this.setState( {
       token: logintoken
     })
+    localStorage.setItem('token', logintoken);
     console.log("App OnLoginFn was called");
   }
 
   getToken() {
     console.log('In get token');
-    console.log(this.state.token);
-    return this.state.token;
+    console.log(localStorage.getItem('token'));
+    return localStorage.getItem('token');
   }
 
   render(){
