@@ -46,9 +46,9 @@ body {
 } */
 
 /* HEADER AND NAV BAR STYLING */
-.navbar {
-  /* width: 100%; */
-  max-width: 5000px;
+.navbar ul {
+  width: 100%;
+  /* max-width: 5000px; */
 }
 .navbar li {
   display: inline-block;
@@ -58,7 +58,7 @@ body {
 .navbar button {
   background-color: #90C0AF;
   font-size: 1em;
-  width: 125px;
+  width: 150px;
   border: none;
   border-radius: 3rem;
 }

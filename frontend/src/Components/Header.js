@@ -51,8 +51,8 @@ class Header extends React.Component {
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
       <Grid>
         <Row>
-          <Col xs={12} md={12}>
-        <div className="navbar-nav">
+          <Col xs={12} md={12} lg={12}>
+        <div className="navbar-nav col-12">
           <ul>
             <li> <Button><Link to='/'>Home</Link></Button>
             </li>
