@@ -6,10 +6,20 @@ class LogButton extends React.Component {
   constructor(props){
     super(props);
   }
+
+  handleLogout() {
+    // if (!this.props.getToken()) {
+      this.props.onLogin('');
+    //   this.props.history.replace('/Home');
+    // }else{
+    //   this.props.history.replace('/Login');
+    // }
+  }
+
   render() {
     if (this.props.getToken()) {
       return (
-        <Button type="button" className="logout" onClick={this.handleLogout}>Logout</Button>
+        <Button type="button" className="logout" onClick={this.handleLogout.bind(this)} onLogin={this.props.onLogin}>Logout</Button>
       )
     } else {
       return (

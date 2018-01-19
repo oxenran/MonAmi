@@ -49,13 +49,12 @@ class AppointmentItem extends React.Component {
             </Image>
           </Col>
           <Col xs={6} md={6}>
-              <h1>{dateString}</h1>
-    					<h3>{this.state.assistant.first_name} {this.state.assistant.last_name}</h3>
-              <ul>
-                <li>{this.props.appointment.date}</li>
-                <li><Link to={`/assistants/${this.props.appointment.assistant}`}>Click here to View Profile or Book Again</Link>
-                </li>
-              </ul>
+              <h2>{dateString}</h2>
+              <h4>Details:</h4>
+                <p>{this.props.appointment.details}</p>
+    					<h3>Assistant: {this.state.assistant.first_name} {this.state.assistant.last_name}</h3>
+              <h4><Link to={`/assistants/${this.props.appointment.assistant}`}>View Profile or Book Again</Link>
+              </h4>
     			</Col>
         </Row>
       </Grid>
