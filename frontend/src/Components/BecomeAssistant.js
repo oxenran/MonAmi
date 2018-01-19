@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NewAssistantForm from './NewAssistantForm';
-import ModalInstance from './ModalInstance';
+
 
 class BecomeAssistant extends React.Component {
   constructor(props){

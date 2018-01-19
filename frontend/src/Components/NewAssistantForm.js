@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ServicesCheckbox from './ServicesCheckbox';
+import { FormGroup, FormControl, ControlLabel, Col } from 'react-bootstrap';
 
 
 const services = [
@@ -84,20 +85,45 @@ class NewAssistantForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} id="new-assistant-form">
-        <label htmlFor="first_name">First Name</label>
-        <input id="first_name" name="first_name" type="text" />
+        <FormGroup controlId="formHorizontalFirstName">
+          <Col componentClass={ControlLabel} sm={2}>
+            First Name
+          </Col>
+          <Col sm={10}>
+    				<FormControl type="text" placeholder="First Name" />
+    			</Col>
+        </FormGroup>
 
-        <label htmlFor="last_name">Last Name</label>
-        <input id="last_name" name="last_name" type="text" />
+        <FormGroup controlId="formHorizontalLastName">
+          <Col componentClass={ControlLabel} sm={2}>
+            Last Name
+          </Col>
+          <Col sm={10}>
+            <FormControl type="text" placeholder="Last Name" />
+          </Col>
+        </FormGroup>
 
-        <label htmlFor="email">Enter your email</label>
-        <input id="email" name="email" type="email" />
+        <FormGroup controlId="formHorizontalEmail">
+          <Col componentClass={ControlLabel} sm={2}>
+            Email
+          </Col>
+          <Col sm={10}>
+            <FormControl type="email" placeholder="Email" />
+          </Col>
+        </FormGroup>
 
-        <label htmlFor="image_url">Enter the image url for your profile photo</label>
-        <input id="image_url" name="image_url" type="text" />
+        <FormGroup controlId="formHorizontalImageURL">
+          <Col componentClass={ControlLabel} sm={10}>
+            Please enter the URL of the image you would like to use as your profile photo.
+          </Col>
+          <Col sm={10}>
+            <FormControl type="text" placeholder="Image URL" />
+          </Col>
+        </FormGroup>
 
         {this.createCheckboxes()}
         <input type="submit" value="SUBMIT"></input>
+
       </form>
     );
   }
