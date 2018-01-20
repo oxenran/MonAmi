@@ -150,3 +150,8 @@ main {
   overflow:hidden;
   border: none;
 }
+
+#service-icons {
+  border-radius: 3%;
+  /* display: inline-block; */
+}

@@ -17,8 +17,7 @@ class AssistantsList extends React.Component {
     }
     return(
       <div className="AssistantsList">
-      <p>Category Selection boxes will go here</p>
-      <p>Assistants search results: </p>
+      <h3>Assistants</h3>
       {assistantItems}
       </div>
     );
