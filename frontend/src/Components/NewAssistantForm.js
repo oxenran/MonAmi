@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ServicesCheckbox from './ServicesCheckbox';
-import { Form, FormGroup, FormControl, ControlLabel, Col, Row } from 'react-bootstrap';
+import { Button, Form, FormGroup, FormControl, ControlLabel, Col, Row } from 'react-bootstrap';
 
 
 const services = [
@@ -127,12 +127,14 @@ class NewAssistantForm extends React.Component {
           </Col>
         </FormGroup>
         <FormGroup controlId="formServicesCheckboxes">
-        <Col sm={12} lgOffset={3} lg={8}>
-        {this.createCheckboxes()}
-        </Col>
+          <Col sm={12} lgOffset={3} lg={8}>
+            {this.createCheckboxes()}
+          </Col>
         </FormGroup>
-        <input type="submit" value="SUBMIT"></input>
-      </Form>
+          <Col sm={10} lg={6}>
+            <Button bsStyle="primary" type="Submit">Submit</Button>
+          </Col>
+        </Form>
       </Col>
     );
   }
