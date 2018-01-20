@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AssistantItem from '../Components/AssistantItem.js';
 import AssistantsList from '../Components/AssistantsList.js';
 import ServicesCheckbox from '../Components/ServicesCheckbox.js';
-import { Image } from 'react-bootstrap';
+import { Image, Col, Checkbox } from 'react-bootstrap';
 
 const services = {
   household: {
@@ -32,6 +32,7 @@ class AssistantsListPage extends React.Component {
   toggleService(service) {
     const update = {};
     update[service] = !this.state[service];
+    console.log("Changing state of service"+this.state[service]);
     this.setState(update, () => {
       console.log(this.state);
       this.fetchData();
@@ -44,17 +45,18 @@ class AssistantsListPage extends React.Component {
 
   //
   createCheckbox = (service) => {
+    const iconClass = this.state[service] ? "icon-checked img-thumbnail circle responsive" : "img-thumbnail circle responsive"
     return (
+      <Col sm={3}lg={4}>
       <div key={service}>
         {services[service].name}
-        <Image src={services[service].url} alt="service icon"  className="img-thumbnail rounded responsive" id="service-icon" id="service-icon" >
+        <Image src={services[service].url} alt="service icon"  className={iconClass} id="service-icon" id="service-icon" onClick={() => this.toggleService(service)}>
         </Image>
-        <input
-          type="checkbox"
-          onClick={() => this.toggleService(service)}
-          checked={this.state[service]}
-        />
+        <Checkbox inline className="hidden"
+          checked={this.state[service]}>
+        </Checkbox>
       </div>
+      </Col>
     )
   }
 
@@ -90,8 +92,9 @@ class AssistantsListPage extends React.Component {
   render() {
     return(
       <div className="AssistantsListPage">
-        <h2>Assistants List</h2>
+        <Col sm={12} lg={10}>
         {this.createCheckboxes()}
+        </Col>
         <AssistantsList assistants={this.state.assistants} />
       </div>
     );
