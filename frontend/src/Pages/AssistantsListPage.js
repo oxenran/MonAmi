@@ -2,11 +2,18 @@ import React, { Component } from 'react';
 import AssistantItem from '../Components/AssistantItem.js';
 import AssistantsList from '../Components/AssistantsList.js';
 import ServicesCheckbox from '../Components/ServicesCheckbox.js';
+import { Image } from 'react-bootstrap';
 
 const services = {
-  household: 'Household Help',
-  driver: 'Driver',
-  companion: 'Companion'
+  household: {
+    name: 'Household Help', url: 'https://openclipart.org/image/2400px/svg_to_png/28497/purzen-House-icon.png'
+  },
+  driver: {
+    name: 'Driver', url: 'https://openclipart.org/image/2400px/svg_to_png/28497/purzen-House-icon.png'
+  },
+  companion: {
+    name: 'Companion', url: 'https://openclipart.org/image/2400px/svg_to_png/28497/purzen-House-icon.png'
+  }
 };
 
 const URL = 'http://localhost:8000/assistants/'
@@ -39,7 +46,9 @@ class AssistantsListPage extends React.Component {
   createCheckbox = (service) => {
     return (
       <div key={service}>
-        {services[service]}
+        {services[service].name}
+        <Image src={services[service].url} alt="service icon"  className="img-thumbnail circle responsive" id="service-icon" >
+        </Image>
         <input
           type="checkbox"
           onClick={() => this.toggleService(service)}
