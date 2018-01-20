@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ServicesCheckbox from './ServicesCheckbox';
-import { FormGroup, FormControl, ControlLabel, Col, Row } from 'react-bootstrap';
+import { Form, FormGroup, FormControl, ControlLabel, Col, Row } from 'react-bootstrap';
 
 
 const services = [
@@ -89,45 +89,51 @@ class NewAssistantForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} id="new-assistant-form">
+      <Col md={10}>
+      <Form horizontal onSubmit={this.handleSubmit} id="new-assistant-form">
         <FormGroup controlId="formHorizontalFirstName">
-          <Col componentClass={ControlLabel} sm={2} lg={1}>
+          <Col componentClass={ControlLabel} sm={2} lg={4}>
             First Name
           </Col>
-          <Col sm={10} lg={4}>
+          <Col sm={10} lg={6}>
     				<FormControl type="text" placeholder="First Name" />
     			</Col>
         </FormGroup>
 
         <FormGroup controlId="formHorizontalLastName">
-          <Col componentClass={ControlLabel} sm={2} lg={1}>
+          <Col componentClass={ControlLabel} sm={2} lg={4}>
             Last Name
           </Col>
-          <Col sm={10} lg={4}>
+          <Col sm={10} lg={6}>
             <FormControl type="text" placeholder="Last Name" />
           </Col>
         </FormGroup>
 
         <FormGroup controlId="formHorizontalEmail">
-          <Col componentClass={ControlLabel} sm={2} lg={1}>
+          <Col componentClass={ControlLabel} sm={2} lg={4}>
             Email
           </Col>
-          <Col sm={10} lg={4}>
+          <Col sm={10} lg={6}>
             <FormControl type="email" placeholder="Email" />
           </Col>
         </FormGroup>
 
         <FormGroup controlId="formHorizontalImageURL">
-          <Col componentClass={ControlLabel} sm={10}>
-            Please enter the URL of the image you would like to use as your profile photo.
+          <Col componentClass={ControlLabel} sm={2} lg={4}>
+          Image URL
           </Col>
-          <Col sm={10} lg={4}>
-            <FormControl type="text" placeholder="Image URL" />
+          <Col sm={10} lg={6}>
+            <FormControl type="text" placeholder="Enter the URL of your profile photo." />
           </Col>
         </FormGroup>
+        <FormGroup controlId="formServicesCheckboxes">
+        <Col sm={12} lgOffset={3} lg={8}>
         {this.createCheckboxes()}
+        </Col>
+        </FormGroup>
         <input type="submit" value="SUBMIT"></input>
-      </form>
+      </Form>
+      </Col>
     );
   }
 }
