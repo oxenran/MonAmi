@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import ServicesCheckbox from './ServicesCheckbox';
-import { FormGroup, FormControl, ControlLabel, Col } from 'react-bootstrap';
+import { FormGroup, FormControl, ControlLabel, Col, Row } from 'react-bootstrap';
 
 
 const services = [
-'Household Help',
-'Driver',
-'Companion',
+  {name: 'Household Help', url: 'https://openclipart.org/image/2400px/svg_to_png/28497/purzen-House-icon.png'},
+  {name: 'Driver', url: 'https://openclipart.org/image/2400px/svg_to_png/28497/purzen-House-icon.png'},
+  {name: 'Companion', url: 'https://openclipart.org/image/2400px/svg_to_png/28497/purzen-House-icon.png'}
 ];
 
-const serviceIconURLS = [
-  'https://openclipart.org/image/2400px/svg_to_png/28497/purzen-House-icon.png'
-]
+// const serviceIconURLS = [
+//   'https://openclipart.org/image/2400px/svg_to_png/28497/purzen-House-icon.png'
+// ]
 
 class NewAssistantForm extends React.Component {
   constructor(props) {
@@ -31,12 +31,12 @@ class NewAssistantForm extends React.Component {
     }
   }
 
-  createCheckbox = label => (
+  createCheckbox = service => (
     <ServicesCheckbox
-      label={label}
-      url={url}
+      label={service.name}
+      url={service.url}
       handleCheckboxChange={this.toggleCheckbox}
-      key={label}
+      key={service.name}
     />
   )
 
@@ -125,10 +125,8 @@ class NewAssistantForm extends React.Component {
             <FormControl type="text" placeholder="Image URL" />
           </Col>
         </FormGroup>
-
         {this.createCheckboxes()}
         <input type="submit" value="SUBMIT"></input>
-
       </form>
     );
   }

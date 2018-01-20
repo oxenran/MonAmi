@@ -19,20 +19,20 @@ class ServicesCheckbox extends Component {
   }
 
   render() {
-    const { label } = this.props;
+    const { label, url } = this.props;   //same as const label = this.props.label; const { url } = this.props;
     const { isChecked } = this.state;
+
 
     return (
       <FormGroup controlId="formServicesCheckboxes">
-        <Col componentClass={ControlLabel} sm={4}>
+        <Col componentClass={ControlLabel} sm={4} lg={4}>
+          <label>
+          <Image src={url} alt="service icon"  className="img-thumbnail circle responsive" id="service-icon" />
           {label}
-          <Image src="https://openclipart.org/image/2400px/svg_to_png/28497/purzen-House-icon.png" alt="service icon"  className="img-thumbnail circle responsive" id="service-icon" >
-          </Image>
-        </Col>
-        <Col sm={10} lg={4}>
           <Checkbox inline checked={isChecked}
-          onChange={this.toggleCheckboxChange}>
+            onChange={this.toggleCheckboxChange}>
           </Checkbox>
+          </label>
         </Col>
       </FormGroup>
 
