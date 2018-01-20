@@ -5,8 +5,8 @@ import { FormGroup, FormControl, ControlLabel, Col, Row } from 'react-bootstrap'
 
 const services = [
   {name: 'Household Help', url: 'https://openclipart.org/image/2400px/svg_to_png/28497/purzen-House-icon.png'},
-  {name: 'Driver', url: 'https://openclipart.org/image/2400px/svg_to_png/28497/purzen-House-icon.png'},
-  {name: 'Companion', url: 'https://openclipart.org/image/2400px/svg_to_png/28497/purzen-House-icon.png'}
+  {name: 'Driver', url: 'https://cdn3.iconfinder.com/data/icons/car-maintenance-icons/348/Carpool-512.png'},
+  {name: 'Companion', url: 'http://sewendehemel.co.za/wp-content/uploads/2016/03/sharing.jpg'}
 ];
 
 // const serviceIconURLS = [

@@ -47,7 +47,7 @@ class AssistantsListPage extends React.Component {
     return (
       <div key={service}>
         {services[service].name}
-        <Image src={services[service].url} alt="service icon"  className="img-thumbnail rounded responsive" id="service-icon" id="service-icons" >
+        <Image src={services[service].url} alt="service icon"  className="img-thumbnail rounded responsive" id="service-icon" id="service-icon" >
         </Image>
         <input
           type="checkbox"
