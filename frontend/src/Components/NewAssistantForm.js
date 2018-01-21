@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ServicesCheckbox from './ServicesCheckbox';
 import { Button, Form, FormGroup, FormControl, ControlLabel, Col, Row } from 'react-bootstrap';
-import ICONHouseholdPDF from './ICONHouseholdPDF.pdf';
-
-var householdIcon = require('./ICONHouseholdPDF.pdf')
+// import ICONHouseholdPDF from './ICONHouseholdPDF.pdf';
+//
+// var householdIcon = require('./ICONHouseholdPDF.pdf')
 
 const services = [
   {name: 'Household Help', url: 'https://i.imgur.com/rKNTItm.png'},
