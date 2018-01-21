@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -91,7 +92,7 @@ class Signup extends React.Component {
           <label htmlFor="email">Email Address</label>
           <input id="email" name="email" type="email" />
 
-          <input type="submit" value="SUBMIT"></input>
+          <Button bsStyle="primary" type="submit">Submit</Button>
         </form>
       </div>
     )
