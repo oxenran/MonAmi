@@ -68,6 +68,7 @@ main {
   margin-bottom: 0%;
   max-width: 5000px;
   width: 100%;
+
 }
 .navbar ul {
   max-width: 5000px;
@@ -100,6 +101,7 @@ main {
   background-color: #60AA9F;
   /* margin-top: -50px; */
   padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .headerstyle a {
