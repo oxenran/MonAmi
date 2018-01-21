@@ -171,10 +171,22 @@ main {
   /* clear: right; */
   /* display: inline-block; */
 }
-#find-assistant-icon:hover {
+#find-assistant-icon:hover, #service-icon:hover{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .icon-checked {
   border: solid #45ADA0 15px;
+}
+
+/*APPOINTMENTS*/
+
+.appointment-div {
+  padding: 2%;
+  /* border: solid black 1px; */
+}
+
+.AppointmentsList article:nth-of-type(odd) {
+  background-color: lightgrey;
+
 }

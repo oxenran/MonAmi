@@ -36,22 +36,24 @@ class AppointmentItem extends React.Component {
     let appointmentDate = new Date (this.props.appointment.date);
     let dateString = dateFormat(appointmentDate, "dddd, dS mmmm yyyy h:MM TT", true);
     return(
-      <Grid>
-		    <Row>
-    			<Col xs={6} md={4}>
-    				<Image src={this.state.assistant.image_url} alt="assistant profile photo"  className="img-thumbnail circle responsive rounded-images smaller-images" id="profile-photo" >
-            </Image>
-          </Col>
-          <Col xs={6} md={6}>
-              <h2>{dateString}</h2>
-              <h4>Details:</h4>
-                <p>{this.props.appointment.details}</p>
-    					<h3>Assistant: {this.state.assistant.first_name} {this.state.assistant.last_name}</h3>
-              <h4><Link to={`/assistants/${this.props.appointment.assistant}`}>View Profile or Book Again</Link>
-              </h4>
-    			</Col>
-        </Row>
-      </Grid>
+      <article className="appointment-div">
+        <Grid>
+  		    <Row>
+      			<Col xs={6} md={4}>
+      				<Image src={this.state.assistant.image_url} alt="assistant profile photo"  className="img-thumbnail circle responsive rounded-images smaller-images" id="profile-photo" >
+              </Image>
+            </Col>
+            <Col xs={6} md={6}>
+                <h2>{dateString}</h2>
+                <h4>Details:</h4>
+                  <p>{this.props.appointment.details}</p>
+      					<h3>Assistant: {this.state.assistant.first_name} {this.state.assistant.last_name}</h3>
+                <h4><Link to={`/assistants/${this.props.appointment.assistant}`}>View Profile or Book Again</Link>
+                </h4>
+      			</Col>
+          </Row>
+        </Grid>
+      </article>
     );
   }
 }
