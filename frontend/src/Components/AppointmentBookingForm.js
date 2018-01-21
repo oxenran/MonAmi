@@ -59,7 +59,7 @@ class AppointmentBookingForm extends React.Component {
         <input id="time" name="time" type="time" />
 
         <label htmlFor="details">Details</label>
-        <input id="details" name="details" type="text" />
+        <input id="details" name="details" type="textarea" />
 
         <Button bsStyle="primary" type="submit">Book!</Button>
       </form>
