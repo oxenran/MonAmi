@@ -144,9 +144,31 @@ main {
 }
 
 .img-thumbnail {
-  width: 10vw;
+  /* width: 10vw; */
   /* padding: 2%; */
-  border-radius: 50%;
+  /* border-radius: 50%; */
   overflow:hidden;
   border: none;
+}
+
+.rounded-images {
+  border-radius: 50%;
+}
+.smaller-images {
+  width: 8vw;
+}
+
+#service-icon {
+  border-radius: 0%;
+  width: 10vw;
+  /* display: inline-block; */
+}
+#find-assistant-icon {
+  width: 15vw;
+  border-radius: 0%;
+  /* display: inline-block; */
+}
+
+.icon-checked {
+  border: solid blue 10px;
 }

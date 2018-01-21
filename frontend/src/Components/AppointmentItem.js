@@ -34,18 +34,12 @@ class AppointmentItem extends React.Component {
   render(){
     // 2018-01-30T09:00:00Z
     let appointmentDate = new Date (this.props.appointment.date);
-    // let day = appointmentDate.getDay();
-    // let date = appointmentDate.getDate();
-    // let month = appointmentDate.getMonth();
-    // let year = appointmentDate.getFullYear();
-    // let time = appointmentDate.getTime();
-    // // let time =
     let dateString = dateFormat(appointmentDate, "dddd, dS mmmm yyyy h:MM TT", true);
     return(
       <Grid>
 		    <Row>
     			<Col xs={6} md={4}>
-    				<Image src={this.state.assistant.image_url} alt="assistant profile photo"  className="img-thumbnail circle responsive" id="profile-photo" >
+    				<Image src={this.state.assistant.image_url} alt="assistant profile photo"  className="img-thumbnail circle responsive rounded-images smaller-images" id="profile-photo" >
             </Image>
           </Col>
           <Col xs={6} md={6}>

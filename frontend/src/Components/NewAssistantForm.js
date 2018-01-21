@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
 import ServicesCheckbox from './ServicesCheckbox';
+import { Button, Form, FormGroup, FormControl, ControlLabel, Col, Row } from 'react-bootstrap';
+import ICONHouseholdPDF from './ICONHouseholdPDF.pdf';
 
+var householdIcon = require('./ICONHouseholdPDF.pdf')
 
 const services = [
-'Household Help',
-'Driver',
-'Companion',
+  {name: 'Household Help', url: 'https://i.imgur.com/rKNTItm.png'},
+  {name: 'Driver', url: 'https://i.imgur.com/VWX926l.png'},
+  // 'https://cdn3.iconfinder.com/data/icons/car-maintenance-icons/348/Carpool-512.png'},
+  {name: 'Companion', url: 'https://i.imgur.com/pH3yzSa.png'}
+   // 'http://sewendehemel.co.za/wp-content/uploads/2016/03/sharing.jpg'}
 ];
+
+// const serviceIconURLS = [
+//   'https://openclipart.org/image/2400px/svg_to_png/28497/purzen-House-icon.png'
+// ]
 
 class NewAssistantForm extends React.Component {
   constructor(props) {
@@ -26,11 +35,12 @@ class NewAssistantForm extends React.Component {
     }
   }
 
-  createCheckbox = label => (
+  createCheckbox = service => (
     <ServicesCheckbox
-      label={label}
+      label={service.name}
+      url={service.url}
       handleCheckboxChange={this.toggleCheckbox}
-      key={label}
+      key={service.name}
     />
   )
 
@@ -83,22 +93,55 @@ class NewAssistantForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} id="new-assistant-form">
-        <label htmlFor="first_name">First Name</label>
-        <input id="first_name" name="first_name" type="text" />
+      <Col md={10}>
+      <Form horizontal onSubmit={this.handleSubmit} id="new-assistant-form">
+        <FormGroup controlId="formHorizontalFirstName">
+          <Col componentClass={ControlLabel} sm={2} lg={4}>
+            First Name
+          </Col>
+          <Col sm={10} lg={6}>
+    				<FormControl type="text" placeholder="First Name" />
+    			</Col>
+        </FormGroup>
 
-        <label htmlFor="last_name">Last Name</label>
-        <input id="last_name" name="last_name" type="text" />
+        <FormGroup controlId="formHorizontalLastName">
+          <Col componentClass={ControlLabel} sm={2} lg={4}>
+            Last Name
+          </Col>
+          <Col sm={10} lg={6}>
+            <FormControl type="text" placeholder="Last Name" />
+          </Col>
+        </FormGroup>
 
-        <label htmlFor="email">Enter your email</label>
-        <input id="email" name="email" type="email" />
+        <FormGroup controlId="formHorizontalEmail">
+          <Col componentClass={ControlLabel} sm={2} lg={4}>
+            Email
+          </Col>
+          <Col sm={10} lg={6}>
+            <FormControl type="email" placeholder="Email" />
+          </Col>
+        </FormGroup>
 
-        <label htmlFor="image_url">Enter the image url for your profile photo</label>
-        <input id="image_url" name="image_url" type="text" />
+        <FormGroup controlId="formHorizontalImageURL">
+          <Col componentClass={ControlLabel} sm={2} lg={4}>
+          Image URL
+          </Col>
+          <Col sm={10} lg={6}>
+            <FormControl type="text" placeholder="Enter the URL of your profile photo." />
+          </Col>
+        </FormGroup>
+        <FormGroup controlId="formServicesCheckboxes">
+          Click the services you can offer below:
+          <Col sm={12} lgOffset={3} lg={8}>
 
-        {this.createCheckboxes()}
-        <input type="submit" value="SUBMIT"></input>
-      </form>
+            {this.createCheckboxes()}
+          </Col>
+        </FormGroup>
+          <Col sm={10} lg={6}>
+            <Button bsStyle="primary" type="submit">Submit</Button>
+          </Col>
+        </Form>
+      </Col>
     );
   }
 }
