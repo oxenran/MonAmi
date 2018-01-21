@@ -27,7 +27,6 @@ class ServicesCheckbox extends Component {
         <Col componentClass={ControlLabel} sm={3} lg={4}>
           <label>
           <Image src={url} alt="service icon"  className={iconClass} id="service-icon" onClick={this.toggleCheckboxChange} />
-          {label}
           <Checkbox inline className="hidden" checked={isChecked}>
           </Checkbox>
           </label>

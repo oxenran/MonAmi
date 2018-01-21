@@ -9,13 +9,22 @@ class Assistant extends React.Component {
   render(){
     let servicesList = [];
     if (this.props.assistant.household) {
-      servicesList << "Household help";
+      servicesList.push("Household help");
     }
     if (this.props.assistant.driver) {
-      servicesList << "Driver";
+      servicesList.push("Driver");
     }
     if (this.props.assistant.companion) {
-      servicesList << "Companionship";
+      servicesList.push("Companionship");
+    }
+
+    let renderServices;
+    if (servicesList){
+      renderServices = servicesList.map(service => {
+        return(
+          <li>{service}</li>
+        );
+      });
     }
 
     return(
@@ -23,7 +32,9 @@ class Assistant extends React.Component {
         <h3>{this.props.assistant.first_name} {this.props.assistant.last_name}</h3>
         <img src={this.props.assistant.image_url} id="profile-photo"/>
         <h3>Services Offered:</h3>
-          <p> {servicesList[0]} </p>
+          <ul>
+            {renderServices}
+          </ul>
         <h3>Calendar:</h3>
           <p>Future calendar of availability may go here.</p>
       </div>

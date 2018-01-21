@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import ServicesCheckbox from './ServicesCheckbox';
 import { Button, Form, FormGroup, FormControl, ControlLabel, Col, Row } from 'react-bootstrap';
+import ICONHouseholdPDF from './ICONHouseholdPDF.pdf';
 
+var householdIcon = require('./ICONHouseholdPDF.pdf')
 
 const services = [
-  {name: 'Household Help', url: 'https://openclipart.org/image/2400px/svg_to_png/28497/purzen-House-icon.png'},
-  {name: 'Driver', url: 'https://cdn3.iconfinder.com/data/icons/car-maintenance-icons/348/Carpool-512.png'},
-  {name: 'Companion', url: 'http://sewendehemel.co.za/wp-content/uploads/2016/03/sharing.jpg'}
+  {name: 'Household Help', url: 'https://i.imgur.com/rKNTItm.png'},
+  {name: 'Driver', url: 'https://i.imgur.com/VWX926l.png'},
+  // 'https://cdn3.iconfinder.com/data/icons/car-maintenance-icons/348/Carpool-512.png'},
+  {name: 'Companion', url: 'https://i.imgur.com/pH3yzSa.png'}
+   // 'http://sewendehemel.co.za/wp-content/uploads/2016/03/sharing.jpg'}
 ];
 
 // const serviceIconURLS = [
@@ -127,12 +131,14 @@ class NewAssistantForm extends React.Component {
           </Col>
         </FormGroup>
         <FormGroup controlId="formServicesCheckboxes">
+          Click the services you can offer below:
           <Col sm={12} lgOffset={3} lg={8}>
+
             {this.createCheckboxes()}
           </Col>
         </FormGroup>
           <Col sm={10} lg={6}>
-            <Button bsStyle="primary" type="Submit">Submit</Button>
+            <Button bsStyle="primary" type="submit">Submit</Button>
           </Col>
         </Form>
       </Col>
