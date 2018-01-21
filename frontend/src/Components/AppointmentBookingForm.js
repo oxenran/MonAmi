@@ -16,6 +16,10 @@ class AppointmentBookingForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
+    const date = event.target[0].value;
+    const time = event.target[1].value;
+    const dateTime = `${date}T${time}:00Z`;
+
     // 2018-01-31T09:00:00Z
     const data = {
       "date": dateTime,
