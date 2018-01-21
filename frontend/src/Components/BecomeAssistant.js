@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import NewAssistantForm from './NewAssistantForm';
-import ModalInstance from './ModalInstance';
 
 class BecomeAssistant extends React.Component {
   constructor(props){
@@ -18,9 +17,7 @@ class BecomeAssistant extends React.Component {
   }
 
   render(){
-    // if (!this.state.token) {
-    //   return <ModalInstance />
-    // }
+
     return(
       <div className="BecomeAssistant">
         <h2>Become an Assistant</h2>
