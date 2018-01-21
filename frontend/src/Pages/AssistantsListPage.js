@@ -6,13 +6,19 @@ import { Image, Col, Checkbox } from 'react-bootstrap';
 
 const services = {
   household: {
-    name: 'Household Help', url: 'https://openclipart.org/image/2400px/svg_to_png/28497/purzen-House-icon.png'
+    name: 'Household Help',
+    url: 'https://i.imgur.com/rKNTItm.png'
+    // 'https://openclipart.org/image/2400px/svg_to_png/28497/purzen-House-icon.png'
   },
   driver: {
-    name: 'Driver', url: 'https://cdn3.iconfinder.com/data/icons/car-maintenance-icons/348/Carpool-512.png'
+    name: 'Driver',
+     url: 'https://i.imgur.com/VWX926l.png'
+     // 'https://cdn3.iconfinder.com/data/icons/car-maintenance-icons/348/Carpool-512.png'
   },
   companion: {
-    name: 'Companion', url: 'http://sewendehemel.co.za/wp-content/uploads/2016/03/sharing.jpg'
+    name: 'Companion',
+    url: 'https://i.imgur.com/pH3yzSa.png'
+     // 'http://sewendehemel.co.za/wp-content/uploads/2016/03/sharing.jpg'
   }
 };
 
@@ -45,12 +51,11 @@ class AssistantsListPage extends React.Component {
 
   //
   createCheckbox = (service) => {
-    const iconClass = this.state[service] ? "icon-checked img-thumbnail circle responsive" : "img-thumbnail circle responsive"
+    const iconClass = this.state[service] ? "icon-checked img-thumbnail circle responsive " : "img-thumbnail circle responsive"
     return (
-      <Col sm={3}lg={4}>
+      <Col sm={1} md={2} lg={4}>
       <div key={service}>
-        {services[service].name}
-        <Image src={services[service].url} alt="service icon"  className={iconClass} id="service-icon" id="service-icon" onClick={() => this.toggleService(service)}>
+        <Image src={services[service].url} alt="service icon"  className={iconClass} id="find-assistant-icon" onClick={() => this.toggleService(service)}>
         </Image>
         <Checkbox inline className="hidden"
           checked={this.state[service]}>
