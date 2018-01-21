@@ -165,10 +165,13 @@ main {
 }
 #find-assistant-icon {
   width: 15vw;
+  min-width: 10vw;
   border-radius: 3%;
+  margin: 5%;
+  /* clear: right; */
   /* display: inline-block; */
 }
 
 .icon-checked {
-  border: solid blue 10px;
+  border: solid #45ADA0 10px;
 }
