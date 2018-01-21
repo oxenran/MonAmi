@@ -16,7 +16,6 @@ class AssistantsList extends React.Component {
     return(
       <Col sm={12}lg={12}>
       <div className="AssistantsList">
-      <h3>Assistants</h3>
       {assistantItems}
       </div>
       </Col>

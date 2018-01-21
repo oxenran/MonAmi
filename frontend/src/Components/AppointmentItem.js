@@ -45,8 +45,8 @@ class AppointmentItem extends React.Component {
             </Col>
             <Col xs={6} md={6}>
                 <h2>{dateString}</h2>
-                <h4>Details:</h4>
-                  <p>{this.props.appointment.details}</p>
+                <h3>Details:</h3>
+                  <h4>{this.props.appointment.details}</h4>
       					<h3>Assistant: {this.state.assistant.first_name} {this.state.assistant.last_name}</h3>
                 <h4><Link to={`/assistants/${this.props.appointment.assistant}`}>View Profile or Book Again</Link>
                 </h4>

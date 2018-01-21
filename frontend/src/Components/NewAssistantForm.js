@@ -57,8 +57,7 @@ class NewAssistantForm extends React.Component {
     for (const checkbox of this.selectedCheckboxes) {
       console.log(checkbox, 'is selected.');
     }
-    console.log(event.target);
-    // const data = new FormData(event.target);
+
     const token = this.props.getToken();
     const data = {
       "first_name": event.target[0].value,
@@ -82,14 +81,6 @@ class NewAssistantForm extends React.Component {
 
     this.clearForm();
   }
-
-  // onChangeAction(event) {
-  //   if (event == true) {
-  //     event == false
-  //   } else {
-  //     event == true
-  //   }
-  // }
 
   render() {
     return (
@@ -133,7 +124,6 @@ class NewAssistantForm extends React.Component {
         <FormGroup controlId="formServicesCheckboxes">
           Click the services you can offer below:
           <Col sm={12} lgOffset={3} lg={8}>
-
             {this.createCheckboxes()}
           </Col>
         </FormGroup>
