@@ -149,10 +149,12 @@ wrapper {
 
 /* HOME PAGE STYLES */
 .clickbox {
-  margin-top: 10%;
-  margin-left: 50%;
-  width: 40%;
-  height: 50%;
+  position: relative;
+  right: 25%;
+  margin-top: 8%;
+  margin-left: 65%;
+  width: 35%;
+  height: 60%;
   background-color: #90C0AF;
   opacity: 0.7;
   float: right;
@@ -166,7 +168,7 @@ wrapper {
   text-decoration: none;
 }
 .clickbox-text {
-  font-size: 3vw;
+  font-size: 3.2vw;
   padding: 2%;
   /* margin: 5%; */
   opacity: 1;
