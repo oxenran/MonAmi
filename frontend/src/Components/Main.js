@@ -27,6 +27,7 @@ class Main extends React.Component {
       <Route exact path='/' component={Home}/>
       <Route exact path='/Assistants' render={(props) => (
         <AssistantsListPage {...props} getToken={this.props.getToken}/>)}/>
+      <div className="wrapper">
       <Route path='/Assistants/:id' render={(props) => (
         <AssistantViewPage {...props} getToken={this.props.getToken}/>)}/>
       <Route path='/BecomeAssistant' render={(props) => (
@@ -40,6 +41,7 @@ class Main extends React.Component {
       <Route path='/Dashboard' render={(props) => (
         <Dashboard {...props} getToken={this.props.getToken}/>)}
         />
+      </div>
     </Switch>
   </main>
     )
