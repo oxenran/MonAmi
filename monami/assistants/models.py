@@ -16,15 +16,11 @@ from rest_framework.authtoken.models import Token
 #         )
 #
 
-class Assistant(models.Model):
+class Profile(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    user = models.OneToOneField('auth.User', related_name='assistant', on_delete=models.CASCADE)
-    email = models.CharField(blank=False, max_length=100)
+    user = models.OneToOneField('auth.User', related_name='profile', on_delete=models.CASCADE)
     last_name = models.CharField(blank=False, max_length=100)
     first_name = models.CharField(blank=False, max_length=100)
-    household = models.BooleanField(default=False)
-    driver = models.BooleanField(default=False)
-    companion = models.BooleanField(default=False)
     bio = models.TextField(blank=True, null=True, default=0)
     image_url = models.CharField(max_length=500, default= "https://i.imgur.com/yILM61G.jpg")
     # owner = models.ForeignKey('auth.User', related_name='assistants', on_delete=models.CASCADE)
@@ -32,6 +28,10 @@ class Assistant(models.Model):
 
     class Meta:
         ordering = ('created',)
+class Assistant(Profile):
+    household = models.BooleanField(default=False)
+    driver = models.BooleanField(default=False)
+    companion = models.BooleanField(default=False)
 
 class Appointment(models.Model):
     created = models.DateTimeField(auto_now_add=True)
@@ -42,7 +42,7 @@ class Appointment(models.Model):
     details = models.TextField(blank=True, null=True, default='')
 
     class Meta:
-        ordering = ('created',)
+        ordering = ('date',)
 
 # @receiver(post_save, sender=User)
 # def create_user_assistant(sender, instance, created, **kwargs):
