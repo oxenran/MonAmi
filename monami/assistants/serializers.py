@@ -1,13 +1,10 @@
 from rest_framework import serializers
-from assistants.models import Assistant
-from assistants.models import Appointment
+from assistants.models import Assistant,  Appointment
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
-from rest_framework.validators import UniqueTogetherValidator
 from django.core.exceptions import ValidationError
-from rest_framework.validators import UniqueForDateValidator
-from datetime import datetime, timezone
-from datetime import timedelta
+from rest_framework.validators import UniqueForDateValidator, UniqueTogetherValidator
+from datetime import datetime, timezone,  timedelta
 # from .validators import validate_user
 #validators
 
