@@ -53,8 +53,8 @@ class AssistantsListPage extends React.Component {
   createCheckbox = (service) => {
     const iconClass = this.state[service] ? "icon-checked img-thumbnail" : "img-thumbnail"
     return (
-      <Col sm={2} md={4} lg={4}>
-      <div key={service}>
+      <Col sm={2} md={4} lg={4} key={service}>
+      <div>
         <Image src={services[service].url} alt="service icon"  className={iconClass} id="find-assistant-icon" onClick={() => this.toggleService(service)}>
         </Image>
         <Checkbox inline className="hidden"

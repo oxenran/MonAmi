@@ -6,7 +6,7 @@ class AssistantItem extends React.Component {
   render(){
     return(
 
-      <div className="AssistantItemStyle">
+      <div key={this.props.assistant.id} className="AssistantItemStyle">
         <ul>
           <li>
             <h3>{this.props.assistant.first_name} {this.props.assistant.last_name}</h3>
