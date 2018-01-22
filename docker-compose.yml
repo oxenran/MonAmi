@@ -36,18 +36,13 @@
 version: '3'
 
 services:
-  db:
-    image: postgres
   web:
     build: .
-    command: python3 gunicorn --bind 0.0.0.0:8000 /app/monami/monami.wsgi
+    command: python /app/monami/manage.py runserver 0.0.0.0:8000 
     volumes:
       - .:/code
     ports:
       - "80:80"
-      - "3000:3000"
-    depends_on:
-      - db
 # Backend API container
   # backend:
   #   container_name: monami_api
