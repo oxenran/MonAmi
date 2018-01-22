@@ -34,6 +34,7 @@ class Header extends React.Component {
     if (this.props.getToken()) {
       this.props.onLogout();
       this.setState({logButtonText: "Login"});
+      // this.setState({showSignupButton: removeClass("selected")})
     }
   }
 
@@ -55,15 +56,13 @@ class Header extends React.Component {
         <div className="navbar-nav col-12">
         <ButtonGroup bsClass="justified">
           <ul>
-            <li> <Button><Link to='/'>Home</Link></Button>
-            </li>
             <li> <Button><Link to='/BecomeAssistant'>Become an Assistant</Link></Button>
             </li>
             <li> <Button><Link to='/Dashboard'>Dashboard</Link></Button>
             </li>
             <li><Button><Link to='/Assistants'>Find Assistant</Link></Button>
             </li>
-            <li> <Button><Link to='/Signup'>Sign Up</Link></Button>
+            <li> <Button className={ this.props.getToken() ? 'hidden' : '' }><Link to='/Signup'>Sign Up</Link></Button>
             </li>
             <li> <Button className="log" onClick={this.handleLog.bind(this)}><Link to='/Login'>{this.state.logButtonText}</Link></Button>
             </li>
