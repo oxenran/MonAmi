@@ -1,25 +1,18 @@
-from assistants.models import Assistant
+from assistants.models import Assistant, Appointment
 from django.contrib.auth.models import User
-from assistants.models import Appointment
-from assistants.serializers import AssistantSerializer
-from assistants.serializers import UserSerializer
-from assistants.serializers import AppointmentSerializer
+from assistants.serializers import AssistantSerializer, AppointmentSerializer, UserSerializer
 from django.http import Http404
-from rest_framework import permissions
+from rest_framework import permissions, mixins, generics, renderers
 from rest_framework.views import APIView
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import mixins
-from rest_framework import generics
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
-from rest_framework.permissions import IsAuthenticated # IsOwner
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.reverse import reverse
-from rest_framework import renderers
 from django.views.decorators.csrf import ensure_csrf_cookie
-from assistants.permissions import IsOwnerOrReadOnly
-from assistants.permissions import IsAssistant
+from assistants.permissions import IsOwnerOrReadOnly,  IsAssistant
 from django.contrib.auth.hashers import make_password
 # import django_filters.rest_framework
 
