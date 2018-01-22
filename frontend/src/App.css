@@ -21,6 +21,9 @@ body {
 
 main {
   margin: 2% 5%;
+  position: absolute;
+  min-height: 100%;
+  /* margin-bottom: 30%; */
 }
 
 /* main {
@@ -102,6 +105,7 @@ main {
   /* margin-top: -50px; */
   padding: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* font-size: 6vw; */
 }
 
 .headerstyle a {
@@ -110,11 +114,11 @@ main {
 }
 
 .headerstyle h2 {
- font-size: 2em;
+  font-size: 2vw;
 }
 
 .headerstyle span {
-  font-size: 2em;
+  font-size: 4vw;
   font-family: cursive;
 }
 .log button {
@@ -140,23 +144,26 @@ main {
 
 /* HOME PAGE STYLES */
 .clickbox {
-  width: 400px;
-  height: 500px;
+  margin-top: 10%;
+  margin-left: 55%;
+  width: 45%;
+  height: 50%;
   background-color: #90C0AF;
   opacity: 0.7;
   float: right;
   margin-right: 30%;
-  font-size: 4em;
+  /* font-size: 4em; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 3%;
+
 }
 .clickbox a {
   text-decoration: none;
 }
 .clickbox-text {
-  font-size: 1em;
+  font-size: 3vw;
   padding: 2%;
-  margin: 5%;
+  /* margin: 5%; */
   opacity: 1;
 }
 
@@ -231,4 +238,15 @@ main {
 .AppointmentsList article:nth-of-type(odd) {
   background-color: #d0dde5;
 
+}
+.footer {
+  color: blue;
+  /* bottom: 0; */
+  /* min-height: 100%; */
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
 }
