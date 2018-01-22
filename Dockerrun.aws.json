@@ -1,4 +1,4 @@
-{
+    "AWSEBDockerrunVersion": 2,
     "containerDefinitions": [
         {
             "essential": true,
@@ -42,4 +42,3 @@
             "name": "_"
         }
     ]
-}
