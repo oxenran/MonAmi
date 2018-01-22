@@ -36,11 +36,23 @@
 version: '3'
 
 services:
-  web:
+  backend:
     build: .
-    command: python /app/monami/manage.py runserver 0.0.0.0:8000 
+    container_name: backend
+    volumes:
+      - .:/code
     ports:
-      - "80:80"
+      - "8000:8000"
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    volumes:
+      - .:/codes
+    ports:
+      - "3000:3000"
+    working_dir: /frontend
+
 # Backend API container
   # backend:
   #   container_name: monami_api

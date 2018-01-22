@@ -28,7 +28,7 @@ RUN pip install --trusted-host pypi.python.org -r requirements.txt
 # Make port 80 available to the world outside this container
 EXPOSE 80
 
-# Run app.py when the container launches
+#CMD [ "python3", "./manage.py migrate" ]
 #CMD ["python", "monami/manage.py", "runserver"]
 
 
