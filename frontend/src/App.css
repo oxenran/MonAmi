@@ -119,17 +119,19 @@ wrapper {
 }
 
 .headerstyle a {
+  color: #364c8e;
   text-decoration: none;
   /* color: black; */
 }
 
 .headerstyle a:hover {
   color: #364c8e;
+  text-decoration: none;
 }
 
-/* .headerstyle a:click {
+.headerstyle a:active:visited {
   color: #364c8e;
-} */
+}
 
 .headerstyle h2 {
   font-size: 2vw;
