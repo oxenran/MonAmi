@@ -1,26 +1,45 @@
 {
     "containerDefinitions": [
         {
-            "command": [
-                "python",
-                "monami/manage.py",
-                "runserver",
-                "0.0.0.0:8000"
-            ],
             "essential": true,
+            "mountPoints": [
+                {
+                    "containerPath": "/code",
+                    "sourceVolume": "_"
+                }
+            ],
             "name": "backend",
             "portMappings": [
                 {
-                    "containerPort": 80,
-                    "hostPort": 80
+                    "containerPort": 8000,
+                    "hostPort": 8000
                 }
             ]
         },
         {
             "essential": true,
-            "name": "frontend"
+            "mountPoints": [
+                {
+                    "containerPath": "/codes",
+                    "sourceVolume": "_"
+                }
+            ],
+            "name": "frontend",
+            "portMappings": [
+                {
+                    "containerPort": 3000,
+                    "hostPort": 3000
+                }
+            ]
         }
     ],
     "family": "",
-    "volumes": []
+    "volumes": [
+        {
+            "host": {
+                "sourcePath": "."
+            },
+            "name": "_"
+        }
+    ]
 }
