@@ -97,6 +97,7 @@ class AssistantsListPage extends React.Component {
   render() {
     return(
       <div className="AssistantsListPage">
+        <h2>Meet our Assistants</h2>
         <Col sm={12} lg={10}>
         {this.createCheckboxes()}
         </Col>

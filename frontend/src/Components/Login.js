@@ -73,13 +73,8 @@ class Login extends React.Component {
           <label htmlFor="password">Password</label>
           <FormControl id="password" name="password" type="password" />
 
-          <FormControl type="submit" value="SUBMIT"></FormControl>
+          <Button bsStyle="primary" type="submit">Submit</Button>
         </Form>
-
-        <aside>
-          <h4>Optional: Are you an Assistant?  Click here to Login</h4>
-          <p> Assistant Login form pops up as modal or we direct to that link</p>
-        </aside>
       </div>
     )
 

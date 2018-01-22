@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import LogButton from './LogButton';
-import { Button, Grid, Col, Row } from 'react-bootstrap';
+import { Button, ButtonGroup, Grid, Col, Row } from 'react-bootstrap';
 
 
 // The Header creates links that can be used to navigate
@@ -53,6 +53,7 @@ class Header extends React.Component {
         <Row>
           <Col xs={12} md={12} lg={12}>
         <div className="navbar-nav col-12">
+        <ButtonGroup bsClass="justified">
           <ul>
             <li> <Button><Link to='/'>Home</Link></Button>
             </li>
@@ -67,6 +68,7 @@ class Header extends React.Component {
             <li> <Button className="log" onClick={this.handleLog.bind(this)}><Link to='/Login'>{this.state.logButtonText}</Link></Button>
             </li>
           </ul>
+          </ButtonGroup>
         </div>
         </Col>
         </Row>

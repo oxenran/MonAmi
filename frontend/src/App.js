@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Header from './Components/Header';
 import Main from './Components/Main';
+import Footer from './Components/Footer';
 
 
 class App extends React.Component {
@@ -44,6 +45,9 @@ class App extends React.Component {
     <div>
       <Header onLogin={this.OnLoginFn} getToken={this.getToken} onLogout={this.OnLogOut}/>
       <Main onLogin={this.OnLoginFn} getToken={this.getToken}/>
+      <footer className="footer">
+        by Roxanne Agerone and Kimberley Zell
+      </footer>
     </div>
     )
   }
