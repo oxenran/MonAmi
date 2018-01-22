@@ -39,8 +39,6 @@ services:
   web:
     build: .
     command: python /app/monami/manage.py runserver 0.0.0.0:8000 
-    volumes:
-      - .:/code
     ports:
       - "80:80"
 # Backend API container

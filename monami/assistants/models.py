@@ -24,6 +24,7 @@ class Assistant(models.Model):
     household = models.BooleanField(default=False)
     driver = models.BooleanField(default=False)
     companion = models.BooleanField(default=False)
+    bio = models.TextField(blank=True, null=True)
     image_url = models.CharField(max_length=500, default= "https://i.imgur.com/yILM61G.jpg")
     # owner = models.ForeignKey('auth.User', related_name='assistants', on_delete=models.CASCADE)
     # highlighted = models.TextField()
@@ -38,7 +39,8 @@ class Profile(models.Model):
     last_name = models.CharField(blank=False, max_length=100)
     first_name = models.CharField(blank=False, max_length=100)
     image_url = models.CharField(max_length=500, blank=True, null=True)
-    address = models.TextField(blank=True, null=True, max_length=200)
+    address = models.TextField(blank=True, null=True)
+    bio = models.TextField(blank=True, null=True)
 
     class Meta:
         ordering = ('created',)
