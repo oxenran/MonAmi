@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
 
 body {
-  background-image: url('https://images.unsplash.com/photo-1476611317561-60117649dd94?auto=format&fit=crop&w=1050&q=80');
+  /* background-image: url('https://images.unsplash.com/photo-1476611317561-60117649dd94?auto=format&fit=crop&w=1050&q=80'); */
   background-size: cover;
   background-repeat: no-repeat;
   font-size: 18pt;
@@ -115,18 +115,28 @@ wrapper {
   /* padding: 10px; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   /* font-size: 6vw; */
+  color: #364c8e;
 }
 
 .headerstyle a {
   text-decoration: none;
-  color: black;
+  /* color: black; */
 }
+
+.headerstyle a:hover {
+  color: #364c8e;
+}
+
+/* .headerstyle a:click {
+  color: #364c8e;
+} */
 
 .headerstyle h2 {
   font-size: 2vw;
   width: 80%;
   /* display: inline-block; */
   padding-left: 2%;
+
 }
 #header-text {
   display: inline-block;
@@ -136,6 +146,7 @@ wrapper {
 .headerstyle span {
   font-size: 4vw;
   font-family: cursive;
+  color: #364c8e;
 }
 .log button {
   display: inline-block;
@@ -167,7 +178,7 @@ wrapper {
   width: 35%;
   height: 60%;
   background-color: #90C0AF;
-  opacity: 0.7;
+  opacity: 0.9;
   float: right;
   margin-right: 30%;
   /* font-size: 4em; */
@@ -177,6 +188,7 @@ wrapper {
 }
 .clickbox a {
   text-decoration: none;
+  color: #364c8e;
 }
 .clickbox-text {
   font-size: 3.2vw;
