@@ -29,7 +29,7 @@ class AssistantSerializer(serializers.ModelSerializer):
         user = serializers.ReadOnlyField(source='user.id')
         appointments = serializers.PrimaryKeyRelatedField(many=True, queryset=Appointment.objects.all())
         model = Assistant
-        fields = ('id', 'first_name', 'last_name', 'email', 'household', 'driver', 'companion', 'bio', 'image_url', 'appointments', 'user')
+        fields = ('id', 'first_name', 'last_name', 'household', 'driver', 'companion', 'bio', 'image_url', 'appointments', 'user')
         read_only_fields = ['id', 'appointments', 'user']
 
 class UserSerializer(serializers.ModelSerializer):
