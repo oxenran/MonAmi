@@ -45,9 +45,13 @@ class App extends React.Component {
     <div>
       <Header onLogin={this.OnLoginFn} getToken={this.getToken} onLogout={this.OnLogOut}/>
       <Main onLogin={this.OnLoginFn} getToken={this.getToken}/>
-      <footer className="footer">
-        by Roxanne Agerone and Kimberley Zell
-      </footer>
+      <footer className="navbar-bottom footer">
+          <div className="container">
+            <div className="row">
+              <p>&copy;2017 Roxanne Agerone and Kimberley Zell</p>
+            </div>
+          </div>
+        </footer>
     </div>
     )
   }

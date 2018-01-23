@@ -20,12 +20,20 @@ body {
   opacity: 0.8;
 }
 
+html {
+  min-height: 100%;
+  /* background-color: red; */
+}
+
 main {
   /* margin: 2% 5%; */
-  position: absolute;
-  min-height: 100%;
+  /* position: absolute; */
+  min-height: 100vh;
   min-width: 100%;
-  /* margin-bottom: 30%; */
+  /* padding: 0 0 100px; */
+  /* padding-bottom: 20%; */
+  position: relative;
+
 }
 
 .wrapper {
@@ -73,15 +81,18 @@ main {
 
 /* HEADER AND NAV BAR STYLING */
 .navbar {
-  margin-top: 2%;
+  /* margin-top: .5%; */
   margin-bottom: 0%;
-  max-width: 5000px;
-  width: 100%;
+  /* max-width: 5000px; */
+  /* width: 100%; */
+  padding: 0;
+  text-align: center;
 
 }
 .navbar ul {
   max-width: 5000px;
   width: 100%;
+
   /* max-width: 5000px; */
 }
 .navbar div {
@@ -91,15 +102,17 @@ main {
 }
 .navbar li {
   display: inline-block;
-  margin: 0 1% 1% 1%;
+  margin: 1% 1%;
+
 }
 
 .navbar button {
   background-color: #90C0AF;
-  font-size: 1em;
-  width: 150px;
+  font-size: 1.25em;
+  width: 225px;
   border: none;
   border-radius: 3rem;
+  margin-bottom: 0;
 }
 
 #nav-toggler {
@@ -107,6 +120,9 @@ main {
   width: 10%;
   /* display: inline-block; */
   /* float: right; */
+}
+#toggler-icon {
+  font-size: 1.5em;
 }
 
 .headerstyle {
@@ -135,11 +151,11 @@ main {
 }
 
 .headerstyle h2 {
-  font-size: 2vw;
+  font-size: 1.5em;
   width: 80%;
   /* display: inline-block; */
   padding-left: 2%;
-
+  /* display: inline-block; */
 }
 #header-text {
   display: inline-block;
@@ -147,7 +163,7 @@ main {
 }
 
 .headerstyle span {
-  font-size: 4vw;
+  font-size: 3em;
   font-family: cursive;
   color: #364c8e;
 }
@@ -156,16 +172,35 @@ main {
 }
 
 /* ASSISTANTS LIST STYLES */
+.assistants-list-services-icons {
+  /* margin: auto; left:0; right: 0; top: 0; bottom: 0;  */
+  /* width: 100%; */
+  margin: 20px auto;
+}
+
+.AssistantsListPage h2 {
+  text-align: center;
+  font-size: 3em;
+}
+.AssistantsListPage h3 {
+  font-size: 2em;
+  text-align: center;
+}
 
 .AssistantItemStyle {
   /* width: 200px;
   height: 250px; */
   display: inline-block;
+  text-align: center;
 }
 
-.AssistantItemStyle img {
-  width: 225px;
-  height: 250px;
+.AssistantItemStyle div {
+  background-size: cover;
+  width: 200px;
+  height: 225px;
+  padding: 5%;
+  margin: 4% 1%;
+
 }
 
 .AssistantItemStyle li {
@@ -189,9 +224,13 @@ main {
   border-radius: 3%;
 
 }
-.clickbox a {
+.clickbox a:hover {
   text-decoration: none;
   color: #364c8e;
+}
+
+.clickbox:hover {
+  color: red;
 }
 .clickbox-text {
   font-size: 3.2vw;
@@ -202,9 +241,6 @@ main {
 
 /* Individual Assistant Page Styles */
 #profile-photo {
-  margin: auto;
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
   max-width: 400px;
   max-height: 400px;
   border-color: none;
@@ -212,6 +248,19 @@ main {
   border-radius: 3pt;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+#appointment-photo {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  max-width: 400px;
+  max-height: 400px;
+  border-color: none;
+  padding: 0%;
+  /* border-radius: 3pt; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -240,25 +289,29 @@ main {
   border-radius: 50%;
 }
 .smaller-images {
-  width: 8vw;
+  width: 10vw;
 }
 
 #service-icon {
   border-radius: 3%;
   width: 10vw;
+  margin-left: 30%;
   /* display: inline-block; */
 }
 #find-assistant-icon {
   width: 15vw;
   min-width: 10vw;
   border-radius: 3%;
-  margin: 5%;
-  /* clear: right; */
-  /* display: inline-block; */
+  /* vertical-align: middle; */
+  position: relative;
+  top: 50%;
+  padding: 2%;
+  /* margin-top: 15%; */
 }
 #find-assistant-icon:hover, #service-icon:hover{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 
 .icon-checked {
   border: solid #45ADA0 15px;
@@ -268,21 +321,70 @@ main {
 
 .appointment-div {
   padding: 2%;
+  width: 100%;
+  /* align-content: left; */
   /* border: solid black 1px; */
 }
 
 .AppointmentsList article:nth-of-type(odd) {
   background-color: #d0dde5;
-
+  /* width: 100%; */
 }
-.footer {
-  color: blue;
+.appointment-info {
+  text-align: left;
+}
+.footer, .footer p {
+  color: white;
+  font-weight: bold;
+  text-align: center;
   /* bottom: 0; */
-  /* min-height: 100%; */
+  /* min-height: 100%;
   position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
   padding: 1rem;
+  text-align: center; */
+  background-color: #45ADA0;
+  width: 100%;
+  opacity: .9;
+  position: static;
+}
+
+.AssistantsViewPage, .AssistantsList {
+  /* padding-bottom: 20%; */
+}
+
+.icon-div {
+  display: flex;
+  padding: 2% 0%;
+  /* padding-bottom: 3%; */
+  /* border: solid; color: grey; */
+  margin: 4% 10%;
+  background-color: lightgrey;
+  border-radius: 3rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* BECOME ASSISTANT */
+.BecomeAssistant h2, h3, h4 {
   text-align: center;
+  margin: 1 5%;
+}
+
+.BecomeAssistant {
+  margin-bottom: 5%;
+}
+
+.become-assistant-form, .become-assistant-form-services {
+  /* text-align: center; */
+  margin-left: 5%;
+}
+
+.become-assistant-form h4 {
+  text-align: left;
+}
+.become-assistant-form button {
+  margin-right: 40%;
+  margin-top: 2%;
 }

@@ -40,10 +40,10 @@ class AppointmentItem extends React.Component {
         <Grid>
   		    <Row>
       			<Col xs={6} md={4}>
-      				<Image src={this.state.assistant.image_url} alt="assistant profile photo"  className="img-thumbnail circle responsive rounded-images smaller-images" id="profile-photo" >
+      				<Image src={this.state.assistant.image_url} alt="assistant profile photo"  className="img-thumbnail circle responsive rounded-images smaller-images" id="appointment-photo" >
               </Image>
             </Col>
-            <Col xs={6} md={6}>
+            <Col xs={6} md={6} className="appointment-info">
                 <h2>{dateString}</h2>
                 <h3>Details:</h3>
                   <h4>{this.props.appointment.details}</h4>

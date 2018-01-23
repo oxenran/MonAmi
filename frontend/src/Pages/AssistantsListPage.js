@@ -10,15 +10,15 @@ const services = {
     url: 'https://i.imgur.com/rKNTItm.png'
     // 'https://openclipart.org/image/2400px/svg_to_png/28497/purzen-House-icon.png'
   },
-  driver: {
-    name: 'Driver',
-     url: 'https://i.imgur.com/VWX926l.png'
-     // 'https://cdn3.iconfinder.com/data/icons/car-maintenance-icons/348/Carpool-512.png'
-  },
   companion: {
     name: 'Companion',
     url: 'https://i.imgur.com/pH3yzSa.png'
      // 'http://sewendehemel.co.za/wp-content/uploads/2016/03/sharing.jpg'
+  },
+  driver: {
+    name: 'Driver',
+     url: 'https://i.imgur.com/VWX926l.png'
+     // 'https://cdn3.iconfinder.com/data/icons/car-maintenance-icons/348/Carpool-512.png'
   }
 };
 
@@ -53,9 +53,9 @@ class AssistantsListPage extends React.Component {
   createCheckbox = (service) => {
     const iconClass = this.state[service] ? "icon-checked img-thumbnail" : "img-thumbnail"
     return (
-      <Col sm={2} md={4} lg={4} key={service}>
+      <Col key={service} className="assistants-list-services-icons">
       <div>
-        <Image src={services[service].url} alt="service icon"  className={iconClass} id="find-assistant-icon" onClick={() => this.toggleService(service)}>
+        <Image src={services[service].url} alt="service icon" title={services[service].name} className={iconClass} id="find-assistant-icon" onClick={() => this.toggleService(service)}>
         </Image>
         <Checkbox inline className="hidden"
           checked={this.state[service]}>
@@ -96,11 +96,12 @@ class AssistantsListPage extends React.Component {
 
   render() {
     return(
-      <div className="AssistantsListPage">
-        <h2>Meet our Assistants</h2>
-        <Col sm={12} lg={10}>
+      <div className="AssistantsListPage clearfix">
+        <h2>Assistants are Available in Your Area... </h2>
+        <h3>Select the help you need - click the icons!</h3>
+        <div className="icon-div">
         {this.createCheckboxes()}
-        </Col>
+        </div>
         <AssistantsList assistants={this.state.assistants} />
       </div>
     );
