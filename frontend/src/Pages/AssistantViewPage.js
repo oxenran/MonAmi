@@ -21,7 +21,7 @@ class AssistantViewPage extends React.Component {
   componentDidMount(){
     let url = this.props.match.url;
     // let url = this.state.assistant.id;
-    fetch(`http://localhost:8000${url}/`).then(response => response.json())
+    fetch(`http://monamibackend.us-west-2.elasticbeanstalk.com${url}/`).then(response => response.json())
       .then(data => this.setState({assistant: data}));
 
   }

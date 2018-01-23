@@ -31,7 +31,7 @@ class Login extends React.Component {
     // var sendToken = '';
     const that = this;
 
-    fetch(`http://localhost:8000/api-token-auth/`, {
+    fetch(`http://monamibackend.us-west-2.elasticbeanstalk.com/api-token-auth/`, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {

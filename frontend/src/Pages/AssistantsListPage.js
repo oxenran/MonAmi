@@ -22,7 +22,7 @@ const services = {
   }
 };
 
-const URL = 'http://localhost:8000/assistants/'
+const URL = 'http://monamibackend.us-west-2.elasticbeanstalk.com/assistants/'
 
 class AssistantsListPage extends React.Component {
   constructor(props){

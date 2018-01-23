@@ -70,7 +70,7 @@ class NewAssistantForm extends React.Component {
     }
     console.log(data);
 
-    fetch('http://localhost:8000/assistants/', {
+    fetch('http://monamibackend.us-west-2.elasticbeanstalk.com/assistants/', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {

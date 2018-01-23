@@ -17,7 +17,7 @@ class Signup extends React.Component {
     console.log("inside loguserin");
     console.log(data);
     const that = this;
-    fetch(`http://localhost:8000/api-token-auth/`, {
+    fetch(`http://monamibackend.us-west-2.elasticbeanstalk.com/api-token-auth/`, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
@@ -59,7 +59,7 @@ class Signup extends React.Component {
     }
     console.log(data);
     const that = this;
-    fetch('http://localhost:8000/users/', { //does this url need to be updated to send a user as an elderly user?
+    fetch('http://monamibackend.us-west-2.elasticbeanstalk.com/users/', { //does this url need to be updated to send a user as an elderly user?
       method: 'POST',
       body: JSON.stringify(data),
       headers: {

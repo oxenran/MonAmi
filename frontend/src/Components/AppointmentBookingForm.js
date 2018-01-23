@@ -35,7 +35,7 @@ class AppointmentBookingForm extends React.Component {
 
     const token = this.props.getToken();
     console.log(token);
-    fetch('http://localhost:8000/appointments/', {
+    fetch('http://monamibackend.us-west-2.elasticbeanstalk.com/appointments/', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {

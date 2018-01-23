@@ -16,7 +16,7 @@ class AppointmentItem extends React.Component {
 
   fetchData() {
   console.log('inside fetchData');
-  fetch(`http://localhost:8000/assistants/${this.props.appointment.assistant}/`, {
+  fetch(`http://monamibackend.us-west-2.elasticbeanstalk.com/${this.props.appointment.assistant}/`, {
     method: 'GET',
     // body: JSON.stringify(data),
     headers: {

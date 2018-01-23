@@ -14,7 +14,7 @@ class Dashboard extends React.Component {
   const token = this.props.getToken();
   console.log('inside fetchData');
   console.log(token);
-  fetch('http://localhost:8000/appointments/', {
+  fetch('http://monamibackend.us-west-2.elasticbeanstalk.com/appointments/', {
     method: 'GET',
     // body: JSON.stringify(data),
     headers: {
