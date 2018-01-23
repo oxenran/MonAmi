@@ -28,7 +28,7 @@ SECRET_KEY = 't6rq$n9-f4_sno$ctwp&2qxk3)@c66b*y6+5=liixz^#-8ex)u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://monamibackend.us-west-2.elasticbeanstalk.com/']
+ALLOWED_HOSTS = ['monamibackend.us-west-2.elasticbeanstalk.com']
 
 # Application definition
 
