@@ -62,8 +62,8 @@ class NewAssistantForm extends React.Component {
     const data = {
       "first_name": event.target[0].value,
       "last_name": event.target[1].value,
-      "email": event.target[2].value,
-      "image_url": event.target[3].value,
+      "image_url": event.target[2].value,
+      "bio": event.target[3].value,
       "household": event.target[4].checked,
       "driver": event.target[5].checked,
       "companion": event.target[6].checked
@@ -104,15 +104,6 @@ class NewAssistantForm extends React.Component {
           </Col>
         </FormGroup>
 
-        <FormGroup controlId="formHorizontalEmail">
-          <Col componentClass={ControlLabel} sm={2} lg={4}>
-            Email
-          </Col>
-          <Col sm={10} lg={6}>
-            <FormControl type="email" placeholder="Email" />
-          </Col>
-        </FormGroup>
-
         <FormGroup controlId="formHorizontalImageURL">
           <Col componentClass={ControlLabel} sm={2} lg={4}>
           Image URL
@@ -121,6 +112,16 @@ class NewAssistantForm extends React.Component {
             <FormControl type="text" placeholder="Enter the URL of your profile photo." />
           </Col>
         </FormGroup>
+
+        <FormGroup controlId="formHorizontalBio">
+          <Col componentClass={ControlLabel} sm={2} lg={4}>
+            Bio:
+          </Col>
+          <Col sm={10} lg={6}>
+            <FormControl type="text" placeholder="Write about yourself here, including why and how you want to help." />
+          </Col>
+        </FormGroup>
+
         <FormGroup controlId="formServicesCheckboxes" className="become-assistant-form-services">
           <Col sm={12} lgOffset={3} lg={8}>
           <h4>Click the services you can offer:</h4>
