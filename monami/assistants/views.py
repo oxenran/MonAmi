@@ -18,7 +18,6 @@ from django.contrib.auth.hashers import make_password
 
 class AssistantList(generics.ListCreateAPIView):
     queryset = Assistant.objects.all()
-    permission_classes = (IsOwnerOrReadOnly,)
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
     serializer_class = AssistantSerializer
