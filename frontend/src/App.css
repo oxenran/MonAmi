@@ -179,7 +179,8 @@ main {
   display: inline-block;
 }
 
-.AssistantItemStyle img {
+.AssistantItemStyle div {
+  background-size: cover;
   width: 225px;
   height: 250px;
 }
