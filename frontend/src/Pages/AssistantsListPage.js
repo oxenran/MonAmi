@@ -55,7 +55,7 @@ class AssistantsListPage extends React.Component {
     return (
       <Col key={service} className="assistants-list-services-icons">
       <div>
-        <Image src={services[service].url} alt="service icon"  className={iconClass} id="find-assistant-icon" onClick={() => this.toggleService(service)}>
+        <Image src={services[service].url} alt="service icon" title={services[service].name} className={iconClass} id="find-assistant-icon" onClick={() => this.toggleService(service)}>
         </Image>
         <Checkbox inline className="hidden"
           checked={this.state[service]}>
