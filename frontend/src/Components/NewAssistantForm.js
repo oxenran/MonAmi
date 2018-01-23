@@ -84,7 +84,7 @@ class NewAssistantForm extends React.Component {
 
   render() {
     return (
-      <Col md={10}>
+      <Col md={10} className="become-assistant-form">
       <Form horizontal onSubmit={this.handleSubmit} id="new-assistant-form">
         <FormGroup controlId="formHorizontalFirstName">
           <Col componentClass={ControlLabel} sm={2} lg={4}>
@@ -121,15 +121,13 @@ class NewAssistantForm extends React.Component {
             <FormControl type="text" placeholder="Enter the URL of your profile photo." />
           </Col>
         </FormGroup>
-        <FormGroup controlId="formServicesCheckboxes">
-          Click the services you can offer below:
+        <FormGroup controlId="formServicesCheckboxes" className="become-assistant-form-services">
           <Col sm={12} lgOffset={3} lg={8}>
+          <h4>Click the services you can offer:</h4>
             {this.createCheckboxes()}
           </Col>
         </FormGroup>
-          <Col sm={10} lg={6}>
-            <Button bsStyle="primary" type="submit">Submit</Button>
-          </Col>
+            <Button bsStyle="primary float-right" type="submit">Submit</Button>
         </Form>
       </Col>
     );

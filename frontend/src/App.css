@@ -81,15 +81,18 @@ main {
 
 /* HEADER AND NAV BAR STYLING */
 .navbar {
-  margin-top: 2%;
+  /* margin-top: .5%; */
   margin-bottom: 0%;
-  max-width: 5000px;
-  width: 100%;
+  /* max-width: 5000px; */
+  /* width: 100%; */
+  padding: 0;
+  text-align: center;
 
 }
 .navbar ul {
   max-width: 5000px;
   width: 100%;
+
   /* max-width: 5000px; */
 }
 .navbar div {
@@ -99,15 +102,17 @@ main {
 }
 .navbar li {
   display: inline-block;
-  margin: 0 1% 1% 1%;
+  margin: 0 1%;
+
 }
 
 .navbar button {
   background-color: #90C0AF;
-  font-size: 1em;
-  width: 150px;
+  font-size: 1.25em;
+  width: 200px;
   border: none;
   border-radius: 3rem;
+  margin-bottom: 0;
 }
 
 #nav-toggler {
@@ -173,16 +178,29 @@ main {
   margin: 20px auto;
 }
 
+.AssistantsListPage h2 {
+  text-align: center;
+  font-size: 3em;
+}
+.AssistantsListPage h3 {
+  font-size: 2em;
+  text-align: center;
+}
+
 .AssistantItemStyle {
   /* width: 200px;
   height: 250px; */
   display: inline-block;
+  text-align: center;
 }
 
 .AssistantItemStyle div {
   background-size: cover;
-  width: 225px;
-  height: 250px;
+  width: 200px;
+  height: 225px;
+  padding: 5%;
+  margin: 4% 1%;
+
 }
 
 .AssistantItemStyle li {
@@ -273,19 +291,23 @@ main {
 #service-icon {
   border-radius: 3%;
   width: 10vw;
+  margin-left: 30%;
   /* display: inline-block; */
 }
 #find-assistant-icon {
   width: 15vw;
   min-width: 10vw;
   border-radius: 3%;
-
-  /* clear: right; */
-  /* display: inline-block; */
+  /* vertical-align: middle; */
+  position: relative;
+  top: 50%;
+  padding: 2%;
+  /* margin-top: 15%; */
 }
 #find-assistant-icon:hover, #service-icon:hover{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 
 .icon-checked {
   border: solid #45ADA0 15px;
@@ -295,12 +317,17 @@ main {
 
 .appointment-div {
   padding: 2%;
+  width: 100%;
+  /* align-content: left; */
   /* border: solid black 1px; */
 }
 
 .AppointmentsList article:nth-of-type(odd) {
   background-color: #d0dde5;
-
+  /* width: 100%; */
+}
+.appointment-info {
+  text-align: left;
 }
 .footer, .footer p {
   color: white;
@@ -326,4 +353,34 @@ main {
 
 .icon-div {
   display: flex;
+  padding: 2% 0%;
+  /* padding-bottom: 3%; */
+  /* border: solid; color: grey; */
+  margin: 4% 10%;
+  background-color: lightgrey;
+  border-radius: 3rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* BECOME ASSISTANT */
+.BecomeAssistant h2, h3, h4 {
+  text-align: center;
+  margin: 1 5%;
+}
+
+.BecomeAssistant {
+  margin-bottom: 5%;
+}
+
+.become-assistant-form, .become-assistant-form-services {
+  /* text-align: center; */
+  margin-left: 5%;
+}
+
+.become-assistant-form h4 {
+  text-align: left;
+}
+.become-assistant-form button {
+  margin-right: 40%;
+  margin-top: 2%;
 }
