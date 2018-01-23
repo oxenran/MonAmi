@@ -2,16 +2,19 @@ branch-defaults:
   eb:
     environment: null
   master:
-    environment: monami-dev
+    environment: monamibackend
     group_suffix: null
 environment-defaults:
   example-env:
     branch: null
     repository: null
+  monami-dev:
+    branch: null
+    repository: null
 global:
   application_name: monami
   branch: null
-  default_ec2_keyname: aws-eb
+  default_ec2_keyname: monamicapstone
   default_platform: Python 3.6
   default_region: us-west-2
   include_git_submodules: true
