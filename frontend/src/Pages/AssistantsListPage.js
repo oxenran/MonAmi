@@ -53,7 +53,7 @@ class AssistantsListPage extends React.Component {
   createCheckbox = (service) => {
     const iconClass = this.state[service] ? "icon-checked img-thumbnail" : "img-thumbnail"
     return (
-      <Col sm={4} md={4} lg={4} key={service} className="assistants-list-services-icons">
+      <Col key={service} className="assistants-list-services-icons">
       <div>
         <Image src={services[service].url} alt="service icon"  className={iconClass} id="find-assistant-icon" onClick={() => this.toggleService(service)}>
         </Image>
@@ -96,11 +96,11 @@ class AssistantsListPage extends React.Component {
 
   render() {
     return(
-      <div className="AssistantsListPage">
+      <div className="AssistantsListPage clearfix">
         <h2>Meet our Assistants</h2>
-        <Col sm={12} md={12} lg={12}>
+        <div className="icon-div">
         {this.createCheckboxes()}
-        </Col>
+        </div>
         <AssistantsList assistants={this.state.assistants} />
       </div>
     );

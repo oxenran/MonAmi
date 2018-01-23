@@ -24,7 +24,7 @@ class ServicesCheckbox extends Component {
     const iconClass = isChecked ? "icon-checked img-thumbnail circle responsive" : "img-thumbnail circle responsive"
 
     return (
-        <Col componentClass={ControlLabel} sm={4} md={4} lg={4}>
+        <Col componentClass={ControlLabel} className="container-service-icon">
           <label>
           <Image src={url} alt="service icon"  className={iconClass} id="service-icon" onClick={this.toggleCheckboxChange} />
           <Checkbox inline className="hidden" checked={isChecked}>
