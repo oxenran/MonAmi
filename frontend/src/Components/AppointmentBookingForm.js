@@ -70,7 +70,7 @@ class AppointmentBookingForm extends React.Component {
           <Col componentClass={ControlLabel} sm={8} lg={4}>
             Details
           </Col>
-          <FormControl type="text" />
+          <FormControl type="text" className="input-lg"/>
         </FormGroup>
         <Button bsStyle="primary" type="submit">Book!</Button>
       </Form>

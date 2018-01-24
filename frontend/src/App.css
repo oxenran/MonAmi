@@ -391,3 +391,9 @@ main {
   margin-right: 40%;
   margin-top: 2%;
 }
+
+.input-lg {
+  width: 500px;
+  height: 150px;
+  text-align: left;
+}
