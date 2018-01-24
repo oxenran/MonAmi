@@ -30,7 +30,7 @@ class Assistant extends React.Component {
 
     return(
       <Col sm={12} md={8} lg={6} className="Assistant">
-        <h3 className="text-left">{this.props.assistant.first_name} {this.props.assistant.last_name}</h3>
+        <h2 className="text-left">{this.props.assistant.first_name} {this.props.assistant.last_name}</h2>
         <img src={this.props.assistant.image_url} id="profile-photo"/>
         <h3 className="text-left">Services Offered:</h3>
             {renderServices}

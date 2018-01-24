@@ -406,4 +406,30 @@ main {
   width: 500px;
   height: 150px;
   text-align: left;
+  vertical-align: top;
+}
+#formInlinedetails {
+  width: 400px;
+}
+
+.form-add-margin {
+  margin: 2%;
+}
+
+.bio {
+  font-size: 1.5em;
+  padding: 2% 2% 3% 0;
+}
+
+/* to keep the footer down */
+/* .dashboard-appointments-list {
+  min-height: 10000px;
+  margin-bottom: 40%;
+ } */
+
+.appointment-booking-form {
+  background-color: grey;
+  padding: 4%;
+  border-radius: 3pt;
+  /* padding-right: 6%; */
 }

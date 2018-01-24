@@ -32,7 +32,7 @@ class AssistantViewPage extends React.Component {
         <Assistant assistant={this.state.assistant}/>
         <Col sm={12} lg={6} className="float-right">
           <h2>About</h2>
-          <p>{this.state.assistant.bio}</p>
+          <p className="bio">{this.state.assistant.bio}</p>
           <AppointmentBookingForm assistant={this.state.assistant}  getToken={this.props.getToken}/>
         </Col>
       </div>

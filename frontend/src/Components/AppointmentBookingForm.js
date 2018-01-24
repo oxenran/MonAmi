@@ -49,30 +49,32 @@ class AppointmentBookingForm extends React.Component {
 
   render() {
     return (
-      <Col className="appointment-booking-form">
-        <h3 className="text-left">Book an Appointment</h3>
+      <Col className="appointment-booking-form shadow">
+        <h3 className="text-left form-add-margin">Book an Appointment</h3>
       <Form inline onSubmit={this.handleSubmit} id="appointment-booking">
         <FormGroup controlId="formInlinedate">
-          <Col componentClass={ControlLabel} sm={4} lg={2}>
+          <Col componentClass={ControlLabel} sm={4} lg={2} className="form-add-margin">
             Date
           </Col>
-          <FormControl type="date" />
+          <FormControl type="date" className="from-add-margin" />
         </FormGroup>
 
         <FormGroup controlId="formInlinetime">
-          <Col componentClass={ControlLabel} sm={4} lg={2}>
+          <Col componentClass={ControlLabel} sm={4} lg={2} className="form-add-margin">
             Time
           </Col>
-          <FormControl type="time" />
+          <FormControl type="time" className="form-add-margin" />
         </FormGroup>
 
-        <FormGroup controlId="formInlinedetails">
-          <Col componentClass={ControlLabel} sm={8} lg={4}>
+        <FormGroup controlId="formInlinedetails" className="from-add-margin">
+          <Col componentClass={ControlLabel} sm={3} lg={2} className="text-left from-add-margin">
             Details
           </Col>
           <FormControl type="text" className="input-lg"/>
         </FormGroup>
-        <Button bsStyle="primary" type="submit">Book!</Button>
+        <Col lg={12}>
+        <Button className="form-add-margin text-center" bsStyle="primary" type="submit">Book!</Button>
+        </Col>
       </Form>
       </Col>
 
@@ -84,16 +86,16 @@ class AppointmentBookingForm extends React.Component {
 export default AppointmentBookingForm;
 
 
-<form onSubmit={this.handleSubmit} id="appointment-booking-form">
-  <h3 className="text-left">Book an Appointment</h3>
-  <label htmlFor="date">Date</label>
-  <input id="date" name="date" type="date" />
-
-  <label htmlFor="date">Time</label>
-  <input id="time" name="time" type="time" />
-
-  <label htmlFor="details">Details</label>
-  <input id="details" name="details" type="text" />
-
-  <Button bsStyle="primary" type="submit">Book!</Button>
-</form>
+// <form onSubmit={this.handleSubmit} id="appointment-booking-form">
+//   <h3 className="text-left">Book an Appointment</h3>
+//   <label htmlFor="date">Date</label>
+//   <input id="date" name="date" type="date" />
+//
+//   <label htmlFor="date">Time</label>
+//   <input id="time" name="time" type="time" />
+//
+//   <label htmlFor="details">Details</label>
+//   <input id="details" name="details" type="text" />
+//
+//   <Button bsStyle="primary" type="submit">Book!</Button>
+// </form>
