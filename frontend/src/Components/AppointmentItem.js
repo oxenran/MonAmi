@@ -16,7 +16,7 @@ class AppointmentItem extends React.Component {
 
   fetchData() {
   console.log('inside fetchData');
-  fetch(`http://monamibackend.us-west-2.elasticbeanstalk.com/${this.props.appointment.assistant}/`, {
+  fetch(`http://monamibackend.us-west-2.elasticbeanstalk.com/assistants/${this.props.appointment.assistant}/`, {
     method: 'GET',
     // body: JSON.stringify(data),
     headers: {
@@ -39,9 +39,8 @@ class AppointmentItem extends React.Component {
       <article className="appointment-div">
         <Grid>
   		    <Row>
-      			<Col xs={6} md={4}>
-      				<Image src={this.state.assistant.image_url} alt="assistant profile photo"  className="img-thumbnail circle responsive rounded-images smaller-images" id="appointment-photo" >
-              </Image>
+      			<Col s={10} md={6} lg={4}>
+              <div style={{backgroundImage: `url(${this.state.assistant.image_url})`}} alt="Assistant photo" className="img-thumbnail responsive rounded-images" id="appointment-photo" ></div>
             </Col>
             <Col xs={6} md={6} className="appointment-info">
                 <h2>{dateString}</h2>
@@ -60,3 +59,7 @@ class AppointmentItem extends React.Component {
 
 
 export default AppointmentItem;
+
+
+// <Image src={this.state.assistant.image_url} alt="assistant profile photo"  className="img-thumbnail responsive rounded-images smaller-images" id="appointment-photo" >
+// </Image>

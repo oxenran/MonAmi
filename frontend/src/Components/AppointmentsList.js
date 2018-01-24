@@ -20,7 +20,7 @@ class AppointmentsList extends React.Component {
     }
     return(
       <div className="AppointmentsList">
-      <h3>My Appointments: </h3>
+      <h3 className="text-left">My Appointments: </h3>
       {appointmentItems}
       </div>
     );

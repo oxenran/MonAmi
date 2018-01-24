@@ -50,7 +50,7 @@ class Dashboard extends React.Component {
     } else {
       return(
         <div className="dashboard-appointments-list">
-          <h2>My Dashboard</h2>
+          <h2 className="text-center">My Dashboard</h2>
           <AppointmentsList appointments={this.state.appointments} />
         </div>
       );
