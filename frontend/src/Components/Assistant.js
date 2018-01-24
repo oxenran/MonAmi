@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AppointmentBookingForm from './AppointmentBookingForm'
-import { Image } from 'react-bootstrap';
+import { Image, Col } from 'react-bootstrap';
 
 class Assistant extends React.Component {
   constructor(props){
@@ -29,12 +29,12 @@ class Assistant extends React.Component {
     }
 
     return(
-      <div className="Assistant">
-        <h3>{this.props.assistant.first_name} {this.props.assistant.last_name}</h3>
+      <Col sm={12} md={8} lg={6} className="Assistant">
+        <h3 className="text-left">{this.props.assistant.first_name} {this.props.assistant.last_name}</h3>
         <img src={this.props.assistant.image_url} id="profile-photo"/>
-        <h3>Services Offered:</h3>
+        <h3 className="text-left">Services Offered:</h3>
             {renderServices}
-      </div>
+      </Col>
     );
   }
 }

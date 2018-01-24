@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Assistant from '../Components/Assistant';
 import AppointmentBookingForm from '../Components/AppointmentBookingForm';
+import { Col } from 'react-bootstrap';
 
 // import AssistantItem from '../Components/AssistantItem.js';
 // import AssistantsList from '../Components/AssistantsList.js';
@@ -29,7 +30,11 @@ class AssistantViewPage extends React.Component {
     return(
       <div className="AssistantsViewPage">
         <Assistant assistant={this.state.assistant}/>
-        <AppointmentBookingForm assistant={this.state.assistant}  getToken={this.props.getToken}/>
+        <Col sm={12} lg={6} className="float-right">
+          <h2>About</h2>
+          <p>{this.state.assistant.bio}</p>
+          <AppointmentBookingForm assistant={this.state.assistant}  getToken={this.props.getToken}/>
+        </Col>
       </div>
     );
   }

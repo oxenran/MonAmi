@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ServicesCheckbox from './ServicesCheckbox';
 import App from '../App';
-import { Button } from 'react-bootstrap';
+import { Button, FormGroup, Form, FormControl, Col, ControlLabel } from 'react-bootstrap';
 
 class AppointmentBookingForm extends React.Component {
   constructor(props) {
@@ -49,22 +49,51 @@ class AppointmentBookingForm extends React.Component {
 
   render() {
     return (
+      <Col className="appointment-booking-form">
+        <h3 className="text-left">Book an Appointment</h3>
+      <Form inline onSubmit={this.handleSubmit} id="appointment-booking">
+        <FormGroup controlId="formInlinedate">
+          <Col componentClass={ControlLabel} sm={4} lg={2}>
+            Date
+          </Col>
+          <FormControl type="date" />
+        </FormGroup>
 
-      <form onSubmit={this.handleSubmit} id="appointment-booking-form">
-        <h3>Book an Appointment</h3>
-        <label htmlFor="date">Date</label>
-        <input id="date" name="date" type="date" />
+        <FormGroup controlId="formInlinetime">
+          <Col componentClass={ControlLabel} sm={4} lg={2}>
+            Time
+          </Col>
+          <FormControl type="time" />
+        </FormGroup>
 
-        <label htmlFor="date">Time</label>
-        <input id="time" name="time" type="time" />
-
-        <label htmlFor="details">Details</label>
-        <input id="details" name="details" type="textarea" />
-
+        <FormGroup controlId="formInlinedetails">
+          <Col componentClass={ControlLabel} sm={8} lg={4}>
+            Details
+          </Col>
+          <FormControl type="text" />
+        </FormGroup>
         <Button bsStyle="primary" type="submit">Book!</Button>
-      </form>
+      </Form>
+      </Col>
+
+
     );
   }
 }
 
 export default AppointmentBookingForm;
+
+
+<form onSubmit={this.handleSubmit} id="appointment-booking-form">
+  <h3 className="text-left">Book an Appointment</h3>
+  <label htmlFor="date">Date</label>
+  <input id="date" name="date" type="date" />
+
+  <label htmlFor="date">Time</label>
+  <input id="time" name="time" type="time" />
+
+  <label htmlFor="details">Details</label>
+  <input id="details" name="details" type="text" />
+
+  <Button bsStyle="primary" type="submit">Book!</Button>
+</form>
