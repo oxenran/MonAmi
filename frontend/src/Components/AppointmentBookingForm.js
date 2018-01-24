@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ServicesCheckbox from './ServicesCheckbox';
 import App from '../App';
 import { Button, FormGroup, Form, FormControl, Col, ControlLabel } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 class AppointmentBookingForm extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class AppointmentBookingForm extends React.Component {
   }
 
   clearForm = () => {
-  document.getElementById("appointment-booking-form").reset();
+  document.getElementById("appointment-booking").reset();
   }
 
   handleSubmit(event) {
@@ -24,17 +25,15 @@ class AppointmentBookingForm extends React.Component {
     const data = {
       "date": dateTime,
       "assistant": this.props.assistant.id,
-      "details": event.target[2].value,
-      // "owner": this.state.token
-      // "time": event.target[1].value,
-      // "household": event.target[4].checked,
-      // "driver": event.target[5].checked,
-      // "companion": event.target[6].checked
+      "details": event.target[2].value
     }
     console.log(data);
 
     const token = this.props.getToken();
     console.log(token);
+
+    const that = this;
+
     fetch('http://monamibackend.us-west-2.elasticbeanstalk.com/appointments/', {
       method: 'POST',
       body: JSON.stringify(data),
@@ -42,12 +41,34 @@ class AppointmentBookingForm extends React.Component {
         'Content-Type': 'application/json;charset=UTF-8',
         'Authorization': ` Token ${token}`
       },
+    }).then(function(response) {
+      console.dir(response);
+      if(response.status !== 201) {
+        throw new Error('Sorry, unable to book this appointment.');
+      }
+      alert('Successfully booked your appointment!');
+      return response.json();
+    }).then(function(responseJSON) {
+      console.log(that.props);
+      // that.props.history.replace('/Dashboard');
+    }).catch(function(error) {
+      alert("Unable to book - this date is unavailable.");
+      console.log('There has been a problem with your fetch operation: ', error.message);
     });
 
     this.clearForm();
   }
 
   render() {
+    if (!this.props.getToken()){
+      return (
+        <div>
+        <h3>To book an appointment, please Sign Up or Log In first!</h3>
+        <Button><Link to='/Signup'>Sign Up</Link></Button>
+        <Button><Link to='/Login'>Log In</Link></Button>
+        </div>
+      )
+    }
     return (
       <Col className="appointment-booking-form shadow">
         <h3 className="text-left form-add-margin">Book an Appointment</h3>
