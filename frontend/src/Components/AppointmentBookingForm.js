@@ -30,7 +30,6 @@ class AppointmentBookingForm extends React.Component {
     console.log(data);
 
     const token = this.props.getToken();
-    console.log(token);
 
     const that = this;
 
