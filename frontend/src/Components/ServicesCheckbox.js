@@ -21,7 +21,7 @@ class ServicesCheckbox extends Component {
   render() {
     const { label, url } = this.props;   //same as const label = this.props.label; const { url } = this.props;
     const { isChecked } = this.state;
-    const iconClass = isChecked ? "icon-checked img-thumbnail circle responsive" : "img-thumbnail circle responsive"
+    const iconClass = isChecked ? "icon-checked img-thumbnail circle responsive left-margin" : "img-thumbnail circle responsive left-margin"
 
     return (
         <Col componentClass={ControlLabel} className="container-service-icon">

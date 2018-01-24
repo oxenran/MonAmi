@@ -295,8 +295,11 @@ main {
 #service-icon {
   border-radius: 3%;
   width: 10vw;
-  margin-left: 30%;
+  /* margin-left: 30%; */
   /* display: inline-block; */
+}
+.left-margin {
+  margin-left: 30%;
 }
 #find-assistant-icon {
   width: 15vw;
