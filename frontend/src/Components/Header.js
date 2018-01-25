@@ -53,7 +53,7 @@ class Header extends React.Component {
                     <ul>
                       <li> <Button><Link to='/BecomeAssistant'>Become an Assistant</Link></Button>
                       </li>
-                      <li> <Button><Link to='/Dashboard'>Dashboard</Link></Button>
+                      <li> <Button className={ !this.props.getToken() ? 'hidden' : '' }><Link to='/Dashboard'>Dashboard</Link></Button>
                       </li>
                       <li><Button><Link to='/Assistants'>Find Assistant</Link></Button>
                       </li>
