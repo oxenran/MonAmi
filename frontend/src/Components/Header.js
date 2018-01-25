@@ -51,15 +51,15 @@ class Header extends React.Component {
               <Col xs={12} md={12} lg={12} navbar-nav>
                   <ButtonGroup bsClass="justified">
                     <ul>
-                      <li> <Button><Link to='/BecomeAssistant'>Become an Assistant</Link></Button>
+                      <li> <Link to='/BecomeAssistant'><Button>Become an Assistant</Button></Link>
                       </li>
-                      <li> <Button><Link to='/Dashboard'>Dashboard</Link></Button>
+                      <li> <Link to='/Dashboard'><Button>Dashboard</Button></Link>
                       </li>
-                      <li><Button><Link to='/Assistants'>Find Assistant</Link></Button>
+                      <li><Link to='/Assistants'><Button>Find Assistant</Button></Link>
                       </li>
-                      <li> <Button className={ this.props.getToken() ? 'hidden' : '' }><Link to='/Signup'>Sign Up</Link></Button>
+                      <li> <Link to='/Signup'><Button className={ this.props.getToken() ? 'hidden' : '' }>Sign Up</Button></Link>
                       </li>
-                      <li> <Button className="log" onClick={this.handleLog.bind(this)}><Link to='/Login'>{this.state.logButtonText}</Link></Button>
+                      <li> <Link to='/Login'><Button className="log" onClick={this.handleLog.bind(this)}>{this.state.logButtonText}</Button></Link>
                       </li>
                     </ul>
                   </ButtonGroup>
