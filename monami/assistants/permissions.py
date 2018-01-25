@@ -21,8 +21,13 @@ class IsAssistant(permissions.BasePermission):
     """
 
     def has_permission(self, request, view):
-        assistant_list = Assistant.objects.filter(user = request.user)
-        if len(assistant_list) > 0:
-             return False
+        #if view.action == 'create':
+        if request.method == 'POST':
+
+            assistant_list = Assistant.objects.filter(user = request.user)
+            if len(assistant_list) > 0:
+                 return False
+            else:
+                return True
         else:
             return True

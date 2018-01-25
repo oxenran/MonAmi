@@ -42,7 +42,7 @@ class UserDetail(generics.RetrieveUpdateAPIView):
 
 
 class AppointmentList(generics.ListCreateAPIView):
-    permission_classes = (permissions.IsAuthenticated, IsOwnerOrReadOnly)
+    permission_classes = (permissions.IsAuthenticated, IsOwnerOrReadOnly, IsAssistant,)
 
     def perform_create(self, serializer):
         permission_classes = (IsAssistant,)
