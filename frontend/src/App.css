@@ -91,7 +91,6 @@ main {
 }
 .navbar ul {
   max-width: 5000px;
-  width: 100%;
 
   /* max-width: 5000px; */
 }
@@ -119,6 +118,11 @@ main {
   width: 10%;
   /* display: inline-block; */
   /* float: right; */
+}
+.right-nav{
+  position: absolute;
+  right: 0px;
+  display: inline-flex;
 }
 #toggler-icon {
   font-size: 1.5em;
