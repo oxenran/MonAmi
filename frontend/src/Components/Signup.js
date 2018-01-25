@@ -80,7 +80,7 @@ class Signup extends React.Component {
     return(
       <div className="Signup">
         <h2>Sign Up!</h2>
-        <h4>Enter a username and password to get started on our site.</h4>
+        <h4 className="text-left">Enter a username and password to get started on our site.</h4>
         <form onSubmit={this.handleSubmit} id="signup-form">
 
           <label htmlFor="username">Username</label>
