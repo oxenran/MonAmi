@@ -60,8 +60,8 @@ class Header extends React.Component {
                       }
                       <li><Link to='/Assistants'><Button>Find Assistant</Button></Link>
                       </li>
-                      </ul>
-                      <ul className="right-nav">
+                  
+
                       <li> <Link to='/Signup'><Button className={ this.props.getToken() ? 'hidden' : '' }>Sign Up</Button></Link>
                       </li>
                       <li> <Link to='/Login'><Button className="log" onClick={this.handleLog.bind(this)}>{this.state.logButtonText}</Button></Link>
