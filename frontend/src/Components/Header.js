@@ -51,10 +51,13 @@ class Header extends React.Component {
               <Col xs={12} md={12} lg={12} navbar-nav>
                   <ButtonGroup bsClass="justified">
                     <ul>
-                      <li> <Link to='/BecomeAssistant'><Button>Become an Assistant</Button></Link>
-                      </li>
-                      <li> <Link to='/Dashboard'><Button>Dashboard</Button></Link>
-                      </li>
+                        <li> <Link to='/BecomeAssistant'><Button>Become an Assistant</Button></Link>
+                        </li>
+
+                      {this.props.getToken() &&
+                        <li> <Link to='/Dashboard'><Button>Dashboard</Button></Link>
+                        </li>
+                      }
                       <li><Link to='/Assistants'><Button>Find Assistant</Button></Link>
                       </li>
                       <li> <Link to='/Signup'><Button className={ this.props.getToken() ? 'hidden' : '' }>Sign Up</Button></Link>
