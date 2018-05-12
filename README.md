@@ -1,7 +1,5 @@
 # MonAmi
 
-![Homepage Screenshot](docs/HomeScreenShot.png)
-
 # Concept
 Aging populations are an issue today, both due to increased life expectancy and lowered birth rates. As a result of distance from relatives, busy schedules, or even a lack of living relatives, many elderly are alone a lot of the time. While there are retirement homes and caregiving services, these offerings do not answer a need for elderly that are fully or mostly capable of living on their own. Those elderly (and their families) would benefit from access to a service for their needs. These needs can range from check-ins and chats, help with household chores, or getting to the grocery store and doctor's appointments. Not only will these services help the elderly, they will also help combat feelings of loneliness and depression. We intend to create a platform for the community that would allow people to offer and schedule these types of services for elderly.
 
