@@ -14,6 +14,7 @@ There are some services that are contactable by phone or message mainly, but the
   **Front-end**
       - ReactJS
       - Bootstrap
+      - Webpack
   **Back-end**
       - Django Rest Framework API
       - Postgres database
