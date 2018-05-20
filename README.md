@@ -47,7 +47,7 @@ Site is responsive for mobile and tablet users.
 - [Become an Assistant](https://youtu.be/cktXviTLBeY)
 
 # API 
-Django Rest Framework was chosen because of it is powerful and flexible.  The Monami API is RESTful and implements **Token Authorization**.  The token is passed into the headers of the request.
+Django Rest Framework was chosen because of it is powerful and flexible.  The Monami API is RESTful and implements **Token Authorization**.  The token is passed into the headers of the request and is used to ensure that the user has the correct permissions to perform tasks and get data.
 ## Endpoints
 ### _/users/_
 ### _/assistants/_
