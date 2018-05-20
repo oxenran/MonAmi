@@ -11,13 +11,13 @@ There are some services that are contactable by phone or message mainly, but the
   - A member of the local community who wants to assist elderly.
 
 # Technology:
-  - Front-end
+  **Front-end**
       - ReactJS
       - Bootstrap
-  - Back-end
-      - Django as an API
-      - SQL database
-  - Deployment:
+  **Back-end**
+      - Django Rest Framework API
+      - Postgres database
+  **Deployment**
       - AWS (Elastic Beanstalk and S3)
 
 # Current State:
@@ -45,3 +45,31 @@ Site is responsive for mobile and tablet users.
 - [Small Screen](https://youtu.be/vp2jwvTZNl0)
 - [More Mobile](https://youtu.be/CUh6bj74D4g)
 - [Become an Assistant](https://youtu.be/cktXviTLBeY)
+
+# API 
+Django Rest Framework was chosen because of it is powerful and flexible.  The Monami API is RESTful and implements **Token Authorization**.  The token is passed into the headers of the request.
+## Endpoints
+### _/users/_
+### _/assistants/_
+### _/appointments/_
+### _/api-token-auth/_
+
+## Examples of requests:
+**Get All Users:**
+
+**GET** <url>/users/
+  
+**Get Single User:**
+  
+**GET** <url>/users/<id>
+  
+**Add New User:**
+
+_with new parameters in request body_
+**POST** <url>/users/
+  
+**Edit User:**
+
+_with changed parameters in request body_
+**POST** <url>/users/<id> 
+  
